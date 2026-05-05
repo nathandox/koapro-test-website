@@ -1,0 +1,105 @@
+<svg viewBox="0 0 100 118" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Shield clip path -->
+    <clipPath id="shield-clip">
+      <path d="M8 16 L92 16 L92 74 Q92 96 50 116 Q8 96 8 74 Z"/>
+    </clipPath>
+    <!-- Left half clip -->
+    <clipPath id="left-clip">
+      <path d="M8 16 L50 16 L50 116 Q8 96 8 74 Z"/>
+    </clipPath>
+    <!-- Right half clip -->
+    <clipPath id="right-clip">
+      <path d="M50 16 L92 16 L92 74 Q92 96 50 116 Z"/>
+    </clipPath>
+    <!-- Top-left quadrant -->
+    <clipPath id="tl-clip">
+      <path d="M8 16 L50 16 L50 65 L8 65 Z"/>
+    </clipPath>
+    <!-- Top-right quadrant -->
+    <clipPath id="tr-clip">
+      <path d="M50 16 L92 16 L92 65 L50 65 Z"/>
+    </clipPath>
+    <!-- Bottom half -->
+    <clipPath id="bot-clip">
+      <path d="M8 65 L92 65 L92 74 Q92 96 50 116 Q8 96 8 74 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- PORSCHE text band at very top (gold) -->
+  <rect x="8" y="0" width="84" height="18" fill="#C8A010" rx="2"/>
+  <text x="50" y="13" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="9" font-weight="900" letter-spacing="1.5" fill="#1a1a1a">PORSCHE</text>
+
+  <!-- Full shield base gold fill -->
+  <path d="M8 16 L92 16 L92 74 Q92 96 50 116 Q8 96 8 74 Z" fill="#C8A010"/>
+
+  <!-- Top-left quadrant: gold background (keep as is) -->
+  <!-- Top-right quadrant: red background -->
+  <rect x="50" y="16" width="42" height="49" fill="#8B1A1A" clip-path="url(#tr-clip)"/>
+
+  <!-- Bottom sections: Swabia stripes (gold base, black horizontal stripes) -->
+  <!-- Left bottom stripes -->
+  <g clip-path="url(#bot-clip)">
+    <rect x="8" y="65" width="42" height="51" fill="#C8A010"/>
+    <rect x="8" y="68" width="42" height="7" fill="#1a1a1a"/>
+    <rect x="8" y="80" width="42" height="7" fill="#1a1a1a"/>
+    <rect x="8" y="92" width="42" height="7" fill="#1a1a1a"/>
+    <rect x="8" y="104" width="42" height="7" fill="#1a1a1a"/>
+    <!-- Right bottom stripes -->
+    <rect x="50" y="65" width="42" height="51" fill="#C8A010"/>
+    <rect x="50" y="68" width="42" height="7" fill="#1a1a1a"/>
+    <rect x="50" y="80" width="42" height="7" fill="#1a1a1a"/>
+    <rect x="50" y="92" width="42" height="7" fill="#1a1a1a"/>
+    <rect x="50" y="104" width="42" height="7" fill="#1a1a1a"/>
+  </g>
+
+  <!-- Red center cross -->
+  <!-- Horizontal band -->
+  <rect x="8" y="62" width="84" height="7" fill="#8B1A1A" clip-path="url(#shield-clip)"/>
+  <!-- Vertical band -->
+  <rect x="46.5" y="16" width="7" height="100" fill="#8B1A1A" clip-path="url(#shield-clip)"/>
+
+  <!-- Prancing horse in top-left (black) -->
+  <g fill="#1a1a1a" clip-path="url(#tl-clip)">
+    <!-- Body -->
+    <ellipse cx="30" cy="44" rx="11" ry="7" transform="rotate(-30,30,44)"/>
+    <!-- Neck -->
+    <rect x="24" y="30" width="6" height="13" rx="3" transform="rotate(15,27,37)"/>
+    <!-- Head -->
+    <ellipse cx="26" cy="26" rx="5" ry="4" transform="rotate(-10,26,26)"/>
+    <!-- Front legs (raised) -->
+    <path d="M22 46 Q17 40 16 34 Q18 36 20 40 L21 48Z" />
+    <path d="M26 48 Q23 42 24 36 Q26 39 27 44Z"/>
+    <!-- Rear legs -->
+    <rect x="33" y="48" width="4" height="11" rx="2" transform="rotate(5,35,53)"/>
+    <rect x="38" y="47" width="4" height="10" rx="2" transform="rotate(15,40,52)"/>
+    <!-- Tail -->
+    <path d="M42 42 Q48 36 46 28" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Deer antlers in top-right (black on red) -->
+  <g fill="#1a1a1a" clip-path="url(#tr-clip)">
+    <!-- Left antler -->
+    <path d="M63 58 L62 44 L59 34 M62 44 L58 38 M62 44 L65 38"/>
+    <!-- Right antler -->
+    <path d="M70 58 L71 44 L74 34 M71 44 L75 38 M71 44 L68 38"/>
+    <!-- Trunk -->
+    <rect x="64" y="54" width="5" height="8" rx="2"/>
+  </g>
+  <g stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none" clip-path="url(#tr-clip)">
+    <path d="M63 58 L62 44 L59 34"/>
+    <path d="M62 44 L58 38"/>
+    <path d="M62 44 L65 38"/>
+    <path d="M70 58 L71 44 L74 34"/>
+    <path d="M71 44 L75 38"/>
+    <path d="M71 44 L68 38"/>
+  </g>
+
+  <!-- Shield border outline -->
+  <path d="M8 16 L92 16 L92 74 Q92 96 50 116 Q8 96 8 74 Z" fill="none" stroke="#C8A010" stroke-width="2"/>
+  <!-- Top band border -->
+  <rect x="8" y="0" width="84" height="18" fill="none" stroke="#C8A010" stroke-width="1.5" rx="2"/>
+
+  <!-- STUTTGART text in center red band -->
+  <text x="50" y="67.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="4.5" font-weight="bold" fill="#C8A010" letter-spacing="0.5">STUTTGART</text>
+</svg>

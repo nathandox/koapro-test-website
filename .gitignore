@@ -1,0 +1,9 @@
+# Dev screenshots
+temporary screenshots/
+
+# Reference screenshots
+Screenshot *.png
+screenshot.rb
+
+# macOS
+.DS_Store
