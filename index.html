@@ -1079,11 +1079,18 @@
 <style>
   .about-mobile-header { display: none; }
   @media (max-width: 600px) {
-    .about-grid { display: flex !important; flex-direction: column; gap: 28px; }
-    .about-mobile-header { display: block; order: 1; }
+    .about-grid { display: flex !important; flex-direction: column; gap: 16px; }
+    .about-mobile-header { display: block; order: 1; margin-bottom: 0; }
+    .about-mobile-header .brand-line { margin-bottom: 10px; }
+    .about-mobile-header .section-title { margin-bottom: 0; }
     .about-photos { order: 2; }
+    .about-photos img { height: 220px !important; }
+    .about-photos img:last-child { margin-top: 20px !important; }
     .about-text { order: 3; }
+    .about-text .section-sub { margin-bottom: 12px !important; }
+    .about-text .btn-primary { margin-top: 8px; }
     .about-desktop-header { display: none; }
+    #about { padding: 52px 0 !important; }
   }
 </style>
 
