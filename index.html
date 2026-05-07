@@ -1076,12 +1076,30 @@
 </section>
 
 <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<style>
+  .about-mobile-header { display: none; }
+  @media (max-width: 600px) {
+    .about-grid { display: flex !important; flex-direction: column; gap: 28px; }
+    .about-mobile-header { display: block; order: 1; }
+    .about-photos { order: 2; }
+    .about-text { order: 3; }
+    .about-desktop-header { display: none; }
+  }
+</style>
+
 <section id="about" style="padding:88px 0; background:var(--light-bg);">
   <div style="max-width:1200px; margin:0 auto; padding:0 28px;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;" class="two-col">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;" class="two-col about-grid">
 
-      <!-- Photos: Nate & Koa large on top, detail shot below -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;">
+      <!-- Mobile-only heading (hidden on desktop) -->
+      <div class="about-mobile-header">
+        <div class="brand-line"></div>
+        <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand); margin-bottom:12px;">Meet the Owner</p>
+        <h2 class="section-title" style="margin-bottom:0;">Nathan &amp; Koa</h2>
+      </div>
+
+      <!-- Photos -->
+      <div class="about-photos" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;">
         <img src="nate-and-koa.png" alt="Nathan Taylor and Koa"
              style="width:100%; height:340px; border-radius:12px; display:block; object-fit:cover; object-position:center top;" />
         <img src="koa-beach.jpeg" alt="Koa at the beach"
@@ -1089,10 +1107,13 @@
       </div>
 
       <!-- Personal story -->
-      <div>
-        <div class="brand-line"></div>
-        <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand); margin-bottom:12px;">Meet the Owner</p>
-        <h2 class="section-title" style="margin-bottom:20px;">Nathan &amp; Koa</h2>
+      <div class="about-text">
+        <!-- Desktop-only heading (hidden on mobile) -->
+        <div class="about-desktop-header">
+          <div class="brand-line"></div>
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand); margin-bottom:12px;">Meet the Owner</p>
+          <h2 class="section-title" style="margin-bottom:20px;">Nathan &amp; Koa</h2>
+        </div>
         <p class="section-sub" style="margin-bottom:18px;">Hey, I'm Nathan — founder of Koa Pro Detail and a lifelong car enthusiast based in Charleston, SC. I started this business because I believed there was a better way to detail cars: no drop-offs, no waiting rooms, just pro-level results brought directly to your driveway.</p>
         <p class="section-sub" style="margin-bottom:18px;">Koa is my Husky mix and my co-pilot on every job. She's the heart behind the name — and a reminder that this business is built on genuine care, not just a transaction.</p>
         <p class="section-sub" style="margin-bottom:32px;">Every vehicle I touch gets treated like it's my own. Whether it's a daily driver or a show car, I bring the same attention to detail, premium products, and passion for perfection to every single appointment.</p>
