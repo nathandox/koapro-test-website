@@ -78,34 +78,58 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How does mobile car detailing work in Charleston, SC?",
+        "name": "What is mobile auto detailing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Koa Pro Detail is a fully mobile service — we come directly to your home, office, or marina in Charleston and the Lowcountry. You book online, we arrive with all professional-grade equipment and products, complete the detail on-site, and you pay online when the job is done. No drop-off, no waiting rooms."
+          "text": "Mobile detailing simply means you can experience quality service for your car at home. We come directly to you — no drop-offs, no waiting rooms. This method ensures maximum quality and convenience for you and your vehicle."
         }
       },
       {
         "@type": "Question",
-        "name": "What areas does Koa Pro Detail serve?",
+        "name": "How long does a detail take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We serve Charleston, Mount Pleasant, Daniel Island, Isle of Palms, Sullivan's Island, Kiawah Island, Seabrook Island, Folly Beach, James Island, Johns Island, West Ashley, Summerville, Hollywood, Beaufort, Hilton Head Island, and Myrtle Beach, SC."
+          "text": "Depending on the package selected, a job may range from one hour to four hours. When booking, we'll always give you an estimated time and schedule you accordingly."
         }
       },
       {
         "@type": "Question",
-        "name": "What detailing services does Koa Pro Detail offer?",
+        "name": "Do I need to be present while my car is being detailed?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer interior detailing, exterior detailing, full detail packages, paint correction, ceramic coating, and marine detailing. All services are mobile and performed at your location."
+          "text": "You don't need to stay the entire time. Most customers meet us at the start, hand over the keys, and go about their day. Once we're done, we'll notify you so you can come check the results."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I book a mobile car detail with Koa Pro Detail?",
+        "name": "What areas does Koa Pro Detail service?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can book online any time through our booking portal at koaprodetail.com. All pricing is listed upfront — no guessing or back-and-forth. You can also call or text us at (843) 472-9045."
+          "text": "We proudly serve Charleston, Mount Pleasant, Daniel Island, Isle of Palms, Sullivan's Island, Kiawah Island, Seabrook Island, Folly Beach, James Island, Johns Island, West Ashley, Summerville, and Hollywood, SC, as well as Beaufort, Hilton Head Island, and Myrtle Beach, SC."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment methods does Koa Pro Detail accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept cash, card, and Zelle — whatever is most convenient for you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I find a reputable mobile auto detailing service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check online reviews on Google and social media, compare prices while watching for suspiciously low quotes, ask about the equipment and products used, and look for a satisfaction guarantee. A professional mobile detailing service should use high-quality products and stand behind their work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is car detailing worth it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Detailing helps protect your paint, keeps the interior clean, and prevents long-term damage that can hurt your vehicle's value."
         }
       }
     ]
@@ -1431,6 +1455,160 @@
     <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener">Book in Your Area</a>
   </div>
 </section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<style>
+  .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+  .faq-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    text-align: left;
+    gap: 16px;
+  }
+  .faq-question {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.3s ease;
+  }
+  .faq-icon svg { transition: transform 0.3s ease; }
+  .faq-btn[aria-expanded="true"] .faq-icon { background: var(--brand); }
+  .faq-btn[aria-expanded="true"] .faq-icon svg { transform: rotate(45deg); stroke: #fff; }
+  .faq-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+  }
+  .faq-body.open { max-height: 300px; }
+  .faq-answer {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+    padding-bottom: 22px;
+    max-width: 680px;
+  }
+</style>
+
+<section id="faq" style="padding:88px 0; background:var(--light-bg);">
+  <div style="max-width:800px; margin:0 auto; padding:0 28px;">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div class="brand-line" style="margin:0 auto 20px;"></div>
+      <h2 class="section-title" style="margin-bottom:12px;">Frequently Asked Questions</h2>
+      <p class="section-sub">Everything you need to know before booking your detail.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">What is mobile auto detailing?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">Mobile detailing simply means you can experience quality service for your car at home. We come directly to you — no drop-offs, no waiting rooms. This method ensures maximum quality and convenience for you and your vehicle.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">How long does a detail take?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">Depending on the package you've selected, a job may range from one hour to four hours. When booking, we'll always give you an estimated time and schedule you accordingly so there are no surprises.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">Do I need to be present while my car is being detailed?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">You don't need to stay the entire time. Most customers meet us at the start, hand over the keys, and go about their day. Once we're done, we'll notify you so you can come check the results.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">What areas do you service?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">We proudly serve Charleston, Mount Pleasant, Daniel Island, Isle of Palms, Sullivan's Island, Kiawah Island, Seabrook Island, Folly Beach, James Island, Johns Island, West Ashley, Summerville, and Hollywood, SC, as well as Beaufort, Hilton Head Island, and Myrtle Beach, SC. If you're anywhere in the Lowcountry or surrounding coastal communities, we've got you covered.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">What payment methods do you accept?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">We accept cash, card, and Zelle — whatever is most convenient for you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">How do I find a reputable mobile auto detailing service?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">Start by checking online reviews on Google and social media to see what previous customers say about quality, professionalism, and convenience. Compare prices — but be cautious of services that are significantly cheaper than competitors, as that can be a red flag. Ask about the equipment and products used; a professional detailer should use high-quality, safe products.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">Is car detailing worth it?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">Absolutely. Detailing helps protect your paint, keeps the interior clean, and prevents long-term damage that can hurt your vehicle's value. It's one of the best investments you can make to maintain and preserve your car.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleFaq(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  document.querySelectorAll('.faq-btn').forEach(b => {
+    b.setAttribute('aria-expanded', 'false');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.setAttribute('aria-expanded', 'true');
+    body.classList.add('open');
+  }
+}
+</script>
 
 <!-- ═══════════════════════ BOOK CTA ═══════════════════════ -->
 <section id="contact" style="padding:96px 0; background:var(--navy); position:relative; overflow:hidden;">
