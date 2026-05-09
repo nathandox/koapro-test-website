@@ -166,6 +166,10 @@
     }
 
     /* ── Buttons ── */
+    @keyframes btn-glow {
+      from { box-shadow: 0 0 8px rgba(59,189,245,0.55), 0 0 18px rgba(59,189,245,0.25), 0 2px 8px rgba(0,0,0,0.3); }
+      to   { box-shadow: 0 0 18px rgba(59,189,245,0.85), 0 0 36px rgba(59,189,245,0.4), 0 2px 8px rgba(0,0,0,0.3); }
+    }
     .btn-primary {
       display: inline-block;
       background: var(--brand);
@@ -180,11 +184,20 @@
       border-radius: 4px;
       border: none;
       cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.15s ease;
+      animation: btn-glow 1.8s ease-in-out infinite alternate;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     }
-    .btn-primary:hover  { background: var(--brand-dark); transform: translateY(-2px); }
+    .btn-primary:hover  { background: var(--brand-dark); transform: translateY(-2px); box-shadow: 0 0 24px rgba(59,189,245,1), 0 0 48px rgba(59,189,245,0.55), 0 2px 8px rgba(0,0,0,0.3); animation: none; }
     .btn-primary:active { transform: translateY(0); }
     .btn-primary:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+
+    /* Package buttons: full-width block layout */
+    .pkg2-btn .btn-primary {
+      display: block;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
 
     .btn-white {
       display: inline-block;
@@ -989,7 +1002,7 @@
           <li>Door jambs cleaned</li>
           <li>Air freshener (on request)</li>
         </ul>
-        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="display:block; text-align:center; font-size:13px; padding:12px;">Book Now</a></div>
+        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px; padding:12px;">Book Now</a></div>
       </div>
 
       <!-- Exterior Detail -->
@@ -1010,7 +1023,7 @@
           <li>Plastic trim dressed & shined</li>
           <li>Ceramic paint sealant applied</li>
         </ul>
-        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="display:block; text-align:center; font-size:13px; padding:12px;">Book Now</a></div>
+        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px; padding:12px;">Book Now</a></div>
       </div>
 
       <!-- Full Detail — Featured -->
@@ -1029,7 +1042,7 @@
           <li>Trim & plastic dressing</li>
           <li>Premium air freshener</li>
         </ul>
-        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="display:block; text-align:center; font-size:13px; padding:12px;">Book Now</a></div>
+        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px; padding:12px;">Book Now</a></div>
       </div>
 
       <!-- Paint Correction -->
@@ -1047,7 +1060,7 @@
           <li>Oxidation treatment</li>
           <li>Sealant application</li>
         </ul>
-        <div class="pkg2-btn"><button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="width:100%; text-align:center; font-size:13px; padding:12px;">Get Quote</button></div>
+        <div class="pkg2-btn"><button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="font-size:13px; padding:12px;">Get Quote</button></div>
       </div>
 
       <!-- Ceramic Coating -->
@@ -1065,7 +1078,7 @@
           <li>UV & salt protection</li>
           <li>Hydrophobic finish</li>
         </ul>
-        <div class="pkg2-btn"><button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="width:100%; text-align:center; font-size:13px; padding:12px;">Get Quote</button></div>
+        <div class="pkg2-btn"><button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="font-size:13px; padding:12px;">Get Quote</button></div>
       </div>
 
     </div>
@@ -1084,7 +1097,7 @@
     <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;" class="two-col">
 
       <a href="#contact" class="loc-card">
-        <img src="charleston-location.jpg" alt="Charleston and Mount Pleasant" />
+        <img src="charleston-location.jpg" alt="Charleston and Mount Pleasant" style="object-position:center 20%;" />
         <div class="loc-overlay">
           <div>
             <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Charleston &amp; Mount Pleasant</h3>
@@ -1094,7 +1107,7 @@
       </a>
 
       <a href="#contact" class="loc-card">
-        <img src="danielisland-audi.png" alt="Daniel Island and Coastal Communities" />
+        <img src="r8nate.jpg" alt="Daniel Island and Coastal Communities" />
         <div class="loc-overlay">
           <div>
             <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Daniel Island &amp; Coastal Communities</h3>
@@ -1145,8 +1158,8 @@
 
       <!-- Photos -->
       <div class="about-photos" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;">
-        <img src="nate-and-koa.png" alt="Nathan Taylor and Koa"
-             style="width:100%; height:340px; border-radius:12px; display:block; object-fit:cover; object-position:center top;" />
+        <img src="natekoa1.JPG" alt="Nathan Taylor and Koa"
+             style="width:100%; height:340px; border-radius:12px; display:block; object-fit:cover; object-position:60% top;" />
         <img src="koa-beach.jpeg" alt="Koa at the beach"
              style="width:100%; height:340px; border-radius:12px; display:block; object-fit:cover; object-position:center top; margin-top:40px;" />
       </div>
