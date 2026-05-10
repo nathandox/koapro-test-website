@@ -59,6 +59,18 @@
     .mobile-sa-cities a { padding-left:14px;font-size:14px; }
     .mobile-menu a:last-child { border-bottom:none; margin-top:8px; }
     .mobile-menu .btn-primary { text-align:center; padding:14px; border-radius:8px; }
+    .pkg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+    .pkg-card { background:rgba(255,255,255,0.03); border:1px solid rgba(59,189,245,0.15); border-radius:12px; padding:32px 28px 28px; display:flex; flex-direction:column; gap:0; transition:border-color 0.25s ease,box-shadow 0.25s ease,transform 0.25s ease; position:relative; }
+    .pkg-card:hover { border-color:rgba(59,189,245,0.5); box-shadow:0 0 32px rgba(59,189,245,0.1); transform:translateY(-4px); }
+    .pkg-card.featured { border-color:var(--brand); box-shadow:0 0 40px rgba(59,189,245,0.18); background:rgba(59,189,245,0.06); }
+    .pkg-badge { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--brand); color:#fff; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 16px; border-radius:20px; white-space:nowrap; }
+    .pkg-icon { width:44px; height:44px; background:rgba(59,189,245,0.12); border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--brand); margin-bottom:14px; }
+    .pkg-name { font-size:18px; font-weight:700; color:#fff; margin-bottom:4px; }
+    .pkg-price { font-size:13px; font-weight:400; color:var(--brand); margin-bottom:10px; }
+    .pkg-desc { font-size:13px; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.6; margin-bottom:20px; }
+    .pkg-list { list-style:none; padding:0; margin:0 0 24px; border-top:1px solid rgba(255,255,255,0.07); padding-top:16px; flex:1; }
+    .pkg-list li { font-size:13px; font-weight:300; color:#fff; padding:5px 0; display:flex; align-items:flex-start; gap:10px; }
+    .pkg-list li::before { content:'✓'; color:var(--brand); font-weight:700; flex-shrink:0; margin-top:1px; }
     .benefit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
     .benefit-card { background:rgba(255,255,255,0.04); border:1px solid rgba(59,189,245,0.12); border-radius:12px; padding:28px 24px; transition:border-color 0.2s,transform 0.2s; }
     .benefit-card:hover { border-color:rgba(59,189,245,0.4); transform:translateY(-3px); }
@@ -86,8 +98,8 @@
     .footer-social-row { display:flex; gap:10px; margin-top:20px; }
     .footer-social-btn { display:flex; align-items:center; gap:7px; padding:8px 14px; border-radius:6px; background:var(--brand); border:1px solid var(--brand); color:#fff; text-decoration:none; font-size:12px; font-weight:500; transition:background 0.15s,color 0.15s,border-color 0.15s; }
     .footer-social-btn:hover { background:var(--brand-dark); border-color:var(--brand-dark); }
-    @media(max-width:900px){ .benefit-grid{grid-template-columns:1fr 1fr !important;} .section-title{font-size:28px;} .hero h1{font-size:42px !important;} .footer-grid{grid-template-columns:1fr 1fr;gap:32px;} }
-    @media(max-width:600px){ .benefit-grid{grid-template-columns:1fr !important;} .hero h1{font-size:32px !important;} .hamburger{display:flex;} .footer-grid{grid-template-columns:1fr;} }
+    @media(max-width:900px){ .pkg-grid{grid-template-columns:1fr 1fr !important;} .benefit-grid{grid-template-columns:1fr 1fr !important;} .section-title{font-size:28px;} .hero h1{font-size:42px !important;} .footer-grid{grid-template-columns:1fr 1fr;gap:32px;} }
+    @media(max-width:600px){ .pkg-grid{grid-template-columns:1fr !important;} .benefit-grid{grid-template-columns:1fr !important;} .hero h1{font-size:32px !important;} .hamburger{display:flex;} .footer-grid{grid-template-columns:1fr;} }
     @media(max-width:600px){ .hide-sm{display:none !important;} }
   </style>
 </head>
@@ -135,7 +147,7 @@
         </div>
       </div>
       <a href="index.html#contact" class="nav-link">Contact</a>
-      <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" style="padding:11px 26px;font-size:14px;" target="_blank" rel="noopener">Book Now</a>
+      <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" style="padding:11px 26px;font-size:14px;" target="_blank" rel="noopener">Book Online</a>
     </div>
     <button class="hamburger" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
@@ -178,11 +190,11 @@
     <div style="text-align:center;">
       <p class="hero-eyebrow" style="margin:0 auto 14px;">Ceramic Coating · Charleston, SC</p>
       <h1 style="font-size:64px;font-weight:600;color:#fff;line-height:1.0em;letter-spacing:-0.025em;margin-bottom:20px;text-shadow:0 2px 60px rgba(0,0,0,0.25);">
-        CERAMIC COATING.<br><span style="color:var(--brand);text-shadow:0 0 80px rgba(59,189,245,0.5);">BUILT TO LAST.</span>
+        CERAMIC COATING SERVICES<br><span style="color:var(--brand);text-shadow:0 0 80px rgba(59,189,245,0.5);">IN CHARLESTON, SC</span>
       </h1>
-      <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">A glass-hard, hydrophobic layer that protects your paint from UV, salt air, and contaminants — for years, not weeks. We apply it at your location.</p>
+      <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">Premium mobile ceramic coating — we bring the shine to you. A glass-hard, hydrophobic layer that protects your paint from UV, salt air, and contaminants for years, not weeks.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:20px;">
-        <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="padding:13px 32px;box-shadow:0 4px 28px rgba(59,189,245,0.35);">Get a Quote</button>
+        <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="padding:13px 32px;box-shadow:0 4px 28px rgba(59,189,245,0.35);">Get Instant Quote</button>
         <a href="tel:+18434729045" class="btn-white" style="padding:11px 24px;font-size:14px;">Call (843) 472-9045</a>
       </div>
       <a href="https://share.google/CMp6FzqSTZbBQArTv" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:40px;padding:8px 18px;backdrop-filter:blur(6px);">
@@ -194,142 +206,175 @@
   </div>
 </section>
 
-<!-- WHAT IS CERAMIC COATING -->
-<section style="padding:72px 0;background:#fff;">
-  <div style="max-width:900px;margin:0 auto;padding:0 28px;text-align:center;">
-    <div class="brand-line" style="margin:0 auto 20px;"></div>
-    <h2 class="section-title" style="margin-bottom:16px;">What Is Ceramic Coating?</h2>
-    <p class="section-sub" style="max-width:700px;margin:0 auto 16px;">Ceramic coating is a liquid polymer applied to your vehicle's exterior paint. It chemically bonds to the factory clear coat, creating a semi-permanent protective layer that water, dirt, and contaminants simply cannot penetrate.</p>
-    <p class="section-sub" style="max-width:700px;margin:0 auto;">Unlike wax or sealants that sit on top of the paint and wash away within weeks, ceramic coating forms a hard, durable shell. The result: a vehicle that stays cleaner longer, shines deeper, and resists the kind of environmental damage that's especially common in Charleston's salt-air, high-UV climate.</p>
-  </div>
-</section>
-
-<!-- PHOTO SPLIT -->
-<section style="padding:0;overflow:hidden;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:440px;" class="ceramic-photo-split">
-    <div style="position:relative;overflow:hidden;min-height:340px;">
-      <img src="https://placehold.co/900x600/0d1b2a/3BBDF5?text=Photo" alt="Ceramic coating Charleston SC" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
+<!-- INTRO -->
+<section style="padding:64px 0;background:#fff;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;" class="ceramic-intro-split">
+    <div>
+      <h2 style="font-size:36px;font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-0.02em;margin-bottom:18px;">Premium Mobile Ceramic Coating Delivered to Your Door</h2>
+      <p style="font-size:16px;font-weight:400;line-height:1.75;color:var(--text);">Skip the shop. We bring expert ceramic coating services directly to your driveway, office, or marina. Whether it's a daily driver or a show car, we provide the same professional-grade application — on your schedule, at your location.</p>
     </div>
-    <div style="background:var(--light-bg);display:flex;align-items:center;padding:64px 56px;">
-      <div style="max-width:420px;">
-        <div class="brand-line" style="margin-bottom:20px;"></div>
-        <h3 style="font-size:30px;font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px;">Built for Charleston's Climate</h3>
-        <p style="font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;">Salt air, intense UV, and coastal humidity accelerate paint damage faster than most environments. Our ceramic coating creates a sealed, hydrophobic barrier that protects for 3–8 years — not weeks.</p>
-      </div>
+    <div>
+      <img src="Car Pics/DSC06719_Original.JPG" alt="Ceramic coating Charleston SC" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:center center;display:block;border-radius:10px;box-shadow:0 8px 40px rgba(13,27,42,0.12);" />
     </div>
   </div>
-  <style>@media(max-width:700px){.ceramic-photo-split{grid-template-columns:1fr !important;}}</style>
+  <style>@media(max-width:768px){.ceramic-intro-split{grid-template-columns:1fr !important;gap:32px !important;}}</style>
 </section>
 
-<!-- BENEFITS -->
-<section style="padding:80px 0;background:#070e18;">
+<!-- PACKAGES -->
+<section style="padding:88px 0;background:#070e18;">
   <div style="max-width:1200px;margin:0 auto;padding:0 28px;text-align:center;">
-    <p style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--brand);margin-bottom:14px;">Why It's Worth It</p>
-    <h2 style="font-size:36px;font-weight:800;color:#fff;margin-bottom:52px;">What Ceramic Coating Does for Your Car</h2>
-    <div class="benefit-grid">
-      <div class="benefit-card">
-        <div style="color:var(--brand);margin-bottom:16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;">UV &amp; Oxidation Protection</h3>
-        <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.65;">Charleston's intense sun is one of the biggest threats to your clear coat. Ceramic coating blocks UV rays that cause fading, oxidation, and premature aging of the paint.</p>
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--brand);margin-bottom:14px;">Transparent Pricing</p>
+    <h2 style="font-size:38px;font-weight:800;color:#fff;letter-spacing:-0.01em;margin-bottom:14px;">Ceramic Coating Packages</h2>
+    <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 56px;line-height:1.7;">Three tiers of protection — choose based on how long you want your finish to last. We come to you, no shop required.</p>
+
+    <div class="pkg-grid">
+      <!-- 3-Year -->
+      <div class="pkg-card">
+        <div class="pkg-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="pkg-name">3-Year Ceramic Coating</div>
+        <div class="pkg-price">Starting at $649</div>
+        <div class="pkg-desc">Entry-level protection ideal for daily drivers who want a serious upgrade over wax.</div>
+        <ul class="pkg-list">
+          <li>Paint decontamination wash</li>
+          <li>Clay bar treatment</li>
+          <li>IPA panel prep</li>
+          <li>Single-layer ceramic application</li>
+          <li>UV &amp; oxidation protection</li>
+          <li>Hydrophobic water-beading finish</li>
+          <li>Salt air &amp; contaminant barrier</li>
+          <li>3-year protection warranty</li>
+        </ul>
+        <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;">Get a Quote</button>
       </div>
-      <div class="benefit-card">
-        <div style="color:var(--brand);margin-bottom:16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;">Hydrophobic Finish</h3>
-        <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.65;">Water beads up and rolls off the surface instead of sitting on the paint. This means fewer water spots, less frequent washing, and a self-cleaning effect in light rain.</p>
+
+      <!-- 5-Year -->
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="pkg-name">5-Year Ceramic Coating</div>
+        <div class="pkg-price">Starting at $999</div>
+        <div class="pkg-desc">Enhanced multi-layer protection for those who want showroom shine and long-term durability.</div>
+        <ul class="pkg-list" style="flex:1;">
+          <li>Everything in 3-Year Coat</li>
+          <li>Multi-layer ceramic application</li>
+          <li>Enhanced scratch resistance</li>
+          <li>Deeper gloss &amp; wet-look finish</li>
+          <li>Heat resistance up to 1,200°F</li>
+          <li>Bug splatter &amp; tree sap repellent</li>
+          <li>5-year protection warranty</li>
+        </ul>
+        <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;margin-top:auto;">Get a Quote</button>
       </div>
-      <div class="benefit-card">
-        <div style="color:var(--brand);margin-bottom:16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;">Salt Air Defense</h3>
-        <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.65;">Living near the Lowcountry coast means constant exposure to salt air. Ceramic coating seals the paint surface, creating a barrier against sodium chloride that would otherwise accelerate corrosion.</p>
-      </div>
-      <div class="benefit-card">
-        <div style="color:var(--brand);margin-bottom:16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;">Scratch Resistance</h3>
-        <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.65;">The hardened coating adds a layer of scratch resistance against light abrasions, swirl marks from washing, and environmental debris — though it is not a replacement for paint protection film on high-impact areas.</p>
-      </div>
-      <div class="benefit-card">
-        <div style="color:var(--brand);margin-bottom:16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;">Lasts Years, Not Weeks</h3>
-        <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.65;">Depending on the coating tier, ceramic protection lasts 3–8 years. Compare that to car wax which typically lasts 4–8 weeks before breaking down and washing off.</p>
-      </div>
-      <div class="benefit-card">
-        <div style="color:var(--brand);margin-bottom:16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;">Deeper Gloss</h3>
-        <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.65;">Ceramic coatings enhance the depth and clarity of your paint, producing a wet-look gloss that standard waxes and sealants can't match.</p>
+
+      <!-- 8-Year -->
+      <div class="pkg-card">
+        <div class="pkg-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="pkg-name">8-Year Ceramic Coating</div>
+        <div class="pkg-price">Starting at $1,499</div>
+        <div class="pkg-desc">The ultimate in paint protection — built for luxury, exotic, and high-value vehicles.</div>
+        <ul class="pkg-list">
+          <li>Everything in 5-Year Coat</li>
+          <li>Premium professional-grade formula</li>
+          <li>Maximum UV &amp; chemical resistance</li>
+          <li>Full panel-by-panel inspection</li>
+          <li>Optional paint correction included</li>
+          <li>Ceramic wheel &amp; glass coating</li>
+          <li>8-year protection warranty</li>
+        </ul>
+        <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;">Get a Quote</button>
       </div>
     </div>
+
+    <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:28px;">Prices may vary by vehicle size and paint condition. <a href="#" onclick="document.getElementById('quoteModal').classList.add('open');return false;" style="color:rgba(255,255,255,0.4);text-decoration:underline;">Contact for a custom quote →</a></p>
+  </div>
+</section>
+
+<!-- ADD-ON SERVICES -->
+<section style="padding:72px 0;background:#f8f9fb;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;">
+    <h2 style="font-size:22px;font-weight:800;color:var(--navy);text-align:center;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:36px;">Additional Ceramic Add-On Services</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;" class="addon-grid">
+
+      <!-- Prep -->
+      <div style="background:#fff;border:1px solid #e2e6ea;border-radius:10px;padding:28px 24px;">
+        <h3 style="font-size:18px;font-weight:700;color:var(--brand);margin-bottom:10px;">Paint Prep Add-On's</h3>
+        <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:18px;">Proper prep is the foundation of a long-lasting coating. These add-ons ensure your paint is in perfect condition before application.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Paint Correction (1-Step)</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Paint Correction (2-Step)</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Iron Fallout Removal</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Tar &amp; Adhesive Removal</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Engine Bay Detail</li>
+        </ul>
+      </div>
+
+      <!-- Surface Coverage -->
+      <div style="background:#fff;border:1px solid #e2e6ea;border-radius:10px;padding:28px 24px;">
+        <h3 style="font-size:18px;font-weight:700;color:var(--brand);margin-bottom:10px;">Surface Coverage Add-On's</h3>
+        <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:18px;">Extend ceramic protection to every surface of your vehicle for complete coverage and a uniform look.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Ceramic Wheel Coating</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Windshield Coating</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> All Glass Ceramic Coating</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Plastic Trim Coating</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Interior Ceramic Coating</li>
+        </ul>
+      </div>
+
+    </div>
+    <style>@media(max-width:768px){.addon-grid{grid-template-columns:1fr !important;}}</style>
   </div>
 </section>
 
 <!-- PHOTO ROW -->
 <section style="padding:0;overflow:hidden;background:#000;">
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;" class="ceramic-photo-row">
-    <div style="overflow:hidden;height:300px;"><img src="https://placehold.co/700x500/0d1b2a/3BBDF5?text=Photo+1" alt="Ceramic coating detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
-    <div style="overflow:hidden;height:300px;"><img src="https://placehold.co/700x500/12263a/3BBDF5?text=Photo+2" alt="Ceramic coating detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
-    <div style="overflow:hidden;height:300px;"><img src="https://placehold.co/700x500/1a3348/3BBDF5?text=Photo+3" alt="Ceramic coating detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;height:320px;"><img src="Car Pics/dji_mimo_20251120_114246_20251120114245_1763778957826_photo.jpg" alt="Ceramic coating Charleston SC" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;height:320px;"><img src="Car Pics/IMG_6362.jpeg" alt="Ceramic coating detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;height:320px;"><img src="Car Pics/IMG_7757.jpeg" alt="Ceramic coating finish" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
   </div>
-  <style>@media(max-width:600px){.ceramic-photo-row{grid-template-columns:1fr !important;}.ceramic-photo-row>div{height:220px !important;}}</style>
+  <style>@media(max-width:600px){.ceramic-photo-row{grid-template-columns:1fr !important;}.ceramic-photo-row>div{height:240px !important;}}</style>
 </section>
 
-<!-- PROCESS -->
+
+<!-- WHY CERAMIC COATING IN CHARLESTON -->
 <section style="padding:80px 0;background:var(--light-bg);">
-  <div style="max-width:860px;margin:0 auto;padding:0 28px;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;">
     <div style="text-align:center;margin-bottom:52px;">
       <div class="brand-line" style="margin:0 auto 20px;"></div>
-      <h2 class="section-title" style="margin-bottom:12px;">How We Apply It</h2>
-      <p class="section-sub">Every ceramic coating job follows the same rigorous prep process — because prep is what separates a long-lasting coating from one that fails early.</p>
+      <h2 class="section-title" style="margin-bottom:12px;">Why Ceramic Coating in Charleston?</h2>
+      <p class="section-sub">Charleston's coastal climate is one of the most demanding environments for paint. Ceramic coating is the answer.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:28px;">
-      <div style="display:flex;gap:20px;align-items:flex-start;">
-        <div class="step-num">1</div>
-        <div>
-          <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;">Paint Decontamination</h3>
-          <p style="font-size:15px;font-weight:300;color:var(--muted);line-height:1.65;">We start with a thorough decontamination wash to remove bonded contaminants — iron fallout, tar, industrial fallout — that can prevent the coating from bonding properly to the paint surface.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="why-grid">
+      <div style="background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 20px rgba(13,27,42,0.06);">
+        <div style="width:48px;height:48px;background:var(--brand);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">UV &amp; Salt Air Protection</h3>
+        <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;">Charleston's intense sun and coastal salt air are two of the biggest threats to paint. Ceramic coating blocks UV rays that cause fading and oxidation, and seals the surface against sodium chloride corrosion.</p>
       </div>
-      <div style="display:flex;gap:20px;align-items:flex-start;">
-        <div class="step-num">2</div>
-        <div>
-          <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;">Paint Correction (If Needed)</h3>
-          <p style="font-size:15px;font-weight:300;color:var(--muted);line-height:1.65;">Any swirl marks, scratches, or surface defects are corrected before coating — because ceramic coating seals the paint as-is. Defects under the coating become permanent. We recommend addressing these first.</p>
+      <div style="background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 20px rgba(13,27,42,0.06);">
+        <div style="width:48px;height:48px;background:var(--brand);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
         </div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Hydrophobic Self-Cleaning</h3>
+        <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;">Water beads up and rolls right off, taking dirt, bug splatter, tree sap, and road grime with it. Less frequent washing, fewer water spots, and a finish that stays cleaner between details — even parked under live oaks.</p>
       </div>
-      <div style="display:flex;gap:20px;align-items:flex-start;">
-        <div class="step-num">3</div>
-        <div>
-          <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;">Panel Wipe &amp; IPA Prep</h3>
-          <p style="font-size:15px;font-weight:300;color:var(--muted);line-height:1.65;">Panels are wiped down with an IPA (isopropyl alcohol) solution to remove any remaining oils or residue. This ensures a perfectly clean surface so the coating bonds correctly.</p>
+      <div style="background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 20px rgba(13,27,42,0.06);">
+        <div style="width:48px;height:48px;background:var(--brand);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         </div>
-      </div>
-      <div style="display:flex;gap:20px;align-items:flex-start;">
-        <div class="step-num">4</div>
-        <div>
-          <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;">Ceramic Coating Application</h3>
-          <p style="font-size:15px;font-weight:300;color:var(--muted);line-height:1.65;">The coating is applied panel by panel using a professional applicator. We work it into the surface and level it carefully before it cures — this precision determines the final finish quality.</p>
-        </div>
-      </div>
-      <div style="display:flex;gap:20px;align-items:flex-start;">
-        <div class="step-num">5</div>
-        <div>
-          <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;">Cure &amp; Inspection</h3>
-          <p style="font-size:15px;font-weight:300;color:var(--muted);line-height:1.65;">The coating begins curing immediately and reaches full hardness within 24–48 hours. We inspect every panel under direct lighting before signing off on the job.</p>
-        </div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Lasts Years — Not Weeks</h3>
+        <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;">Car wax lasts 4–8 weeks. Ceramic coating lasts 3–8 years. It also enhances paint depth with a deep, mirror-like gloss that wax simply cannot match — and holds up to Charleston's heat and humidity year-round.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- PRICING CTA -->
-<section style="padding:80px 0;background:#070e18;">
-  <div style="max-width:760px;margin:0 auto;padding:0 28px;text-align:center;">
-    <div class="brand-line" style="margin:0 auto 20px;"></div>
-    <h2 style="font-size:36px;font-weight:800;color:#fff;margin-bottom:14px;">Ceramic Coating Starting From $649</h2>
-    <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.55);max-width:540px;margin:0 auto 16px;line-height:1.7;">Final pricing depends on vehicle size, paint condition, and coating tier (3–8 year options available). We'll assess your vehicle and provide an exact quote before any work begins.</p>
-    <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.35);margin-bottom:40px;">We come to your driveway, office, or marina anywhere in the Lowcountry.</p>
-    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-      <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="padding:14px 36px;">Get a Quote</button>
-      <a href="tel:+18434729045" class="btn-white" style="padding:12px 30px;">Call (843) 472-9045</a>
-    </div>
+    <style>@media(max-width:700px){.why-grid{grid-template-columns:1fr !important;}}</style>
   </div>
 </section>
 
