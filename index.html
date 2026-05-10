@@ -223,12 +223,13 @@
     .nav-link {
       font-size: 15px;
       font-weight: 500;
-      color: var(--navy);
+      color: #fff;
       text-decoration: none;
       text-transform: capitalize;
       transition: color 0.15s;
     }
     .nav-link:hover { color: var(--brand); }
+    #main-nav.scrolled .nav-link { color: var(--navy); }
     .nav-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 2px; }
     .nav-dropdown { position: relative; }
     .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border-radius: 8px; box-shadow: 0 8px 40px rgba(13,27,42,0.15); padding: 20px 0 8px; min-width: 210px; display: none; z-index: 300; border: 1px solid rgba(0,0,0,0.06); }
@@ -276,7 +277,8 @@
       inset: 0;
       background:
         linear-gradient(105deg, rgba(13,27,42,0.86) 28%, rgba(13,27,42,0.12) 100%),
-        linear-gradient(to top, rgba(13,27,42,0.58) 0%, transparent 55%);
+        linear-gradient(to top, rgba(13,27,42,0.58) 0%, transparent 55%),
+        linear-gradient(to bottom, rgba(13,27,42,0.55) 0%, transparent 20%);
     }
     .hero-content { position: relative; z-index: 3; }
 
@@ -473,9 +475,16 @@
 
     /* ── Sticky nav ── */
     #main-nav {
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 35px;
+      left: 0;
+      right: 0;
       z-index: 200;
+      background: transparent;
+      box-shadow: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #main-nav.scrolled {
       background: #fff;
       box-shadow: 0 2px 16px rgba(13,27,42,0.09);
     }
@@ -590,7 +599,7 @@
 <body>
 
 <!-- ═══════════════════════════════ TOP BAR ═══════════════════════════════ -->
-<div style="background:var(--navy); color:rgba(255,255,255,0.85); font-size:13px; font-weight:300; padding:9px 0;">
+<div style="background:var(--navy); color:rgba(255,255,255,0.85); font-size:13px; font-weight:300; padding:9px 0; position:fixed; top:0; left:0; right:0; z-index:201;">
   <div style="max-width:1200px; margin:0 auto; padding:0 28px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
     <span>&#128205; Serving Charleston, SC &amp; the Lowcountry Coast</span>
     <div style="display:flex; align-items:center; gap:20px;">
@@ -679,7 +688,7 @@
 </script>
 
 <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-<section class="hero" itemscope itemtype="https://schema.org/LocalBusiness">
+<section class="hero" style="padding-top:115px;" itemscope itemtype="https://schema.org/LocalBusiness">
   <video class="hero-img" autoplay muted loop playsinline preload="auto" aria-hidden="true">
     <source src="hero.mp4" type="video/mp4" />
     <source src="hero.mov" type="video/quicktime" />
@@ -2000,6 +2009,18 @@ async function handleQuoteSubmit(e) {
   var group = L.featureGroup(markers);
   map.fitBounds(group.getBounds().pad(0.15));
 })();
+</script>
+
+<script>
+  (function() {
+    const nav = document.getElementById('main-nav');
+    const threshold = 80;
+    function update() {
+      nav.classList.toggle('scrolled', window.scrollY > threshold);
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
 </script>
 
 </body>

@@ -40,9 +40,11 @@
     .btn-primary:hover { background:var(--brand-dark); transform:translateY(-2px); }
     .btn-white { display:inline-block; background:transparent; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; padding:12px 30px; border-radius:4px; border:2px solid rgba(255,255,255,0.75); cursor:pointer; transition:background-color 0.2s ease,border-color 0.2s ease,transform 0.15s ease; }
     .btn-white:hover { background:rgba(255,255,255,0.1); border-color:#fff; transform:translateY(-2px); }
-    .nav-link { font-size:15px; font-weight:500; color:var(--navy); text-decoration:none; text-transform:capitalize; transition:color 0.15s; }
+    .nav-link { font-size:15px; font-weight:500; color:#fff; text-decoration:none; text-transform:capitalize; transition:color 0.15s; }
     .nav-link:hover { color:var(--brand); }
-    #main-nav { position:sticky; top:0; z-index:200; background:#fff; box-shadow:0 2px 16px rgba(13,27,42,0.09); }
+    #main-nav.scrolled .nav-link { color:var(--navy); }
+    #main-nav { position:fixed; top:35px; left:0; right:0; z-index:200; background:transparent; box-shadow:none; transition:background 0.3s ease,box-shadow 0.3s ease; }
+    #main-nav.scrolled { background:#fff; box-shadow:0 2px 16px rgba(13,27,42,0.09); }
     .section-title { font-size:36px; font-weight:600; line-height:1.1em; color:var(--navy); }
     .section-sub { font-size:16px; font-weight:300; line-height:1.6; color:var(--muted); }
     .brand-line { display:inline-block; width:48px; height:3px; background:var(--brand); border-radius:2px; margin-bottom:20px; }
@@ -87,7 +89,7 @@
 <body>
 
 <!-- TOP BAR -->
-<div style="background:var(--navy);color:rgba(255,255,255,0.85);font-size:13px;font-weight:300;padding:9px 0;">
+<div style="background:var(--navy);color:rgba(255,255,255,0.85);font-size:13px;font-weight:300;padding:9px 0;position:fixed;top:0;left:0;right:0;z-index:201;">
   <div style="max-width:1200px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
     <span>&#128205; Serving Charleston, SC &amp; the Lowcountry Coast</span>
     <div style="display:flex;align-items:center;gap:20px;">
@@ -167,7 +169,7 @@
 </script>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="padding-top:115px;">
   <img class="hero-bg" src="DSC06719_Original.JPG" alt="Daniel Island mobile car detailing" />
   <div class="hero-overlay"></div>
   <div class="hero-glow" aria-hidden="true"></div>
@@ -649,5 +651,18 @@ async function handleQuoteSubmit(e) {
   } catch { btn.disabled=false; btn.textContent='Request My Detail'; alert('Something went wrong. Please call us at (843) 472-9045'); }
 }
 </script>
+
+<script>
+  (function() {
+    const nav = document.getElementById('main-nav');
+    const threshold = 80;
+    function update() {
+      nav.classList.toggle('scrolled', window.scrollY > threshold);
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+
 </body>
 </html>
