@@ -73,6 +73,9 @@
     .mobile-menu { display:none; flex-direction:column; background:var(--navy); border-top:1px solid rgba(255,255,255,0.08); padding:16px 28px 24px; gap:4px; }
     .mobile-menu.open { display:flex; }
     .mobile-menu a { color:rgba(255,255,255,0.8); text-decoration:none; font-size:15px; font-weight:500; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .mobile-sa-btn { display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0;color:rgba(255,255,255,0.8);font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;letter-spacing:inherit; }
+    .mobile-sa-cities { display:none;flex-direction:column; }
+    .mobile-sa-cities a { padding-left:14px;font-size:14px; }
     .mobile-menu a:last-child { border-bottom:none; margin-top:8px; }
     .mobile-menu .btn-primary { text-align:center; padding:14px; border-radius:8px; }
     @media (max-width:900px) { .svc-grid { grid-template-columns:1fr 1fr !important; } .section-title { font-size:28px; } .hero h1 { font-size:42px !important; } }
@@ -107,7 +110,6 @@
     </a>
     <div style="display:flex;align-items:center;gap:32px;" class="hide-sm-nav">
       <a href="index.html#about" class="nav-link">About</a>
-      <a href="index.html#packages" class="nav-link">Packages</a>
       <div class="nav-dropdown">
         <span class="nav-link nav-dropdown-btn">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
         <div class="nav-dropdown-menu">
@@ -119,7 +121,16 @@
           <a href="summerville.html">Summerville</a>
         </div>
       </div>
-      <a href="index.html#reviews" class="nav-link">Reviews</a>
+      <div class="nav-dropdown">
+        <span class="nav-link nav-dropdown-btn">Services &amp; Pricing <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a href="auto-detailing.html">Auto Detailing</a>
+          <a href="ceramic-coating.html">Ceramic Coating</a>
+          <a href="paint-protection-film.html">Paint Protection Film</a>
+          <a href="paint-correction.html">Paint Correction</a>
+          <a href="marine-detailing.html">Marine Detailing</a>
+        </div>
+      </div>
       <a href="index.html#contact" class="nav-link">Contact</a>
       <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" style="padding:11px 26px;font-size:14px;" target="_blank" rel="noopener">Book Now</a>
     </div>
@@ -127,14 +138,22 @@
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html#about" onclick="closeMobileMenu()">About</a>
-    <a href="index.html#packages" onclick="closeMobileMenu()">Packages</a>
-    <a href="charleston.html" onclick="closeMobileMenu()">Charleston</a>
-    <a href="mount-pleasant.html" onclick="closeMobileMenu()">Mount Pleasant</a>
-    <a href="daniel-island.html" onclick="closeMobileMenu()">Daniel Island</a>
-    <a href="surrounding-islands.html" onclick="closeMobileMenu()">Surrounding Islands</a>
-    <a href="west-ashley.html" onclick="closeMobileMenu()">West Ashley</a>
-    <a href="summerville.html" onclick="closeMobileMenu()">Summerville</a>
-    <a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a>
+    <a href="auto-detailing.html" onclick="closeMobileMenu()">Auto Detailing</a>
+    <a href="ceramic-coating.html" onclick="closeMobileMenu()">Ceramic Coating</a>
+    <a href="paint-protection-film.html" onclick="closeMobileMenu()">Paint Protection Film</a>
+    <a href="paint-correction.html" onclick="closeMobileMenu()">Paint Correction</a>
+    <a href="marine-detailing.html" onclick="closeMobileMenu()">Marine Detailing</a>
+    <div class="mobile-sa-wrap">
+      <button class="mobile-sa-btn" onclick="toggleServiceAreas(this)">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:4px;transition:transform 0.25s;"><polyline points="2,3 5,7 8,3"/></svg></button>
+      <div class="mobile-sa-cities">
+        <a href="charleston.html" onclick="closeMobileMenu()">Charleston</a>
+        <a href="mount-pleasant.html" onclick="closeMobileMenu()">Mount Pleasant</a>
+        <a href="daniel-island.html" onclick="closeMobileMenu()">Daniel Island</a>
+        <a href="surrounding-islands.html" onclick="closeMobileMenu()">Surrounding Islands</a>
+        <a href="west-ashley.html" onclick="closeMobileMenu()">West Ashley</a>
+        <a href="summerville.html" onclick="closeMobileMenu()">Summerville</a>
+      </div>
+    </div>
     <a href="index.html#contact" onclick="closeMobileMenu()">Contact</a>
     <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener">Book Now</a>
   </div>
@@ -143,7 +162,8 @@
   const hamburger = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-  function closeMobileMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  function closeMobileMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); var d=document.querySelector('.mobile-sa-cities'); if(d){d.style.display='none';} var s=document.querySelector('.mobile-sa-btn svg'); if(s){s.style.transform='';} }
+  function toggleServiceAreas(btn) { var d=btn.nextElementSibling; var s=btn.querySelector('svg'); var open=d.style.display==='flex'; d.style.display=open?'none':'flex'; s.style.transform=open?'':'rotate(180deg)'; }
 </script>
 
 <!-- HERO -->

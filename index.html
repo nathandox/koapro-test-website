@@ -373,13 +373,14 @@
       flex-shrink: 0;
     }
 
-    /* ── Package cards ── */
+    /* ── Service cards ── */
     .svc-card {
       position: relative;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
-      aspect-ratio: 4/3;
-      cursor: default;
+      display: block;
+      text-decoration: none;
+      min-width: 0;
     }
     .svc-card img {
       position: absolute;
@@ -387,17 +388,18 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
       transition: transform 0.5s ease;
     }
     .svc-card:hover img { transform: scale(1.05); }
     .svc-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(7,14,24,0.92) 0%, rgba(7,14,24,0.3) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(7,14,24,0.95) 0%, rgba(7,14,24,0.4) 50%, transparent 100%);
       transition: background 0.3s ease;
     }
     .svc-card:hover .svc-card-overlay {
-      background: linear-gradient(to top, rgba(7,14,24,0.96) 0%, rgba(7,14,24,0.45) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(7,14,24,0.98) 0%, rgba(7,14,24,0.55) 60%, transparent 100%);
     }
     .svc-card-body {
       position: absolute;
@@ -426,12 +428,7 @@
       font-weight: 300;
       color: rgba(255,255,255,0.72);
       line-height: 1.55;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, opacity 0.3s ease;
-      opacity: 0;
     }
-    .svc-card:hover .svc-card-desc { max-height: 60px; opacity: 1; }
 
     /* ── Location cards ── */
     .loc-card {
@@ -618,7 +615,6 @@
     </a>
     <div style="display:flex; align-items:center; gap:32px;" class="hide-sm">
       <a href="#about"    class="nav-link">About</a>
-      <a href="#packages" class="nav-link">Packages</a>
       <div class="nav-dropdown">
         <span class="nav-link nav-dropdown-btn">Service Areas <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top:1px;"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="nav-dropdown-menu">
@@ -630,7 +626,16 @@
           <a href="summerville.html">Summerville</a>
         </div>
       </div>
-      <a href="#reviews"  class="nav-link">Reviews</a>
+      <div class="nav-dropdown">
+        <span class="nav-link nav-dropdown-btn">Services &amp; Pricing <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a href="auto-detailing.html">Auto Detailing</a>
+          <a href="ceramic-coating.html">Ceramic Coating</a>
+          <a href="paint-protection-film.html">Paint Protection Film</a>
+          <a href="paint-correction.html">Paint Correction</a>
+          <a href="marine-detailing.html">Marine Detailing</a>
+        </div>
+      </div>
       <a href="#contact"  class="nav-link">Contact</a>
       <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" style="padding:11px 26px; font-size:14px;" target="_blank" rel="noopener">Book Now</a>
     </div>
@@ -640,14 +645,22 @@
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="#about"    onclick="closeMobileMenu()">About</a>
-    <a href="#packages" onclick="closeMobileMenu()">Packages</a>
-    <a href="charleston.html" onclick="closeMobileMenu()">Charleston</a>
-    <a href="mount-pleasant.html" onclick="closeMobileMenu()">Mount Pleasant</a>
-    <a href="daniel-island.html" onclick="closeMobileMenu()">Daniel Island</a>
-    <a href="surrounding-islands.html" onclick="closeMobileMenu()">Surrounding Islands</a>
-    <a href="west-ashley.html" onclick="closeMobileMenu()">West Ashley</a>
-    <a href="summerville.html" onclick="closeMobileMenu()">Summerville</a>
-    <a href="#reviews"  onclick="closeMobileMenu()">Reviews</a>
+    <a href="auto-detailing.html" onclick="closeMobileMenu()">Auto Detailing</a>
+    <a href="ceramic-coating.html" onclick="closeMobileMenu()">Ceramic Coating</a>
+    <a href="paint-protection-film.html" onclick="closeMobileMenu()">Paint Protection Film</a>
+    <a href="paint-correction.html" onclick="closeMobileMenu()">Paint Correction</a>
+    <a href="marine-detailing.html" onclick="closeMobileMenu()">Marine Detailing</a>
+    <div class="mobile-sa-wrap">
+      <button class="mobile-sa-btn" onclick="toggleServiceAreas(this)">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:4px;transition:transform 0.25s;"><polyline points="2,3 5,7 8,3"/></svg></button>
+      <div class="mobile-sa-cities">
+        <a href="charleston.html" onclick="closeMobileMenu()">Charleston</a>
+        <a href="mount-pleasant.html" onclick="closeMobileMenu()">Mount Pleasant</a>
+        <a href="daniel-island.html" onclick="closeMobileMenu()">Daniel Island</a>
+        <a href="surrounding-islands.html" onclick="closeMobileMenu()">Surrounding Islands</a>
+        <a href="west-ashley.html" onclick="closeMobileMenu()">West Ashley</a>
+        <a href="summerville.html" onclick="closeMobileMenu()">Summerville</a>
+      </div>
+    </div>
     <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
     <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener">Book Now</a>
   </div>
@@ -870,220 +883,114 @@
   }
 </style>
 
-<!-- ═══════════════════════ PACKAGES ═══════════════════════ -->
+<!-- ═══════════════════════ SERVICES ═══════════════════════ -->
 <style>
-  .pkg2-grid {
+  .svc-row-main {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    align-items: start;
+    margin-bottom: 16px;
   }
-  .pkg2-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(59,189,245,0.15);
-    border-radius: 12px;
-    padding: 32px 28px 28px;
+  .svc-row-secondary {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 6;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    position: relative;
-    text-align: left;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
-  .pkg2-card:hover {
-    border-color: rgba(59,189,245,0.5);
-    box-shadow: 0 0 32px rgba(59,189,245,0.1);
-    transform: translateY(-4px);
+  .svc-card-main { height: 460px; }
+  .svc-card-secondary { height: 280px; }
+  @media (max-width: 960px) {
+    .svc-row-main { grid-template-columns: repeat(2, 1fr); }
+    .svc-row-secondary { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .svc-card-main { height: 360px; }
+    .svc-card-secondary { height: 240px; }
   }
-  .pkg2-card.featured {
-    border-color: var(--brand);
-    box-shadow: 0 0 40px rgba(59,189,245,0.18);
-    background: rgba(59,189,245,0.06);
-  }
-  .pkg2-icon {
-    width: 44px;
-    height: 44px;
-    background: rgba(59,189,245,0.12);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--brand);
-    align-self: start;
-  }
-  .pkg2-name {
-    font-size: 17px;
-    font-weight: 700;
-    color: #fff;
-    align-self: start;
-    padding-top: 14px;
-  }
-  .pkg2-price {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--brand);
-    padding-top: 2px;
-    min-height: 18px;
-    align-self: start;
-  }
-  .pkg2-desc {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-    padding-top: 6px;
-    align-self: start;
-  }
-  .pkg2-list {
-    list-style: none;
-    padding: 20px 0 0;
-    margin: 0;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    align-self: start;
-  }
-  .pkg2-list li {
-    font-size: 13px;
-    font-weight: 300;
-    color: #fff;
-    padding: 5px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    text-align: left;
-  }
-  .pkg2-list li::before {
-    content: '✓';
-    color: var(--brand);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .pkg2-btn { align-self: end; padding-top: 20px; }
-  .pkg2-badge {
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--brand);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 16px;
-    border-radius: 20px;
-    white-space: nowrap;
+  @media (max-width: 540px) {
+    .svc-row-main { grid-template-columns: 1fr; }
+    .svc-row-secondary { grid-template-columns: 1fr; }
   }
 </style>
 
-<section id="packages" style="padding:96px 0; background:#070e18;">
-  <div style="max-width:1240px; margin:0 auto; padding:0 28px; text-align:center;">
-    <p style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--brand); margin-bottom:14px;">What We Offer</p>
-    <h2 style="font-size:42px; font-weight:800; color:#fff; letter-spacing:-0.01em; margin-bottom:14px;">Detail Packages</h2>
-    <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.5); max-width:480px; margin:0 auto 56px; line-height:1.7;">Every package uses professional-grade products. We come to you — no shop required.</p>
+<section id="services" style="padding:56px 0; background:#070e18;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
 
-    <div class="pkg2-grid" style="grid-template-rows: repeat(6, auto);">
+    <!-- Header -->
+    <div style="text-align:center; margin-bottom:36px;">
+      <p style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--brand); margin-bottom:14px;">What We Offer</p>
+      <h2 style="font-size:42px; font-weight:800; color:#fff; letter-spacing:-0.01em; margin-bottom:14px;">Services We Offer</h2>
+      <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.5); max-width:460px; margin:0 auto; line-height:1.7;">Professional-grade results delivered to your door. No shop visit required.</p>
+    </div>
 
-      <!-- Interior Detail -->
-      <div class="pkg2-card">
-        <div class="pkg2-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+    <!-- Main row: Interior, Exterior, Full Detail -->
+    <div class="svc-row-main">
+
+      <a href="auto-detailing.html" class="svc-card svc-card-main">
+        <img src="Car Pics/DSC06630_Original.JPG" alt="Interior Detail" style="object-position: center 65%;" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-num">01</div>
+          <div class="svc-card-title">Interior Detail</div>
+          <div class="svc-card-desc">Deep cleaning of every surface, crack, and crevice inside your vehicle.</div>
         </div>
-        <div class="pkg2-name">Interior Detail</div>
-        <div class="pkg2-price">From $179</div>
-        <div class="pkg2-desc">A thorough cleaning of every surface, crack, and crevice inside your vehicle.</div>
-        <ul class="pkg2-list">
-          <li>Vacuum — floors, carpets & trunk</li>
-          <li>Full interior wipe-down</li>
-          <li>Plastics cleaned (dash, door panels)</li>
-          <li>Cracks & crevices detailed</li>
-          <li>Leather conditioned</li>
-          <li>Windows cleaned</li>
-          <li>Door jambs cleaned</li>
-          <li>Air freshener (on request)</li>
-        </ul>
-        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px; padding:12px;">Book Now</a></div>
-      </div>
+      </a>
 
-      <!-- Exterior Detail -->
-      <div class="pkg2-card">
-        <div class="pkg2-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
+      <a href="auto-detailing.html" class="svc-card svc-card-main">
+        <img src="Car Pics/5F6E7DA1-2AA9-49BE-972F-C52BA06050FA.jpg" alt="Exterior Detail" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-num">02</div>
+          <div class="svc-card-title">Exterior Detail</div>
+          <div class="svc-card-desc">A show-ready finish from hand wash to sealant, wheels to windows.</div>
         </div>
-        <div class="pkg2-name">Exterior Detail</div>
-        <div class="pkg2-price">From $155</div>
-        <div class="pkg2-desc">A show-ready finish from hand wash to sealant, wheels to windows.</div>
-        <ul class="pkg2-list">
-          <li>Professional hand wash + foam bath</li>
-          <li>Bug splatters cleaned off</li>
-          <li>Clay bar treatment</li>
-          <li>Micro contaminants removed from paint</li>
-          <li>Exterior windows cleaned</li>
-          <li>Wheels + rims deep cleaned</li>
-          <li>Plastic trim dressed & shined</li>
-          <li>Ceramic paint sealant applied</li>
-        </ul>
-        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px; padding:12px;">Book Now</a></div>
-      </div>
+      </a>
 
-      <!-- Full Detail — Featured -->
-      <div class="pkg2-card featured">
-        <div class="pkg2-badge">Most Popular</div>
-        <div class="pkg2-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <a href="auto-detailing.html" class="svc-card svc-card-main">
+        <img src="Car Pics/69B31FA4-E26C-4FF0-84C6-BC5BEB2F7377.jpg" alt="Full Detail" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-num">03</div>
+          <div class="svc-card-title">Full Detail</div>
+          <div class="svc-card-desc">Complete interior & exterior transformation — our most comprehensive package.</div>
         </div>
-        <div class="pkg2-name">Full Detail</div>
-        <div class="pkg2-price">From $279</div>
-        <div class="pkg2-desc">Complete interior & exterior transformation with paint protection included.</div>
-        <ul class="pkg2-list">
-          <li>Everything in Interior Detail</li>
-          <li>Everything in Exterior Detail</li>
-          <li>All windows inside & out</li>
-          <li>Trim & plastic dressing</li>
-          <li>Premium air freshener</li>
-        </ul>
-        <div class="pkg2-btn"><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px; padding:12px;">Book Now</a></div>
-      </div>
-
-      <!-- Paint Correction -->
-      <div class="pkg2-card">
-        <div class="pkg2-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <div class="pkg2-name">Paint Correction</div>
-        <div class="pkg2-price">From $395</div>
-        <div class="pkg2-desc">Machine polishing to restore your paint to a flawless finish.</div>
-        <ul class="pkg2-list">
-          <li>Decontamination wash</li>
-          <li>Single or multi-stage polish</li>
-          <li>Swirl & scratch removal</li>
-          <li>Oxidation treatment</li>
-          <li>Sealant application</li>
-        </ul>
-        <div class="pkg2-btn"><button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="font-size:13px; padding:12px;">Get Quote</button></div>
-      </div>
-
-      <!-- Ceramic Coating -->
-      <div class="pkg2-card">
-        <div class="pkg2-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="pkg2-name">Ceramic Coating</div>
-        <div class="pkg2-price">From $649</div>
-        <div class="pkg2-desc">Long-term paint protection with a hydrophobic, glass-hard finish.</div>
-        <ul class="pkg2-list">
-          <li>Paint decontamination</li>
-          <li>Paint correction prep</li>
-          <li>3–8 year coating options</li>
-          <li>UV & salt protection</li>
-          <li>Hydrophobic finish</li>
-        </ul>
-        <div class="pkg2-btn"><button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="font-size:13px; padding:12px;">Get Quote</button></div>
-      </div>
+      </a>
 
     </div>
 
-    <p style="font-size:12px; color:rgba(255,255,255,0.25); margin-top:28px;">Prices may vary by vehicle size. <a href="#" onclick="document.getElementById('quoteModal').classList.add('open'); return false;" style="color:rgba(255,255,255,0.4); text-decoration:underline;">Contact for a custom quote →</a></p>
+    <!-- Secondary row: Ceramic, PPF, Paint Correction, Marine -->
+    <div class="svc-row-secondary">
+
+      <a href="ceramic-coating.html" class="svc-card svc-card-secondary">
+        <img src="Car Pics/dji_mimo_20251120_114300_20251120114300_1763778958126_photo 2.jpg" alt="Ceramic Coating" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-num">04</div>
+          <div class="svc-card-title">Ceramic Coating</div>
+          <div class="svc-card-desc">Glass-hard, hydrophobic protection that keeps your paint cleaner longer.</div>
+        </div>
+      </a>
+
+      <a href="paint-protection-film.html" class="svc-card svc-card-secondary">
+        <img src="Car Pics/ppf_cropped.jpg" alt="Paint Protection Film" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-num">05</div>
+          <div class="svc-card-title">Paint Protection Film</div>
+          <div class="svc-card-desc">Self-healing film that shields your paint from chips, scratches, and road debris.</div>
+        </div>
+      </a>
+
+      <a href="paint-correction.html" class="svc-card svc-card-secondary">
+        <img src="Car Pics/dji_mimo_20251103_140334_20251103150334_1762743380880_photo.jpg" alt="Paint Correction" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-num">06</div>
+          <div class="svc-card-title">Paint Correction</div>
+          <div class="svc-card-desc">Machine polishing that removes swirls, scratches, and oxidation for a flawless finish.</div>
+        </div>
+      </a>
+
+
+    </div>
+
   </div>
 </section>
 

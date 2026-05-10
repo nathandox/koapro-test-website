@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Detailing in Charleston, SC | Koa Pro Detail</title>
+  <meta name="description" content="Mobile auto detailing in Charleston, SC. Interior detail from $179, exterior detail from $155, full detail from $279. We come to your driveway — no drop-off needed. Book online today." />
+  <link rel="canonical" href="https://koaprodetail.com/auto-detailing.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://koaprodetail.com/auto-detailing.html" />
+  <meta property="og:title" content="Auto Detailing in Charleston, SC | Koa Pro Detail" />
+  <meta property="og:description" content="Mobile auto detailing in Charleston, SC. Interior, exterior & full detail packages brought to your door. Book online today." />
+  <meta property="og:image" content="https://koaprodetail.com/brand_assets/Updated Logo.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Auto Detailing",
+    "provider": {"@type": "AutoRepair", "name": "Koa Pro Detail", "url": "https://koaprodetail.com", "telephone": "+18434729045"},
+    "areaServed": "Charleston, SC",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Detail"}, "price": "179", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Detail"}, "price": "155", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail"}, "price": "279", "priceCurrency": "USD"}
+      ]
+    }
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand:#3BBDF5; --brand-dark:#1a9fd6; --navy:#0d1b2a; --navy-mid:#12263a; --navy-light:#1a3348; --light-bg:#F3F5F8; --text:#0d1b2a; --muted:#5a6a7a; --gold:#F8CF7F; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; -webkit-font-smoothing:antialiased; }
+    @keyframes btn-glow { from { box-shadow:0 0 8px rgba(59,189,245,0.55),0 0 18px rgba(59,189,245,0.25),0 2px 8px rgba(0,0,0,0.3); } to { box-shadow:0 0 18px rgba(59,189,245,0.85),0 0 36px rgba(59,189,245,0.4),0 2px 8px rgba(0,0,0,0.3); } }
+    .btn-primary { display:inline-block; background:var(--brand); color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; padding:14px 32px; border-radius:4px; border:none; cursor:pointer; animation:btn-glow 1.8s ease-in-out infinite alternate; transition:background-color 0.2s ease,transform 0.15s ease; }
+    .btn-primary:hover { background:var(--brand-dark); transform:translateY(-2px); animation:none; }
+    .btn-primary:active { transform:translateY(0); }
+    .btn-white { display:inline-block; background:transparent; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; padding:12px 30px; border-radius:4px; border:2px solid rgba(255,255,255,0.75); cursor:pointer; transition:background-color 0.2s ease,border-color 0.2s ease,transform 0.15s ease; }
+    .btn-white:hover { background:rgba(255,255,255,0.1); border-color:#fff; transform:translateY(-2px); }
+    .nav-link { font-size:15px; font-weight:500; color:var(--navy); text-decoration:none; text-transform:capitalize; transition:color 0.15s; }
+    .nav-link:hover { color:var(--brand); }
+    #main-nav { position:sticky; top:0; z-index:200; background:#fff; box-shadow:0 2px 16px rgba(13,27,42,0.09); }
+    .section-title { font-size:36px; font-weight:700; line-height:1.1em; color:var(--navy); }
+    .section-sub { font-size:16px; font-weight:300; line-height:1.65; color:var(--muted); }
+    .brand-line { display:inline-block; width:48px; height:3px; background:var(--brand); border-radius:2px; margin-bottom:20px; }
+    .hero { position:relative; min-height:520px; display:flex; align-items:center; background:var(--navy); overflow:hidden; }
+    .hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 40%; opacity:0.38; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(105deg,rgba(13,27,42,0.92) 35%,rgba(13,27,42,0.2) 100%),linear-gradient(to top,rgba(13,27,42,0.7) 0%,transparent 55%); }
+    .hero-glow { position:absolute; left:-150px; top:50%; transform:translateY(-50%); width:800px; height:580px; background:radial-gradient(ellipse at center,rgba(59,189,245,0.1) 0%,transparent 65%); z-index:1; pointer-events:none; }
+    .hero-content { position:relative; z-index:3; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--brand); margin-bottom:14px; padding:6px 15px; border-radius:40px; border:1px solid rgba(59,189,245,0.35); background:rgba(59,189,245,0.08); }
+    .nav-dropdown { position:relative; }
+    .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:8px; box-shadow:0 8px 40px rgba(13,27,42,0.15); padding:8px 0; min-width:220px; display:none; z-index:300; border:1px solid rgba(0,0,0,0.06); }
+    .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; transition:background 0.15s,color 0.15s; white-space:nowrap; }
+    .nav-dropdown-menu a:hover { background:var(--light-bg); color:var(--brand); }
+    .nav-dropdown-btn { display:flex; align-items:center; gap:5px; cursor:default; }
+    .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--brand); border-radius:2px; transition:transform 0.2s ease,opacity 0.2s ease; }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display:none; flex-direction:column; background:var(--navy); border-top:1px solid rgba(255,255,255,0.08); padding:16px 28px 24px; gap:4px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:rgba(255,255,255,0.8); text-decoration:none; font-size:15px; font-weight:500; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .mobile-sa-btn { display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0;color:rgba(255,255,255,0.8);font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;letter-spacing:inherit; }
+    .mobile-sa-cities { display:none;flex-direction:column; }
+    .mobile-sa-cities a { padding-left:14px;font-size:14px; }
+    .mobile-menu a:last-child { border-bottom:none; margin-top:8px; }
+    .mobile-menu .btn-primary { text-align:center; padding:14px; border-radius:8px; }
+    .pkg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+    .pkg-card { background:rgba(255,255,255,0.03); border:1px solid rgba(59,189,245,0.15); border-radius:12px; padding:32px 28px 28px; display:flex; flex-direction:column; gap:0; transition:border-color 0.25s ease,box-shadow 0.25s ease,transform 0.25s ease; position:relative; }
+    .pkg-card:hover { border-color:rgba(59,189,245,0.5); box-shadow:0 0 32px rgba(59,189,245,0.1); transform:translateY(-4px); }
+    .pkg-card.featured { border-color:var(--brand); box-shadow:0 0 40px rgba(59,189,245,0.18); background:rgba(59,189,245,0.06); }
+    .pkg-badge { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--brand); color:#fff; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 16px; border-radius:20px; white-space:nowrap; }
+    .pkg-icon { width:44px; height:44px; background:rgba(59,189,245,0.12); border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--brand); margin-bottom:14px; }
+    .pkg-name { font-size:18px; font-weight:700; color:#fff; margin-bottom:4px; }
+    .pkg-price { font-size:13px; font-weight:400; color:var(--brand); margin-bottom:10px; }
+    .pkg-desc { font-size:13px; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.6; margin-bottom:20px; }
+    .pkg-list { list-style:none; padding:0; margin:0 0 24px; border-top:1px solid rgba(255,255,255,0.07); padding-top:16px; flex:1; }
+    .pkg-list li { font-size:13px; font-weight:300; color:#fff; padding:5px 0; display:flex; align-items:flex-start; gap:10px; }
+    .pkg-list li::before { content:'✓'; color:var(--brand); font-weight:700; flex-shrink:0; margin-top:1px; }
+    .faq-item { border-bottom:1px solid rgba(0,0,0,0.08); }
+    .faq-btn { width:100%; background:none; border:none; cursor:pointer; padding:22px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; text-align:left; }
+    .faq-question { font-size:16px; font-weight:600; color:var(--navy); line-height:1.4; }
+    .faq-body { display:none; padding-bottom:20px; }
+    .faq-body.open { display:block; }
+    .faq-answer { font-size:15px; font-weight:300; color:var(--muted); line-height:1.7; }
+    .reviews-track { display:flex; gap:20px; width:max-content; animation:reviewsScroll 32s linear infinite; }
+    .reviews-track:hover { animation-play-state:paused; }
+    @keyframes reviewsScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+    .review-card { background:#fff; border-radius:10px; padding:28px 26px; width:320px; flex-shrink:0; box-shadow:0 2px 20px rgba(13,27,42,0.07); text-align:left; }
+    .review-card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    .review-stars { color:#FBBC05; font-size:15px; letter-spacing:1px; }
+    .review-text { font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px; }
+    .review-author { font-size:13px; font-weight:600; color:var(--navy); }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
+    .footer-col-title { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:16px; }
+    .footer-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+    .footer-list li { font-size:15px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.5; }
+    .footer-list a { color:rgba(255,255,255,0.6); text-decoration:none; transition:color 0.15s; }
+    .footer-list a:hover { color:var(--brand); }
+    .footer-social-row { display:flex; gap:10px; margin-top:20px; }
+    .footer-social-btn { display:flex; align-items:center; gap:7px; padding:8px 14px; border-radius:6px; background:var(--brand); border:1px solid var(--brand); color:#fff; text-decoration:none; font-size:12px; font-weight:500; transition:background 0.15s,color 0.15s,border-color 0.15s; }
+    .footer-social-btn:hover { background:var(--brand-dark); border-color:var(--brand-dark); }
+    #quoteModal { display:none; position:fixed; inset:0; z-index:9999; background:rgba(7,14,24,0.72); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px; }
+    #quoteModal.open { display:flex; }
+    #quoteModal .modal-box { background:#fff; border-radius:12px; width:100%; max-width:520px; max-height:90vh; overflow-y:auto; padding:40px 36px 36px; position:relative; box-shadow:0 24px 72px rgba(7,14,24,0.4); animation:modalIn 0.22s ease; }
+    @keyframes modalIn { from { opacity:0; transform:translateY(18px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+    #quoteModal .modal-close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; color:var(--muted); cursor:pointer; line-height:1; padding:4px 8px; border-radius:4px; transition:color 0.15s ease; }
+    #quoteModal .modal-close:hover { color:var(--navy); }
+    #quoteModal h3 { font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; color:var(--navy); margin-bottom:6px; }
+    #quoteModal .modal-sub { font-size:13px; color:var(--muted); margin-bottom:28px; }
+    .qf-label { display:block; font-size:13px; font-weight:600; color:var(--navy); margin-bottom:6px; }
+    .qf-label span { color:var(--brand); }
+    .qf-input { width:100%; border:1.5px solid #dde3ea; border-radius:6px; padding:11px 14px; font-family:'Poppins',sans-serif; font-size:14px; color:var(--navy); outline:none; transition:border-color 0.15s ease; margin-bottom:20px; }
+    .qf-input::placeholder { color:#aab3bc; }
+    .qf-input:focus { border-color:var(--brand); }
+    .qf-group { margin-bottom:20px; }
+    .qf-group-title { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:10px; }
+    .qf-check-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; cursor:pointer; }
+    .qf-check-row input[type="checkbox"] { width:17px; height:17px; accent-color:var(--brand); cursor:pointer; flex-shrink:0; }
+    .qf-check-row span { font-size:14px; color:var(--navy); }
+    #quoteModal .btn-submit { width:100%; margin-top:8px; padding:14px; font-size:15px; letter-spacing:0.06em; background:var(--navy); color:#fff; border:none; border-radius:6px; font-family:'Poppins',sans-serif; font-weight:700; text-transform:uppercase; cursor:pointer; transition:background 0.2s ease,transform 0.15s ease; }
+    #quoteModal .btn-submit:hover { background:#1a3348; transform:translateY(-1px); }
+    @media (max-width:900px) { .pkg-grid { grid-template-columns:1fr 1fr !important; } .section-title { font-size:28px; } .hero h1 { font-size:42px !important; } .footer-grid { grid-template-columns:1fr 1fr; gap:32px; } }
+    @media (max-width:600px) { .pkg-grid { grid-template-columns:1fr !important; } .hero h1 { font-size:32px !important; } .hamburger { display:flex; } .footer-grid { grid-template-columns:1fr; } }
+    @media (max-width:600px) { .hide-sm { display:none !important; } }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div style="background:var(--navy);color:rgba(255,255,255,0.85);font-size:13px;font-weight:300;padding:9px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+    <span>&#128205; Serving Charleston, SC &amp; the Lowcountry Coast</span>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="tel:+18434729045" style="color:var(--brand);font-weight:600;text-decoration:none;font-size:13px;">(843) 472-9045</a>
+      <a href="https://www.facebook.com/profile.php?id=61578723050985" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;transition:color 0.15s;" onmouseover="this.style.color='#3BBDF5'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/koaprodetail" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;transition:color 0.15s;" onmouseover="this.style.color='#3BBDF5'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;height:80px;">
+    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0;">
+      <img src="brand_assets/Updated Logo.png" alt="Koa Pro Detail" style="height:96px;width:auto;" />
+    </a>
+    <div style="display:flex;align-items:center;gap:28px;" class="hide-sm">
+      <a href="index.html#about" class="nav-link">About</a>
+      <div class="nav-dropdown">
+        <span class="nav-link nav-dropdown-btn">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a href="charleston.html">Charleston</a>
+          <a href="mount-pleasant.html">Mount Pleasant</a>
+          <a href="daniel-island.html">Daniel Island</a>
+          <a href="surrounding-islands.html">Surrounding Islands</a>
+          <a href="west-ashley.html">West Ashley</a>
+          <a href="summerville.html">Summerville</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <span class="nav-link nav-dropdown-btn">Services &amp; Pricing <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a href="auto-detailing.html">Auto Detailing</a>
+          <a href="ceramic-coating.html">Ceramic Coating</a>
+          <a href="paint-protection-film.html">Paint Protection Film</a>
+          <a href="paint-correction.html">Paint Correction</a>
+          <a href="marine-detailing.html">Marine Detailing</a>
+        </div>
+      </div>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+      <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" style="padding:11px 26px;font-size:14px;" target="_blank" rel="noopener">Book Now</a>
+    </div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#about" onclick="closeMobileMenu()">About</a>
+    <a href="auto-detailing.html" onclick="closeMobileMenu()">Auto Detailing</a>
+    <a href="ceramic-coating.html" onclick="closeMobileMenu()">Ceramic Coating</a>
+    <a href="paint-protection-film.html" onclick="closeMobileMenu()">Paint Protection Film</a>
+    <a href="paint-correction.html" onclick="closeMobileMenu()">Paint Correction</a>
+    <a href="marine-detailing.html" onclick="closeMobileMenu()">Marine Detailing</a>
+    <div class="mobile-sa-wrap">
+      <button class="mobile-sa-btn" onclick="toggleServiceAreas(this)">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:4px;transition:transform 0.25s;"><polyline points="2,3 5,7 8,3"/></svg></button>
+      <div class="mobile-sa-cities">
+        <a href="charleston.html" onclick="closeMobileMenu()">Charleston</a>
+        <a href="mount-pleasant.html" onclick="closeMobileMenu()">Mount Pleasant</a>
+        <a href="daniel-island.html" onclick="closeMobileMenu()">Daniel Island</a>
+        <a href="surrounding-islands.html" onclick="closeMobileMenu()">Surrounding Islands</a>
+        <a href="west-ashley.html" onclick="closeMobileMenu()">West Ashley</a>
+        <a href="summerville.html" onclick="closeMobileMenu()">Summerville</a>
+      </div>
+    </div>
+    <a href="index.html#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener">Book Now</a>
+  </div>
+</nav>
+<script>
+  const hamburger = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobileMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); var d=document.querySelector('.mobile-sa-cities'); if(d){d.style.display='none';} var s=document.querySelector('.mobile-sa-btn svg'); if(s){s.style.transform='';} }
+  function toggleServiceAreas(btn) { var d=btn.nextElementSibling; var s=btn.querySelector('svg'); var open=d.style.display==='flex'; d.style.display=open?'none':'flex'; s.style.transform=open?'':'rotate(180deg)'; }
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-bg" src="1B92F077-27EA-41A1-8B14-5481B737C26D_1_105_c.jpeg" alt="Mobile auto detailing Charleston SC" />
+  <div class="hero-overlay"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-content" style="max-width:1200px;margin:0 auto;padding:80px 28px;width:100%;">
+    <div style="text-align:center;">
+      <p class="hero-eyebrow" style="margin:0 auto 14px;">Auto Detailing · Charleston, SC</p>
+      <h1 style="font-size:64px;font-weight:600;color:#fff;line-height:1.0em;letter-spacing:-0.025em;margin-bottom:20px;text-shadow:0 2px 60px rgba(0,0,0,0.25);">
+        MOBILE CAR DETAILING SERVICES &amp;<br><span style="color:var(--brand);text-shadow:0 0 80px rgba(59,189,245,0.5);">PRICING IN CHARLESTON</span>
+      </h1>
+      <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">Interior, exterior, and full detail packages brought directly to your home, office, or marina. No drop-off. No waiting room.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:20px;">
+        <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="padding:13px 32px;box-shadow:0 4px 28px rgba(59,189,245,0.35);">Get Instant Quote</button>
+        <a href="tel:+18434729045" class="btn-white" style="padding:11px 24px;font-size:14px;">Call (843) 472-9045</a>
+      </div>
+      <a href="https://share.google/CMp6FzqSTZbBQArTv" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:40px;padding:8px 18px;backdrop-filter:blur(6px);">
+        <span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span>
+        <span style="color:#FBBC05;font-size:13px;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span style="font-size:13px;font-weight:500;color:#fff;">5.0 &nbsp;|&nbsp; 110+ reviews</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section style="padding:64px 0 52px;background:#fff;">
+  <div style="max-width:820px;margin:0 auto;padding:0 28px;text-align:center;">
+    <h2 style="font-size:34px;font-weight:800;color:var(--brand);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:18px;">Take a Look at What We Offer</h2>
+    <p style="font-size:16px;font-weight:400;line-height:1.75;color:var(--text);max-width:680px;margin:0 auto;">Maintaining your car, both inside &amp; out, can be done 100% at your home, office, or apartment. Getting a professional detail at least once every 6 months has been proven to increase resell value. On top of that, it makes you feel much better going down the road.</p>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section style="padding:88px 0;background:#070e18;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;text-align:center;">
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--brand);margin-bottom:14px;">Transparent Pricing</p>
+    <h2 style="font-size:38px;font-weight:800;color:#fff;letter-spacing:-0.01em;margin-bottom:14px;">Auto Detailing Packages</h2>
+    <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 56px;line-height:1.7;">Every package uses professional-grade products. We come to you — no shop required.</p>
+
+    <div class="pkg-grid">
+      <!-- Interior Detail -->
+      <div class="pkg-card">
+        <div class="pkg-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="pkg-name">Interior Detail</div>
+        <div class="pkg-price">From $179</div>
+        <div class="pkg-desc">A thorough cleaning of every surface, crack, and crevice inside your vehicle.</div>
+        <ul class="pkg-list">
+          <li>Vacuum — floors, carpets &amp; trunk</li>
+          <li>Full interior wipe-down</li>
+          <li>Plastics cleaned (dash, door panels)</li>
+          <li>Cracks &amp; crevices detailed</li>
+          <li>Leather conditioned</li>
+          <li>Windows cleaned inside</li>
+          <li>Door jambs cleaned</li>
+          <li>Air freshener (on request)</li>
+        </ul>
+        <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px;padding:12px;text-align:center;display:block;">Book Now</a>
+      </div>
+
+      <!-- Exterior Detail -->
+      <div class="pkg-card">
+        <div class="pkg-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="pkg-name">Exterior Detail</div>
+        <div class="pkg-price">From $155</div>
+        <div class="pkg-desc">A show-ready finish from hand wash to sealant, wheels to windows.</div>
+        <ul class="pkg-list">
+          <li>Professional hand wash + foam bath</li>
+          <li>Bug splatters removed</li>
+          <li>Clay bar treatment</li>
+          <li>Micro contaminants removed from paint</li>
+          <li>Exterior windows cleaned</li>
+          <li>Wheels + rims deep cleaned</li>
+          <li>Plastic trim dressed &amp; shined</li>
+          <li>Ceramic paint sealant applied</li>
+        </ul>
+        <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px;padding:12px;text-align:center;display:block;">Book Now</a>
+      </div>
+
+      <!-- Full Detail -->
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="pkg-name">Full Detail</div>
+        <div class="pkg-price">From $279</div>
+        <div class="pkg-desc">Complete interior &amp; exterior transformation with paint protection included.</div>
+        <ul class="pkg-list" style="flex:1;">
+          <li>Everything in Interior Detail</li>
+          <li>Everything in Exterior Detail</li>
+          <li>All windows inside &amp; out</li>
+          <li>Trim &amp; plastic dressing</li>
+          <li>Premium air freshener</li>
+        </ul>
+        <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px;padding:12px;text-align:center;display:block;margin-top:auto;">Book Now</a>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:28px;">Prices may vary by vehicle size. <a href="#" onclick="document.getElementById('quoteModal').classList.add('open');return false;" style="color:rgba(255,255,255,0.4);text-decoration:underline;">Contact for a custom quote →</a></p>
+  </div>
+</section>
+
+<!-- ADD-ON SERVICES -->
+<section style="padding:72px 0;background:#f8f9fb;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;">
+    <h2 style="font-size:22px;font-weight:800;color:var(--navy);text-align:center;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:36px;">Additional Add-On Services</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="addon-grid">
+
+      <!-- Interior -->
+      <div style="background:#fff;border:1px solid #e2e6ea;border-radius:10px;padding:28px 24px;">
+        <h3 style="font-size:18px;font-weight:700;color:var(--brand);margin-bottom:10px;">Interior Add On's</h3>
+        <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:18px;">Shampoo pricing varies by seat count. Ask us about bundle pricing for multiple add-ons.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Carpet Shampoo</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Floor Mat Shampoo</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Seat Shampoo</li>
+
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Pet Hair Removal</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Child Car Seat Cleaning</li>
+        </ul>
+      </div>
+
+      <!-- Protection -->
+      <div style="background:#fff;border:1px solid #e2e6ea;border-radius:10px;padding:28px 24px;">
+        <h3 style="font-size:18px;font-weight:700;color:var(--brand);margin-bottom:10px;">Protection Add On's</h3>
+        <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:18px;">Upgrade your detail with long-lasting protection. All add-ons can be done on-site at your location.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Windshield Coating</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Interior Ceramic Coating</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Leather Ceramic</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Seat Protectant — Fabric</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Mat Protectant — Fabric</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Paint Sealant Upgrade</li>
+        </ul>
+      </div>
+
+      <!-- Exterior -->
+      <div style="background:#fff;border:1px solid #e2e6ea;border-radius:10px;padding:28px 24px;">
+        <h3 style="font-size:18px;font-weight:700;color:var(--brand);margin-bottom:10px;">Exterior Add On's</h3>
+        <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:18px;">Enhance the look and protection of your exterior with these additional services.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Headlight Restoration</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Paint Enhancement</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Clay Bar &amp; Iron Removal</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Engine Bay Detail</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Plastic Trim Restoration</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);"><span style="color:var(--brand);font-weight:700;">&#10003;</span> Double Coat of Wax</li>
+        </ul>
+      </div>
+
+    </div>
+    <style>@media(max-width:768px){.addon-grid{grid-template-columns:1fr !important;}}</style>
+  </div>
+</section>
+
+<!-- PHOTO SPLIT -->
+<section style="padding:36px 0;background:#f0f2f4;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;" class="detail-photo-split">
+    <div>
+      <img src="Car Pics/DSC06630_Original.JPG" alt="Auto detailing Charleston SC" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 8px 40px rgba(13,27,42,0.12);" />
+    </div>
+    <div>
+      <h3 style="font-size:36px;font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px;">Professional Car Detailing Delivered to Your Door for Total Convenience</h3>
+      <p style="font-size:15px;font-weight:400;color:#4a5568;line-height:1.75;margin-bottom:28px;">Skip the hassle of visiting a shop. We bring expert detailing services directly to you — whether it's a deep clean or a regular refresh, we're here to make your vehicle look its best.</p>
+      <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="font-size:13px;padding:13px 28px;">Book Now</a>
+    </div>
+  </div>
+  <style>@media(max-width:700px){.detail-photo-split{grid-template-columns:1fr !important;gap:32px !important;}}</style>
+</section>
+
+<!-- WHY MOBILE -->
+<section style="padding:80px 0;background:var(--light-bg);">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;">
+    <div style="text-align:center;margin-bottom:52px;">
+      <div class="brand-line" style="margin:0 auto 20px;"></div>
+      <h2 class="section-title" style="margin-bottom:12px;">Why Mobile Detailing?</h2>
+      <p class="section-sub">No commute, no waiting rooms — just pro-level results at your location.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="why-grid">
+      <div style="background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 20px rgba(13,27,42,0.06);">
+        <div style="width:48px;height:48px;background:var(--brand);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Saves You Time</h3>
+        <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;">No drop-off, no pick-up, no commute. We schedule around you and handle everything at your location.</p>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 20px rgba(13,27,42,0.06);">
+        <div style="width:48px;height:48px;background:var(--brand);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Professional Products</h3>
+        <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;">We use professional-grade products on every job — the same quality you'd expect from a premium detail shop.</p>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 20px rgba(13,27,42,0.06);">
+        <div style="width:48px;height:48px;background:var(--brand);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">110+ 5-Star Reviews</h3>
+        <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;">Over 110 five-star Google reviews from real customers in Charleston and the Lowcountry.</p>
+      </div>
+    </div>
+    <style>@media(max-width:700px){.why-grid{grid-template-columns:1fr !important;}}</style>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:80px 0;background:#fff;">
+  <div style="max-width:760px;margin:0 auto;padding:0 28px;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="brand-line" style="margin:0 auto 20px;"></div>
+      <h2 class="section-title" style="margin-bottom:12px;">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+        <span class="faq-question">How long does an interior or exterior detail take?</span>
+        <span style="flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+      </button>
+      <div class="faq-body">
+        <p class="faq-answer">An interior or exterior detail typically takes 1.5–3 hours depending on vehicle size and condition. A full detail runs 2.5–4 hours. We'll give you an accurate time estimate when you book.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+        <span class="faq-question">Do I need to be home during the detail?</span>
+        <span style="flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+      </button>
+      <div class="faq-body">
+        <p class="faq-answer">No. Most customers meet us at the start, hand over the keys, and go about their day. We text when we're on the way and send an invoice when we're done. You can pay online — no need to be present the whole time.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+        <span class="faq-question">What's the difference between an interior, exterior, and full detail?</span>
+        <span style="flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+      </button>
+      <div class="faq-body">
+        <p class="faq-answer">An interior detail focuses entirely on the inside of your vehicle — vacuuming, wipe-downs, leather conditioning, and window cleaning. An exterior detail covers the paint, wheels, trim, and glass on the outside, including a clay bar treatment and ceramic sealant. A full detail combines both for a complete transformation.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+        <span class="faq-question">How often should I detail my car?</span>
+        <span style="flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+      </button>
+      <div class="faq-body">
+        <p class="faq-answer">In the Lowcountry, we recommend a full detail every 3–6 months due to salt air, UV exposure, and humidity. If you drive daily or have pets and kids, an interior detail every 2–3 months keeps your cabin in great shape.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+        <span class="faq-question">What payment methods do you accept?</span>
+        <span style="flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+      </button>
+      <div class="faq-body">
+        <p class="faq-answer">We accept cash, card, and Zelle — whatever is most convenient for you. We send an invoice when your detail is complete and you can pay online.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function toggleFaq(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded','false'); b.nextElementSibling.classList.remove('open'); });
+  if (!isOpen) { btn.setAttribute('aria-expanded','true'); body.classList.add('open'); }
+}
+</script>
+
+<!-- BOOK CTA -->
+<section style="padding:96px 0;background:var(--navy);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(59,189,245,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:780px;margin:0 auto;padding:0 28px;text-align:center;position:relative;">
+    <div class="brand-line" style="margin:0 auto 24px;"></div>
+    <h2 style="font-size:48px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:18px;">Ready to Book Your Detail?</h2>
+    <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 44px;line-height:1.7;">We come to you — no drop-off, no waiting. Book online in minutes or give us a call.</p>
+    <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:44px;">
+      <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" class="btn-primary" target="_blank" rel="noopener" style="padding:16px 40px;font-size:16px;">Book Now</a>
+      <button class="btn-white" onclick="document.getElementById('quoteModal').classList.add('open')" style="padding:14px 38px;font-size:16px;">Get Free Quote</button>
+    </div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;">
+      <a href="tel:+18434729045" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:14px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'"><span style="color:var(--brand);">&#9990;</span> (843) 472-9045</a>
+      <span style="color:rgba(255,255,255,0.15);">|</span>
+      <a href="mailto:koaprodetail@gmail.com" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:14px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'"><span style="color:var(--brand);">&#9993;</span> koaprodetail@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<style>
+  .reviews-track { display:flex; gap:20px; width:max-content; animation:reviewsScroll 32s linear infinite; }
+  .reviews-track:hover { animation-play-state:paused; }
+  @keyframes reviewsScroll { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+  .review-card { background:#fff; border-radius:10px; padding:28px 26px; width:320px; flex-shrink:0; box-shadow:0 2px 20px rgba(13,27,42,0.07); text-align:left; }
+  .review-card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .review-stars { color:#FBBC05; font-size:15px; letter-spacing:1px; }
+  .review-text { font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px; }
+  .review-author { font-size:13px; font-weight:600; color:var(--navy); }
+</style>
+<section style="padding:88px 0;background:var(--light-bg);overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;text-align:center;">
+    <div class="brand-line" style="margin:0 auto 20px;"></div>
+    <h2 class="section-title" style="margin-bottom:14px;">What Our Clients Say</h2>
+    <p class="section-sub" style="max-width:540px;margin:0 auto 52px;">Real reviews from real customers across Charleston and the Lowcountry.</p>
+  </div>
+  <div style="position:relative;overflow:hidden;">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:120px;background:linear-gradient(to right,var(--light-bg),transparent);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:120px;background:linear-gradient(to left,var(--light-bg),transparent);z-index:2;pointer-events:none;"></div>
+    <div class="reviews-track">
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan did a fantastic job on an interior detail for my Telluride. It had seen better days between dogs and kids, but Nathan had it spotless in just a couple hours. The booking process was easy, and Nathan arrived right on time. I would absolutely use him again."</p><p class="review-author">&#8212; Patrick E.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"I recently had my car's interior detailed with Koa Pro Detail, and I'm beyond impressed! They paid incredible attention to detail, getting into every nook and cranny. My car looks and feels brand new inside. Highly recommend!"</p><p class="review-author">&#8212; Cat G.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan is amazing. I spilled something in my car and he was able to come the same day. He arrived on time, was extremely friendly and professional, and cleaned the inside of my car to perfection. I was amazed when I looked inside after he finished — it looked brand new. 10/10 would recommend."</p><p class="review-author">&#8212; Chelsea H.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan did an outstanding job. This was his second detail for us and we wanted our car looking its best for a pending sale. Thanks for all your hard work."</p><p class="review-author">&#8212; John R.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan and Koa did an INCREDIBLE job!!! My Jeep Compass looked better than it did the day I drove it off the lot. Nathan takes PRIDE in his work — something you won't see often these days. If you've tried other detailers and felt underwhelmed, Nathan's your guy. Seriously, outstanding work!"</p><p class="review-author">&#8212; Tracy S.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan was punctual and a great communicator through the entire exterior wash and 2 Step Paint Correction process. He was extremely knowledgeable with his Koch-Chemie detailing products. The van shines more than it ever did brand new. I highly recommend him. A++"</p><p class="review-author">&#8212; Mike I.</p></div>
+      <!-- duplicate for loop -->
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan did a fantastic job on an interior detail for my Telluride. It had seen better days between dogs and kids, but Nathan had it spotless in just a couple hours. The booking process was easy, and Nathan arrived right on time. I would absolutely use him again."</p><p class="review-author">&#8212; Patrick E.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"I recently had my car's interior detailed with Koa Pro Detail, and I'm beyond impressed! They paid incredible attention to detail, getting into every nook and cranny. My car looks and feels brand new inside. Highly recommend!"</p><p class="review-author">&#8212; Cat G.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan is amazing. I spilled something in my car and he was able to come the same day. He arrived on time, was extremely friendly and professional, and cleaned the inside of my car to perfection. I was amazed when I looked inside after he finished — it looked brand new. 10/10 would recommend."</p><p class="review-author">&#8212; Chelsea H.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan did an outstanding job. This was his second detail for us and we wanted our car looking its best for a pending sale. Thanks for all your hard work."</p><p class="review-author">&#8212; John R.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan and Koa did an INCREDIBLE job!!! My Jeep Compass looked better than it did the day I drove it off the lot. Nathan takes PRIDE in his work — something you won't see often these days. Seriously, outstanding work!"</p><p class="review-author">&#8212; Tracy S.</p></div>
+      <div class="review-card"><div class="review-card-top"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px;font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p class="review-text">"Nathan was punctual and a great communicator through the entire exterior wash and 2 Step Paint Correction process. He was extremely knowledgeable with his Koch-Chemie detailing products. The van shines more than it ever did brand new. I highly recommend him. A++"</p><p class="review-author">&#8212; Mike I.</p></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <a href="https://share.google/CMp6FzqSTZbBQArTv" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='var(--muted)'">
+      <span style="font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span>
+      <span style="color:#FBBC05;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>5.0 &nbsp;·&nbsp; 110+ reviews</span>
+      <span style="font-size:12px;">&#8599;</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#070e18;padding:64px 0 32px;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px;">
+    <div class="footer-grid">
+      <div>
+        <img src="brand_assets/Updated Logo.png" alt="Koa Pro Detail" style="height:140px;width:auto;margin-bottom:14px;opacity:0.95;" />
+        <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.65;max-width:240px;margin-bottom:20px;">Charleston's premier mobile detailing service — brought directly to you.</p>
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/koaprodetail" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61578723050985" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-list">
+          <li><a href="tel:+18434729045">(843) 472-9045</a></li>
+          <li><a href="mailto:koaprodetail@gmail.com">koaprodetail@gmail.com</a></li>
+          <li><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" target="_blank" rel="noopener" style="color:var(--brand);font-weight:500;">Book Online &rarr;</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-list">
+          <li><a href="auto-detailing.html">Auto Detailing</a></li>
+          <li><a href="ceramic-coating.html">Ceramic Coating</a></li>
+          <li><a href="paint-protection-film.html">Paint Protection Film</a></li>
+          <li><a href="paint-correction.html">Paint Correction</a></li>
+          <li><a href="marine-detailing.html">Marine Detailing</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <ul class="footer-list">
+          <li>MON – SUN: Open 24 Hours</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Service Areas</p>
+        <ul class="footer-list">
+          <li><a href="charleston.html">Charleston</a></li>
+          <li><a href="mount-pleasant.html">Mount Pleasant</a></li>
+          <li><a href="daniel-island.html">Daniel Island</a></li>
+          <li><a href="west-ashley.html">West Ashley</a></li>
+          <li><a href="summerville.html">Summerville</a></li>
+          <li><a href="surrounding-islands.html">Surrounding Islands</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;text-align:center;">
+      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.28);margin:0;">&copy; 2026 Koa Pro Detail. All rights reserved. &nbsp;&bull;&nbsp; Mobile Detailing &bull; Charleston, SC &amp; the Lowcountry</p>
+    </div>
+  </div>
+</footer>
+
+<!-- QUOTE MODAL -->
+<style>
+  #quoteModal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(7,14,24,0.72);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;}
+  #quoteModal.open{display:flex;}
+  #quoteModal .modal-box{background:#fff;border-radius:12px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;padding:40px 36px 36px;position:relative;box-shadow:0 24px 72px rgba(7,14,24,0.4);animation:modalIn 0.22s ease;}
+  @keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(0.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+  #quoteModal .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;line-height:1;padding:4px 8px;border-radius:4px;transition:color 0.15s ease;}
+  #quoteModal .modal-close:hover{color:var(--navy);}
+  #quoteModal h3{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--navy);margin-bottom:6px;}
+  .modal-sub{font-size:13px;color:var(--muted);margin-bottom:28px;}
+  .qf-label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+  .qf-label span{color:var(--brand);}
+  .qf-input{width:100%;border:1.5px solid #dde3ea;border-radius:6px;padding:11px 14px;font-family:'Poppins',sans-serif;font-size:14px;color:var(--navy);outline:none;transition:border-color 0.15s ease;margin-bottom:20px;}
+  .qf-input::placeholder{color:#aab3bc;}
+  .qf-input:focus{border-color:var(--brand);}
+  .qf-group{margin-bottom:20px;}
+  .qf-group-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+  .qf-check-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer;}
+  .qf-check-row input[type="checkbox"]{width:17px;height:17px;accent-color:var(--brand);cursor:pointer;flex-shrink:0;}
+  .qf-check-row span{font-size:14px;color:var(--navy);}
+  #quoteModal .btn-submit{width:100%;margin-top:8px;padding:14px;font-size:15px;letter-spacing:0.06em;background:var(--navy);color:#fff;border:none;border-radius:6px;font-family:'Poppins',sans-serif;font-weight:700;text-transform:uppercase;cursor:pointer;transition:background 0.2s ease,transform 0.15s ease;}
+  #quoteModal .btn-submit:hover{background:#1a3348;transform:translateY(-1px);}
+</style>
+<div id="quoteModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('quoteModal').classList.remove('open')" aria-label="Close">&times;</button>
+    <h3>Request a Quote</h3>
+    <p class="modal-sub">Fill out the form below and we'll get back to you shortly.</p>
+    <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+      <input type="hidden" name="_subject" value="New Quote Request — Koa Pro Detail" />
+      <input type="hidden" name="_captcha" value="false" />
+      <label class="qf-label">Full Name<span>*</span></label>
+      <input class="qf-input" type="text" name="fullName" placeholder="Enter your full name" required />
+      <label class="qf-label">Phone<span>*</span></label>
+      <input class="qf-input" type="tel" name="phone" placeholder="Enter your phone number" required />
+      <label class="qf-label">Email<span>*</span></label>
+      <input class="qf-input" type="email" name="email" placeholder="Enter your email address" required />
+      <label class="qf-label">Make, Model, Year<span>*</span></label>
+      <input class="qf-input" type="text" name="vehicle" placeholder="e.g. Toyota, Land Cruiser, 2024" required />
+      <div class="qf-group">
+        <div class="qf-group-title">I'm interested in:</div>
+        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Ceramic Coating" /><span>Ceramic Coating</span></label>
+        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Paint Protection Film" /><span>Paint Protection Film</span></label>
+        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Paint Correction" /><span>Paint Correction</span></label>
+        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Interior/Exterior Detailing" /><span>Interior/Exterior Detailing</span></label>
+        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Aviation/Marine Detailing" /><span>Aviation/Marine Detailing</span></label>
+      </div>
+      <div class="qf-group">
+        <div class="qf-group-title">When would you like to schedule?</div>
+        <label class="qf-check-row"><input type="checkbox" name="Timing" value="ASAP (Next Available)" /><span>ASAP (Next Available)</span></label>
+        <label class="qf-check-row"><input type="checkbox" name="Timing" value="Within the Next 2 Weeks" /><span>Within the Next 2 Weeks</span></label>
+        <label class="qf-check-row"><input type="checkbox" name="Timing" value="Within the Next Month" /><span>Within the Next Month</span></label>
+        <label class="qf-check-row"><input type="checkbox" name="Timing" value="Specific Date" /><span>Specific Date (please include below)</span></label>
+      </div>
+      <label class="qf-label">Preferred Date / Time <span style="font-weight:400;color:var(--muted);">(optional)</span></label>
+      <input class="qf-input" type="text" name="preferredDate" placeholder="e.g. May 14th, morning preferred" />
+      <label class="qf-label">Service Location (City / Area)<span>*</span></label>
+      <input class="qf-input" type="text" name="location" placeholder="Charleston, Mount Pleasant, etc." required />
+      <button type="submit" class="btn-submit" id="quoteSubmitBtn">Request My Detail</button>
+    </form>
+    <div id="quoteSuccess" style="display:none;text-align:center;padding:32px 0;">
+      <div style="font-size:40px;margin-bottom:16px;">&#10003;</div>
+      <h3 style="margin-bottom:8px;">We Got Your Request!</h3>
+      <p class="modal-sub" style="margin-bottom:0;">We'll be in touch shortly. Thanks for choosing Koa Pro Detail.</p>
+    </div>
+  </div>
+</div>
+<script>
+async function handleQuoteSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('quoteSubmitBtn');
+  btn.disabled = true; btn.textContent = 'Sending...';
+  const data = new FormData(form);
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/koaprodetail@gmail.com', { method:'POST', headers:{'Accept':'application/json'}, body:data });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('quoteSuccess').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('quoteModal').classList.remove('open');
+        setTimeout(() => { form.style.display=''; document.getElementById('quoteSuccess').style.display='none'; form.reset(); btn.disabled=false; btn.textContent='Request My Detail'; }, 400);
+      }, 3000);
+    } else { throw new Error(); }
+  } catch { btn.disabled=false; btn.textContent='Request My Detail'; alert('Something went wrong. Please call us at (843) 472-9045 or email koaprodetail@gmail.com'); }
+}
+</script>
+</body>
+</html>
