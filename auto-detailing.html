@@ -134,6 +134,7 @@
     @media (max-width:900px) { .pkg-grid { grid-template-columns:1fr 1fr !important; } .section-title { font-size:28px; } .hero h1 { font-size:42px !important; } .footer-grid { grid-template-columns:1fr 1fr; gap:32px; } }
     @media (max-width:600px) { .pkg-grid { grid-template-columns:1fr !important; } .hero h1 { font-size:32px !important; } .hamburger { display:flex; } .footer-grid { grid-template-columns:1fr; } }
     @media (max-width:600px) { .hide-sm { display:none !important; } }
+    @media(max-width:600px){ #main-nav > div > a > img { height:64px !important; } }
   </style>
 </head>
 <body>
@@ -141,7 +142,7 @@
 <!-- TOP BAR -->
 <div style="background:var(--navy);color:rgba(255,255,255,0.85);font-size:13px;font-weight:300;padding:9px 0;position:fixed;top:0;left:0;right:0;z-index:201;">
   <div style="max-width:1200px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
-    <span>&#128205; Serving Charleston, SC &amp; the Lowcountry Coast</span>
+    <span class="hide-sm">&#128205; Serving Charleston, SC &amp; the Lowcountry Coast</span>
     <div style="display:flex;align-items:center;gap:20px;">
       <a href="tel:+18434729045" style="color:var(--brand);font-weight:600;text-decoration:none;font-size:13px;">(843) 472-9045</a>
       <a href="https://www.facebook.com/profile.php?id=61578723050985" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;transition:color 0.15s;" onmouseover="this.style.color='#3BBDF5'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
@@ -190,11 +191,16 @@
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html#about" onclick="closeMobileMenu()">About</a>
-    <a href="auto-detailing.html" onclick="closeMobileMenu()">Auto Detailing</a>
-    <a href="ceramic-coating.html" onclick="closeMobileMenu()">Ceramic Coating</a>
-    <a href="paint-protection-film.html" onclick="closeMobileMenu()">Paint Protection Film</a>
-    <a href="paint-correction.html" onclick="closeMobileMenu()">Paint Correction</a>
-    <a href="marine-detailing.html" onclick="closeMobileMenu()">Marine Detailing</a>
+    <div class="mobile-sa-wrap">
+      <button class="mobile-sa-btn" onclick="toggleServiceAreas(this)">Services &amp; Pricing <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:4px;transition:transform 0.25s;"><polyline points="2,3 5,7 8,3"/></svg></button>
+      <div class="mobile-sa-cities">
+        <a href="auto-detailing.html" onclick="closeMobileMenu()">Auto Detailing</a>
+        <a href="ceramic-coating.html" onclick="closeMobileMenu()">Ceramic Coating</a>
+        <a href="paint-protection-film.html" onclick="closeMobileMenu()">Paint Protection Film</a>
+        <a href="paint-correction.html" onclick="closeMobileMenu()">Paint Correction</a>
+        <a href="marine-detailing.html" onclick="closeMobileMenu()">Marine Detailing</a>
+      </div>
+    </div>
     <div class="mobile-sa-wrap">
       <button class="mobile-sa-btn" onclick="toggleServiceAreas(this)">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:4px;transition:transform 0.25s;"><polyline points="2,3 5,7 8,3"/></svg></button>
       <div class="mobile-sa-cities">
