@@ -103,10 +103,13 @@
     @media(max-width:600px){ .hide-sm{display:none !important;} }
     @media(max-width:600px){ #main-nav > div > a > img { height:76px !important; } }
     @media(max-width:600px){
-      section { padding-top:28px !important; padding-bottom:28px !important; }
-      .hero { min-height:300px !important; }
-      .hero-content { padding-top:28px !important; padding-bottom:28px !important; }
+      section:not(.hero) { padding-top:28px !important; padding-bottom:28px !important; }
+      .hero { min-height:300px !important; padding-top:115px !important; }
+      .hero-content { padding-top:20px !important; padding-bottom:20px !important; }
       .hero h1 { margin-bottom:14px !important; }
+      .hero-cta-row { flex-wrap:nowrap !important; }
+      .hero-cta-row .btn-primary { padding:10px 14px !important; font-size:11px !important; letter-spacing:0.04em !important; }
+      .hero-cta-row .btn-white { padding:9px 12px !important; font-size:11px !important; letter-spacing:0.04em !important; }
       .pkg-grid { gap:14px !important; }
       .section-title { margin-bottom:8px !important; }
       .brand-line { margin-bottom:12px !important; }
@@ -208,7 +211,7 @@
         CERAMIC COATING SERVICES<br><span style="color:var(--brand);text-shadow:0 0 80px rgba(59,189,245,0.5);">IN CHARLESTON, SC</span>
       </h1>
       <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">Premium mobile ceramic coating — we bring the shine to you. A glass-hard, hydrophobic layer that protects your paint from UV, salt air, and contaminants for years, not weeks.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:20px;">
+      <div class="hero-cta-row" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:20px;">
         <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')" style="padding:13px 32px;box-shadow:0 4px 28px rgba(59,189,245,0.35);">Get Instant Quote</button>
         <a href="tel:+18434729045" class="btn-white" style="padding:11px 24px;font-size:14px;">Call (843) 472-9045</a>
       </div>

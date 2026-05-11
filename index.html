@@ -552,10 +552,13 @@
     .mobile-sa-cities { display:none;flex-direction:column; }
     .mobile-sa-cities a { padding-left:14px;font-size:14px; }
     @media(max-width:600px){
-      section { padding-top:28px !important; padding-bottom:28px !important; }
-      .hero { min-height:300px !important; }
-      .hero-content { padding-top:28px !important; padding-bottom:28px !important; }
+      section:not(.hero) { padding-top:28px !important; padding-bottom:28px !important; }
+      .hero { min-height:300px !important; padding-top:115px !important; }
+      .hero-content { padding-top:20px !important; padding-bottom:20px !important; }
       .hero h1 { margin-bottom:14px !important; }
+      .hero-cta-row { flex-wrap:nowrap !important; }
+      .hero-cta-row .btn-primary { padding:10px 14px !important; font-size:11px !important; letter-spacing:0.04em !important; }
+      .hero-cta-row .btn-white { padding:9px 12px !important; font-size:11px !important; letter-spacing:0.04em !important; }
       .pkg-grid { gap:14px !important; }
       .section-title { margin-bottom:8px !important; }
       .brand-line { margin-bottom:12px !important; }
@@ -756,7 +759,7 @@
       </p>
 
       <!-- CTAs -->
-      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+      <div class="hero-cta-row" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
         <button class="btn-primary" onclick="document.getElementById('quoteModal').classList.add('open')"
           style="padding:13px 32px; font-size:14px; letter-spacing:0.07em; box-shadow:0 4px 28px rgba(59,189,245,0.35), 0 2px 8px rgba(0,0,0,0.2);">
           Get Instant Quote
