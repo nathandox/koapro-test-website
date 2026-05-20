@@ -229,8 +229,9 @@
         <p class="section-sub" style="margin-bottom:36px;">Fill out the form and we'll get back to you with pricing — usually same day.</p>
 
         <form id="contactForm" onsubmit="handleContactSubmit(event)">
-          <input type="hidden" name="_subject" value="New Contact Message — Koa Pro Detail" />
-          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="access_key" value="165b8d99-af8a-459d-b866-07d8f3986fe4" />
+          <input type="hidden" name="subject" value="New Quote Request — Koa Pro Detail" />
+          <input type="hidden" name="from_name" value="Koa Pro Detail Website" />
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;" class="cf-name-row">
             <div>
@@ -440,11 +441,12 @@ async function handleContactSubmit(e) {
   btn.disabled = true; btn.textContent = 'Sending...';
   const data = new FormData(form);
   try {
-    const res = await fetch('https://formsubmit.co/ajax/koaprodetail@gmail.com', { method:'POST', headers:{'Accept':'application/json'}, body:data });
-    if (res.ok) {
+    const res = await fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Accept':'application/json'}, body:data });
+    const json = await res.json();
+    if (json.success) {
       form.style.display = 'none';
       document.getElementById('contactSuccess').style.display = 'block';
-    } else { throw new Error(); }
+    } else { throw new Error(json.message); }
   } catch { btn.disabled=false; btn.textContent='Request My Quote'; alert('Something went wrong. Please call us at (843) 472-9045 or email koaprodetail@gmail.com'); }
 }
 </script>
