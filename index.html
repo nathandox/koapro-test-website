@@ -1898,8 +1898,9 @@ function toggleFaq(btn) {
     <p class="modal-sub">Fill out the form below and we'll get back to you shortly.</p>
 
     <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
-      <input type="hidden" name="_subject" value="New Quote Request — Koa Pro Detail" />
-      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="access_key" value="165b8d99-af8a-459d-b866-07d8f3986fe4" />
+      <input type="hidden" name="subject" value="New Quote Request — Koa Pro Detail" />
+      <input type="hidden" name="from_name" value="Koa Pro Detail Website" />
 
       <label class="qf-label">Full Name<span>*</span></label>
       <input class="qf-input" type="text" name="fullName" placeholder="Enter your full name" required />
@@ -1958,12 +1959,13 @@ async function handleQuoteSubmit(e) {
   const data = new FormData(form);
 
   try {
-    const res = await fetch('https://formsubmit.co/ajax/koaprodetail@gmail.com', {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: data,
     });
-    if (res.ok) {
+    const json = await res.json();
+    if (json.success) {
       form.style.display = 'none';
       document.getElementById('quoteSuccess').style.display = 'block';
       setTimeout(() => {

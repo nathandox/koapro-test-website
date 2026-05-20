@@ -645,7 +645,9 @@ function toggleFaq(btn) {
     <h3>Request a Quote</h3>
     <p class="modal-sub">Fill out the form below and we'll get back to you shortly.</p>
     <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
-      <input type="hidden" name="_subject" value="New Quote Request — Koa Pro Detail" /><input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="access_key" value="165b8d99-af8a-459d-b866-07d8f3986fe4" />
+      <input type="hidden" name="subject" value="New Quote Request — Koa Pro Detail" />
+      <input type="hidden" name="from_name" value="Koa Pro Detail Website" />
       <label class="qf-label">Full Name<span>*</span></label><input class="qf-input" type="text" name="fullName" placeholder="Enter your full name" required />
       <label class="qf-label">Phone<span>*</span></label><input class="qf-input" type="tel" name="phone" placeholder="Enter your phone number" required />
       <label class="qf-label">Email<span>*</span></label><input class="qf-input" type="email" name="email" placeholder="Enter your email address" required />
@@ -674,7 +676,7 @@ function toggleFaq(btn) {
 async function handleQuoteSubmit(e) {
   e.preventDefault(); const form=e.target; const btn=document.getElementById('quoteSubmitBtn'); btn.disabled=true; btn.textContent='Sending...';
   const data=new FormData(form);
-  try { const res=await fetch('https://formsubmit.co/ajax/koaprodetail@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:data}); if(res.ok){form.style.display='none';document.getElementById('quoteSuccess').style.display='block';setTimeout(()=>{document.getElementById('quoteModal').classList.remove('open');setTimeout(()=>{form.style.display='';document.getElementById('quoteSuccess').style.display='none';form.reset();btn.disabled=false;btn.textContent='Request My Detail';},400);},3000);}else{throw new Error();} } catch{btn.disabled=false;btn.textContent='Request My Detail';alert('Something went wrong. Please call us at (843) 472-9045 or email koaprodetail@gmail.com');}
+  try { const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:data}); const json=await res.json(); if(json.success){form.style.display='none';document.getElementById('quoteSuccess').style.display='block';setTimeout(()=>{document.getElementById('quoteModal').classList.remove('open');setTimeout(()=>{form.style.display='';document.getElementById('quoteSuccess').style.display='none';form.reset();btn.disabled=false;btn.textContent='Request My Detail';},400);},3000);}else{throw new Error();} } catch{btn.disabled=false;btn.textContent='Request My Detail';alert('Something went wrong. Please call us at (843) 472-9045 or email koaprodetail@gmail.com');}
 }
 </script>
 
