@@ -711,11 +711,12 @@ async function handleQuoteSubmit(e) {
   const form = e.target;
   const btn = document.getElementById('quoteSubmitBtn');
   btn.disabled = true; btn.textContent = 'Sending...';
-  const data = new FormData(form);
+  const _fd = new FormData(form);
+  const payload = {};
+  for (const [k, v] of _fd.entries()) { if (k !== 'access_key') { payload[k] = payload[k] ? [].concat(payload[k], v) : v; } }
   try {
-    const res = await fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Accept':'application/json'}, body:data });
-    const json = await res.json();
-    if (json.success) {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/tglWabZ27t9YxkzbnmLE/webhook-trigger/64fe831f-a790-488b-8e68-522efbee7944', { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(payload) });
+    if (res.ok) {
       form.style.display = 'none';
       document.getElementById('quoteSuccess').style.display = 'block';
       setTimeout(() => {
