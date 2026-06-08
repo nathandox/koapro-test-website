@@ -214,7 +214,7 @@
       </h1>
       <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">Premium mobile ceramic coating — we bring the shine to you. A glass-hard, hydrophobic layer that protects your paint from UV, salt air, and contaminants for years, not weeks.</p>
       <div class="hero-cta-row" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:20px;">
-        <button class="btn-primary" style="padding:13px 32px;box-shadow:0 4px 28px rgba(59,189,245,0.35);">Get Instant Quote</button>
+        <button class="btn-primary" style="padding:13px 32px;box-shadow:0 4px 28px rgba(59,189,245,0.35);" onclick="document.getElementById('fielddModal').classList.add('open')">Get Instant Quote</button>
         <a href="tel:+18434729045" class="btn-white" style="padding:11px 24px;font-size:14px;">Call (843) 472-9045</a>
       </div>
       <a href="https://share.google/CMp6FzqSTZbBQArTv" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:40px;padding:8px 18px;backdrop-filter:blur(6px);">
@@ -266,7 +266,7 @@
           <li>Salt air &amp; contaminant barrier</li>
           <li>3-year protection warranty</li>
         </ul>
-        <button class="btn-primary" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;">Get a Quote</button>
+        <button class="btn-primary" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;" onclick="document.getElementById('fielddModal').classList.add('open')">Get a Quote</button>
       </div>
 
       <!-- 5-Year -->
@@ -287,7 +287,7 @@
           <li>Bug splatter &amp; tree sap repellent</li>
           <li>5-year protection warranty</li>
         </ul>
-        <button class="btn-primary" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;margin-top:auto;">Get a Quote</button>
+        <button class="btn-primary" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;margin-top:auto;" onclick="document.getElementById('fielddModal').classList.add('open')">Get a Quote</button>
       </div>
 
       <!-- 8-Year -->
@@ -307,11 +307,11 @@
           <li>Ceramic wheel &amp; glass coating</li>
           <li>8-year protection warranty</li>
         </ul>
-        <button class="btn-primary" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;">Get a Quote</button>
+        <button class="btn-primary" style="font-size:13px;padding:12px;text-align:center;display:block;width:100%;border-radius:4px;" onclick="document.getElementById('fielddModal').classList.add('open')">Get a Quote</button>
       </div>
     </div>
 
-    <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:28px;">Prices may vary by vehicle size and paint condition. <a href="#" style="color:rgba(255,255,255,0.4);text-decoration:underline;">Contact for a custom quote →</a></p>
+    <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:28px;">Prices may vary by vehicle size and paint condition. <a href="#" style="color:rgba(255,255,255,0.4);text-decoration:underline;" onclick="document.getElementById('fielddModal').classList.add('open');return false;">Contact for a custom quote →</a></p>
   </div>
 </section>
 
@@ -459,7 +459,7 @@ function toggleFaq(btn) {
     <h2 style="font-size:48px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:18px;">Protect Your Paint — For Years</h2>
     <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 44px;line-height:1.7;">We come to your driveway, office, or marina. No drop-off required.</p>
     <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:44px;">
-      <button class="btn-primary" style="padding:16px 40px;font-size:16px;">Get a Quote</button>
+      <button class="btn-primary" style="padding:16px 40px;font-size:16px;" onclick="document.getElementById('fielddModal').classList.add('open')">Get a Quote</button>
       <a href="tel:+18434729045" class="btn-white" style="padding:14px 38px;font-size:16px;">Call (843) 472-9045</a>
     </div>
     <div style="display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;">
@@ -568,7 +568,20 @@ function toggleFaq(btn) {
   </div>
 </footer>
 
-<fieldd-lead-form code="dCXAjo"></fieldd-lead-form>
+<!-- FIELDD MODAL -->
+<style>
+  #fielddModal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(7,14,24,0.72);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;}
+  #fielddModal.open{display:flex;}
+  #fielddModal .fm-box{background:#fff;border-radius:12px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;position:relative;}
+  #fielddModal .fm-close{position:absolute;top:10px;right:14px;background:none;border:none;font-size:24px;cursor:pointer;z-index:1;color:#22303e;line-height:1;padding:4px 8px;}
+  #fielddModal .fm-close:hover{color:#000;}
+</style>
+<div id="fielddModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="fm-box">
+    <button class="fm-close" onclick="document.getElementById('fielddModal').classList.remove('open')" aria-label="Close">&times;</button>
+    <fieldd-lead-form code="dCXAjo"></fieldd-lead-form>
+  </div>
+</div>
 <script type="text/javascript" src="https://fieldd.me/lead-form"></script>
 
 <script>
