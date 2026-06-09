@@ -111,26 +111,6 @@
     .footer-social-row { display:flex; gap:10px; margin-top:20px; }
     .footer-social-btn { display:flex; align-items:center; gap:7px; padding:8px 14px; border-radius:6px; background:var(--brand); border:1px solid var(--brand); color:#fff; text-decoration:none; font-size:12px; font-weight:500; transition:background 0.15s,color 0.15s,border-color 0.15s; }
     .footer-social-btn:hover { background:var(--brand-dark); border-color:var(--brand-dark); }
-    #quoteModal { display:none; position:fixed; inset:0; z-index:9999; background:rgba(7,14,24,0.72); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px; }
-    #quoteModal.open { display:flex; }
-    #quoteModal .modal-box { background:#fff; border-radius:12px; width:100%; max-width:520px; max-height:90vh; overflow-y:auto; padding:40px 36px 36px; position:relative; box-shadow:0 24px 72px rgba(7,14,24,0.4); animation:modalIn 0.22s ease; }
-    @keyframes modalIn { from { opacity:0; transform:translateY(18px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
-    #quoteModal .modal-close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; color:var(--muted); cursor:pointer; line-height:1; padding:4px 8px; border-radius:4px; transition:color 0.15s ease; }
-    #quoteModal .modal-close:hover { color:var(--navy); }
-    #quoteModal h3 { font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; color:var(--navy); margin-bottom:6px; }
-    #quoteModal .modal-sub { font-size:13px; color:var(--muted); margin-bottom:28px; }
-    .qf-label { display:block; font-size:13px; font-weight:600; color:var(--navy); margin-bottom:6px; }
-    .qf-label span { color:var(--brand); }
-    .qf-input { width:100%; border:1.5px solid #dde3ea; border-radius:6px; padding:11px 14px; font-family:'Poppins',sans-serif; font-size:14px; color:var(--navy); outline:none; transition:border-color 0.15s ease; margin-bottom:20px; }
-    .qf-input::placeholder { color:#aab3bc; }
-    .qf-input:focus { border-color:var(--brand); }
-    .qf-group { margin-bottom:20px; }
-    .qf-group-title { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:10px; }
-    .qf-check-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; cursor:pointer; }
-    .qf-check-row input[type="checkbox"] { width:17px; height:17px; accent-color:var(--brand); cursor:pointer; flex-shrink:0; }
-    .qf-check-row span { font-size:14px; color:var(--navy); }
-    #quoteModal .btn-submit { width:100%; margin-top:8px; padding:14px; font-size:15px; letter-spacing:0.06em; background:var(--navy); color:#fff; border:none; border-radius:6px; font-family:'Poppins',sans-serif; font-weight:700; text-transform:uppercase; cursor:pointer; transition:background 0.2s ease,transform 0.15s ease; }
-    #quoteModal .btn-submit:hover { background:#1a3348; transform:translateY(-1px); }
     @media (max-width:900px) { .pkg-grid { grid-template-columns:1fr 1fr !important; } .section-title { font-size:28px; } .hero h1 { font-size:42px !important; } .footer-grid { grid-template-columns:1fr 1fr; gap:32px; } }
     @media (max-width:600px) { .pkg-grid { grid-template-columns:1fr !important; } .hero h1 { font-size:32px !important; } .hamburger { display:flex; } .footer-grid { grid-template-columns:1fr; } }
     @media (max-width:600px) { .hide-sm { display:none !important; } }
@@ -645,90 +625,17 @@ function toggleFaq(btn) {
 <style>
   #quoteModal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(7,14,24,0.72);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;}
   #quoteModal.open{display:flex;}
-  #quoteModal .modal-box{background:#fff;border-radius:12px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;padding:40px 36px 36px;position:relative;box-shadow:0 24px 72px rgba(7,14,24,0.4);animation:modalIn 0.22s ease;}
+  #quoteModal .modal-box{background:#fff;border-radius:12px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;padding:0;position:relative;box-shadow:0 24px 72px rgba(7,14,24,0.4);animation:modalIn 0.22s ease;}
   @keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(0.98);}to{opacity:1;transform:translateY(0) scale(1);}}
-  #quoteModal .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;line-height:1;padding:4px 8px;border-radius:4px;transition:color 0.15s ease;}
-  #quoteModal .modal-close:hover{color:var(--navy);}
-  #quoteModal h3{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--navy);margin-bottom:6px;}
-  .modal-sub{font-size:13px;color:var(--muted);margin-bottom:28px;}
-  .qf-label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
-  .qf-label span{color:var(--brand);}
-  .qf-input{width:100%;border:1.5px solid #dde3ea;border-radius:6px;padding:11px 14px;font-family:'Poppins',sans-serif;font-size:14px;color:var(--navy);outline:none;transition:border-color 0.15s ease;margin-bottom:20px;}
-  .qf-input::placeholder{color:#aab3bc;}
-  .qf-input:focus{border-color:var(--brand);}
-  .qf-group{margin-bottom:20px;}
-  .qf-group-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px;}
-  .qf-check-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer;}
-  .qf-check-row input[type="checkbox"]{width:17px;height:17px;accent-color:var(--brand);cursor:pointer;flex-shrink:0;}
-  .qf-check-row span{font-size:14px;color:var(--navy);}
-  #quoteModal .btn-submit{width:100%;margin-top:8px;padding:14px;font-size:15px;letter-spacing:0.06em;background:var(--navy);color:#fff;border:none;border-radius:6px;font-family:'Poppins',sans-serif;font-weight:700;text-transform:uppercase;cursor:pointer;transition:background 0.2s ease,transform 0.15s ease;}
-  #quoteModal .btn-submit:hover{background:#1a3348;transform:translateY(-1px);}
+  #quoteModal .modal-close{position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.95);border:none;font-size:22px;color:#0d1b2a;cursor:pointer;line-height:1;padding:4px 10px;border-radius:6px;transition:color 0.15s ease;z-index:1;}
+  #quoteModal .modal-close:hover{color:#3BBDF5;}
 </style>
 <div id="quoteModal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="modal-box">
     <button class="modal-close" onclick="document.getElementById('quoteModal').classList.remove('open')" aria-label="Close">&times;</button>
-    <h3>Request a Quote</h3>
-    <p class="modal-sub">Fill out the form below and we'll get back to you shortly.</p>
-    <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
-      <input type="hidden" name="access_key" value="165b8d99-af8a-459d-b866-07d8f3986fe4" />
-      <input type="hidden" name="subject" value="New Quote Request — Koa Pro Detail" />
-      <input type="hidden" name="from_name" value="Koa Pro Detail Website" />
-            <label class="qf-label">Full Name<span>*</span></label>
-      <input class="qf-input" type="text" name="fullName" placeholder="Enter your full name" required />
-      <label class="qf-label">Phone<span>*</span></label>
-      <input class="qf-input" type="tel" name="phone" placeholder="Enter your phone number" required />
-      <label class="qf-label">Email<span>*</span></label>
-      <input class="qf-input" type="email" name="email" placeholder="Enter your email address" required />
-      <label class="qf-label">Make, Model, Year<span>*</span></label>
-      <input class="qf-input" type="text" name="vehicle" placeholder="e.g. Toyota, Land Cruiser, 2024" required />
-      <div class="qf-group">
-        <div class="qf-group-title">I'm interested in:</div>
-        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Ceramic Coating" /><span>Ceramic Coating</span></label>
-        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Paint Protection Film" /><span>Paint Protection Film</span></label>
-        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Paint Correction" /><span>Paint Correction</span></label>
-        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Interior/Exterior Detailing" /><span>Interior/Exterior Detailing</span></label>
-        <label class="qf-check-row"><input type="checkbox" name="Interested In" value="Aviation/Marine Detailing" /><span>Aviation/Marine Detailing</span></label>
-      </div>
-      <div class="qf-group">
-        <div class="qf-group-title">When would you like to schedule?</div>
-        <label class="qf-check-row"><input type="checkbox" name="When would you like to schedule?" value="ASAP (Next Available)" /><span>ASAP (Next Available)</span></label>
-        <label class="qf-check-row"><input type="checkbox" name="When would you like to schedule?" value="Within the Next 2 Weeks" /><span>Within the Next 2 Weeks</span></label>
-        <label class="qf-check-row"><input type="checkbox" name="When would you like to schedule?" value="Within the Next Month" /><span>Within the Next Month</span></label>
-        <label class="qf-check-row"><input type="checkbox" name="When would you like to schedule?" value="Specific Date" /><span>Specific Date</span></label>
-      </div>
-      <label class="qf-label">Service Location (City / Area)<span>*</span></label>
-      <input class="qf-input" type="text" name="location" placeholder="Raleigh, North Hills, Cary, etc." required />
-      <button type="submit" class="btn-submit" id="quoteSubmitBtn">Request My Detail</button>
-    </form>
-    <div id="quoteSuccess" style="display:none;text-align:center;padding:32px 0;">
-      <div style="font-size:40px;margin-bottom:16px;">&#10003;</div>
-      <h3 style="margin-bottom:8px;">We Got Your Request!</h3>
-      <p class="modal-sub" style="margin-bottom:0;">We'll be in touch shortly. Thanks for choosing Koa Pro Detail.</p>
-    </div>
+    <iframe src="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="1200px" width="100%"></iframe>
   </div>
 </div>
-<script>
-async function handleQuoteSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = document.getElementById('quoteSubmitBtn');
-  btn.disabled = true; btn.textContent = 'Sending...';
-  const _fd = new FormData(form);
-  const payload = {};
-  for (const [k, v] of _fd.entries()) { if (k !== 'access_key') { payload[k] = payload[k] ? [].concat(payload[k], v) : v; } }
-  try {
-    const res = await fetch('https://services.leadconnectorhq.com/hooks/tglWabZ27t9YxkzbnmLE/webhook-trigger/64fe831f-a790-488b-8e68-522efbee7944', { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(payload) });
-    if (res.ok) {
-      form.style.display = 'none';
-      document.getElementById('quoteSuccess').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('quoteModal').classList.remove('open');
-        setTimeout(() => { form.style.display=''; document.getElementById('quoteSuccess').style.display='none'; form.reset(); btn.disabled=false; btn.textContent='Request My Detail'; }, 400);
-      }, 3000);
-    } else { throw new Error(); }
-  } catch { btn.disabled=false; btn.textContent='Request My Detail'; alert('Something went wrong. Please call us at (843) 472-9045 or email koaprodetail@gmail.com'); }
-}
-</script>
 
 <script>
   (function() {
