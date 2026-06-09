@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | Koa Pro Detail — Mobile Detailing in Raleigh, NC</title>
-  <meta name="description" content="Contact Koa Pro Detail for mobile detailing in Raleigh, NC. Call (843) 472-9045, email us, or fill out our form. We come to you — no drop-off needed." />
+  <title>Contact Us | Koa Pro Detail — Mobile Detailing in Charleston, SC</title>
+  <meta name="description" content="Contact Koa Pro Detail for mobile detailing in Charleston, SC. Call (843) 472-9045, email us, or fill out our form. We come to you — no drop-off needed." />
   <link rel="canonical" href="https://koaprodetail.com/contact.html" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://koaprodetail.com/contact.html" />
@@ -105,7 +105,7 @@
 <!-- TOP BAR -->
 <div style="background:var(--navy);color:rgba(255,255,255,0.85);font-size:13px;font-weight:300;padding:9px 0;position:fixed;top:0;left:0;right:0;z-index:201;">
   <div style="max-width:1200px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
-    <span class="hide-sm">&#128205; Serving Raleigh, NC &amp; the Triangle</span>
+    <span class="hide-sm">&#128205; Serving Charleston, SC &amp; the Lowcountry Coast</span>
     <div style="display:flex;align-items:center;gap:20px;">
       <a href="tel:+18434729045" style="color:var(--brand);font-weight:600;text-decoration:none;font-size:13px;">(843) 472-9045</a>
       <a href="https://www.facebook.com/profile.php?id=61578723050985" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;transition:color 0.15s;" onmouseover="this.style.color='#3BBDF5'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
@@ -129,12 +129,12 @@
       <div class="nav-dropdown">
         <span class="nav-link nav-dropdown-btn">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
         <div class="nav-dropdown-menu">
-          <a href="raleigh.html">Raleigh</a>
-          <a href="north-hills.html">North Hills</a>
-          <a href="brier-creek.html">Brier Creek</a>
-          <a href="surrounding-areas.html">Surrounding Areas</a>
-          <a href="cary.html">Cary</a>
-          <a href="wake-forest.html">Wake Forest</a>
+          <a href="charleston.html">Charleston</a>
+          <a href="mount-pleasant.html">Mount Pleasant</a>
+          <a href="daniel-island.html">Daniel Island</a>
+          <a href="surrounding-islands.html">Surrounding Islands</a>
+          <a href="west-ashley.html">West Ashley</a>
+          <a href="summerville.html">Summerville</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -169,12 +169,12 @@
     <div class="mobile-sa-wrap">
       <button class="mobile-sa-btn" onclick="toggleServiceAreas(this)">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:4px;transition:transform 0.25s;"><polyline points="2,3 5,7 8,3"/></svg></button>
       <div class="mobile-sa-cities">
-        <a href="raleigh.html" onclick="closeMobileMenu()">Raleigh</a>
-        <a href="north-hills.html" onclick="closeMobileMenu()">North Hills</a>
-        <a href="brier-creek.html" onclick="closeMobileMenu()">Brier Creek</a>
-        <a href="surrounding-areas.html" onclick="closeMobileMenu()">Surrounding Areas</a>
-        <a href="cary.html" onclick="closeMobileMenu()">Cary</a>
-        <a href="wake-forest.html" onclick="closeMobileMenu()">Wake Forest</a>
+        <a href="charleston.html" onclick="closeMobileMenu()">Charleston</a>
+        <a href="mount-pleasant.html" onclick="closeMobileMenu()">Mount Pleasant</a>
+        <a href="daniel-island.html" onclick="closeMobileMenu()">Daniel Island</a>
+        <a href="surrounding-islands.html" onclick="closeMobileMenu()">Surrounding Islands</a>
+        <a href="west-ashley.html" onclick="closeMobileMenu()">West Ashley</a>
+        <a href="summerville.html" onclick="closeMobileMenu()">Summerville</a>
       </div>
     </div>
     <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
@@ -206,7 +206,7 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-content" style="max-width:1200px;margin:0 auto;padding:52px 28px;width:100%;">
     <div style="text-align:center;">
-      <p class="hero-eyebrow" style="margin:0 auto 14px;">Koa Pro Detail · Raleigh, NC</p>
+      <p class="hero-eyebrow" style="margin:0 auto 14px;">Koa Pro Detail · Charleston, SC</p>
       <h1 style="font-size:64px;font-weight:600;color:#fff;line-height:1.0em;letter-spacing:-0.025em;margin-bottom:20px;text-shadow:0 2px 60px rgba(0,0,0,0.25);">
         GET IN TOUCH<br><span style="color:var(--brand);text-shadow:0 0 80px rgba(59,189,245,0.5);">WE'RE HERE TO HELP</span>
       </h1>
@@ -230,7 +230,64 @@
         <h2 class="section-title" style="margin-bottom:10px;">Request a Free Quote</h2>
         <p class="section-sub" style="margin-bottom:36px;">Fill out the form and we'll get back to you with pricing — usually same day.</p>
 
-        <iframe src="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="1200px" width="100%"></iframe>
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+          <input type="hidden" name="access_key" value="165b8d99-af8a-459d-b866-07d8f3986fe4" />
+          <input type="hidden" name="subject" value="New Quote Request — Koa Pro Detail" />
+          <input type="hidden" name="from_name" value="Koa Pro Detail Website" />
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;" class="cf-name-row">
+            <div>
+              <label class="cf-label">Full Name<span>*</span></label>
+              <input class="cf-input" type="text" name="fullName" placeholder="Your full name" required />
+            </div>
+            <div>
+              <label class="cf-label">Phone<span>*</span></label>
+              <input class="cf-input" type="tel" name="phone" placeholder="(843) 000-0000" required />
+            </div>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label class="cf-label">Email<span>*</span></label>
+            <input class="cf-input" type="email" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label class="cf-label">Vehicle (Make, Model, Year)<span>*</span></label>
+            <input class="cf-input" type="text" name="vehicle" placeholder="e.g. Toyota Land Cruiser 2024" required />
+          </div>
+
+          <div class="cf-group">
+            <label class="cf-label">I'm interested in:</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:4px;">
+              <label class="cf-check-row"><input type="checkbox" name="Interested In" value="Auto Detailing" /><span>Auto Detailing</span></label>
+              <label class="cf-check-row"><input type="checkbox" name="Interested In" value="Ceramic Coating" /><span>Ceramic Coating</span></label>
+              <label class="cf-check-row"><input type="checkbox" name="Interested In" value="Paint Protection Film" /><span>Paint Protection Film</span></label>
+              <label class="cf-check-row"><input type="checkbox" name="Interested In" value="Paint Correction" /><span>Paint Correction</span></label>
+              <label class="cf-check-row"><input type="checkbox" name="Interested In" value="Marine Detailing" /><span>Marine Detailing</span></label>
+              <label class="cf-check-row"><input type="checkbox" name="Interested In" value="Not Sure Yet" /><span>Not Sure Yet</span></label>
+            </div>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label class="cf-label">Service Location (City / Area)<span>*</span></label>
+            <input class="cf-input" type="text" name="location" placeholder="e.g. Mount Pleasant, Daniel Island…" required />
+          </div>
+
+          <div style="margin-bottom:28px;">
+            <label class="cf-label">Message <span style="font-weight:400;color:var(--muted);">(optional)</span></label>
+            <textarea class="cf-input" name="message" placeholder="Tell us anything else we should know — vehicle condition, preferred dates, questions, etc."></textarea>
+          </div>
+
+          <button type="submit" id="contactSubmitBtn" class="btn-primary" style="width:100%;padding:16px;font-size:15px;letter-spacing:0.06em;text-align:center;">Request My Quote</button>
+        </form>
+
+        <div id="contactSuccess" style="display:none;text-align:center;padding:52px 0;">
+          <div style="width:60px;height:60px;background:rgba(59,189,245,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:8px;">Message Sent!</h3>
+          <p style="font-size:15px;font-weight:300;color:var(--muted);">We'll be in touch shortly. Thanks for choosing Koa Pro Detail.</p>
+        </div>
       </div>
 
       <!-- RIGHT: CONTACT INFO -->
@@ -269,8 +326,8 @@
             </div>
             <div>
               <p style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Hours</p>
-              <p style="font-size:16px;font-weight:700;color:var(--navy);">7 AM – 7 PM</p>
-              <p style="font-size:13px;font-weight:300;color:var(--muted);margin-top:3px;">By Appointment Only</p>
+              <p style="font-size:16px;font-weight:700;color:var(--navy);">Monday – Sunday</p>
+              <p style="font-size:13px;font-weight:300;color:var(--muted);margin-top:3px;">Open 7 Days a Week &nbsp;·&nbsp; Appointment Only</p>
             </div>
           </div>
 
@@ -281,16 +338,12 @@
             <div>
               <p style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Service Areas</p>
               <div style="display:flex;flex-wrap:wrap;gap:6px;">
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Raleigh</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Cary</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Wake Forest</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Apex</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Chapel Hill</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Holly Springs</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Morrisville</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Wendell</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Clayton</span>
-                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Fuquay-Varina</span>
+                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Charleston</span>
+                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Mount Pleasant</span>
+                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Daniel Island</span>
+                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">West Ashley</span>
+                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Summerville</span>
+                <span style="font-size:12px;font-weight:500;background:var(--light-bg);color:var(--navy);padding:4px 10px;border-radius:20px;">Surrounding Islands</span>
               </div>
             </div>
           </div>
@@ -328,7 +381,7 @@
     <div class="footer-grid">
       <div>
         <img src="brand_assets/Updated Logo.png" alt="Koa Pro Detail" style="height:140px;width:auto;margin-bottom:14px;opacity:0.95;" />
-        <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.65;max-width:240px;margin-bottom:20px;">Raleigh's premier mobile detailing service — brought directly to you.</p>
+        <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.65;max-width:240px;margin-bottom:20px;">Charleston's premier mobile detailing service — brought directly to you.</p>
         <div class="footer-social-row">
           <a href="https://www.instagram.com/koaprodetail" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://www.facebook.com/profile.php?id=61578723050985" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -368,24 +421,39 @@
       <div>
         <p class="footer-col-title">Service Areas</p>
         <ul class="footer-list">
-          <li><a href="raleigh.html">Luxury car detailing in Raleigh, NC</a></li>
-          <li><a href="north-hills.html">Mobile ceramic coating in North Hills</a></li>
-          <li><a href="brier-creek.html">High-end detailing in Brier Creek</a></li>
-          <li><a href="cary.html">Paint correction in Cary, NC</a></li>
-          <li><a href="wake-forest.html">Mobile car detailing in Wake Forest</a></li>
-          <li><a href="surrounding-areas.html">Premium detailing in Apex, NC</a></li>
-          <li><a href="surrounding-areas.html">Luxury detailing in Chapel Hill, NC</a></li>
-          <li><a href="surrounding-areas.html">Car detailing in Holly Springs, NC</a></li>
-          <li><a href="surrounding-areas.html">High-caliber detailing in Morrisville</a></li>
-          <li><a href="surrounding-areas.html">Luxury auto detailing in Fuquay-Varina</a></li>
+          <li><a href="charleston.html">Charleston</a></li>
+          <li><a href="mount-pleasant.html">Mount Pleasant</a></li>
+          <li><a href="daniel-island.html">Daniel Island</a></li>
+          <li><a href="west-ashley.html">West Ashley</a></li>
+          <li><a href="summerville.html">Summerville</a></li>
+          <li><a href="surrounding-islands.html">Surrounding Islands</a></li>
         </ul>
       </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;text-align:center;">
-      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.28);margin:0;">&copy; 2026 Koa Pro Detail. All rights reserved. &nbsp;&bull;&nbsp; Mobile Detailing &bull; Raleigh, NC &amp; the Triangle</p>
+      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.28);margin:0;">&copy; 2026 Koa Pro Detail. All rights reserved. &nbsp;&bull;&nbsp; Mobile Detailing &bull; Charleston, SC &amp; the Lowcountry</p>
     </div>
   </div>
 </footer>
+
+<script>
+async function handleContactSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('contactSubmitBtn');
+  btn.disabled = true; btn.textContent = 'Sending...';
+  const _fd = new FormData(form);
+  const payload = {};
+  for (const [k, v] of _fd.entries()) { if (k !== 'access_key') { payload[k] = payload[k] ? [].concat(payload[k], v) : v; } }
+  try {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/tglWabZ27t9YxkzbnmLE/webhook-trigger/64fe831f-a790-488b-8e68-522efbee7944', { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(payload) });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    } else { throw new Error(); }
+  } catch { btn.disabled=false; btn.textContent='Request My Quote'; alert('Something went wrong. Please call us at (843) 472-9045 or email koaprodetail@gmail.com'); }
+}
+</script>
 
 <script>
   (function() {
