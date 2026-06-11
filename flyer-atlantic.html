@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Koa Pro Detail × Atlantic Nowell Creek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { background: #D4D0C8; }
+
+    .flyer {
+      width: 850px;
+      height: 1100px;
+      background: #F5F0E8;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: #0d1627;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      height: 96px;
+      flex-shrink: 0;
+    }
+
+    .atlantic-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .atlantic-logo {
+      height: 60px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .header-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      padding: 0 28px;
+    }
+
+    .header-vline {
+      width: 1px;
+      height: 20px;
+      background: rgba(210, 220, 248, 0.2);
+    }
+
+    .header-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(220, 228, 255, 0.8);
+      text-align: center;
+      line-height: 1.55;
+      white-space: nowrap;
+    }
+
+    .koa-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .koa-logo {
+      height: 90px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 252px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .hero > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 65%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.0) 0%,
+        rgba(0,0,0,0.10) 45%,
+        rgba(0,0,0,0.52) 100%
+      );
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 28px;
+      left: 38px;
+      right: 38px;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C9A96A;
+      margin-bottom: 8px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.15;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    }
+
+    /* ─── BODY ─── */
+    .body {
+      flex: 1;
+      padding: 22px 36px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* ─── MIDDLE GRID: About | Why Residents ─── */
+    .middle-row {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 22px;
+      height: 460px;
+      flex-shrink: 0;
+    }
+
+    .about-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+      border-radius: 7px;
+      display: block;
+    }
+
+    .about-text-overlay {
+      display: contents;
+    }
+
+    .section-label {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #1C85E8;
+      margin-bottom: 5px;
+    }
+
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #1A1A1A;
+      line-height: 1.3;
+    }
+
+    .about-body {
+      font-size: 11.5px;
+      line-height: 1.72;
+      color: #2A2A2A;
+      font-weight: 400;
+    }
+
+    /* ─── WHY COLUMN ─── */
+    .why-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: #EDEAE2;
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+
+    .why-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin-bottom: 12px;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #1A1A1A;
+      line-height: 1.45;
+    }
+
+    .why-check {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: #1C85E8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .why-check svg {
+      width: 9px;
+      height: 9px;
+    }
+
+    .why-quote {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(28, 133, 232, 0.2);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 11.5px;
+      color: #333333;
+      line-height: 1.62;
+    }
+
+    .google-badge {
+      margin-top: 13px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(28, 133, 232, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .google-stars {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .google-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #444;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── SERVICES CHIPS (horizontal strip) ─── */
+    .services-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    .services-strip-label {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1C85E8;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+
+    .service-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EDEAE2;
+      border: 1px solid rgba(28, 133, 232, 0.25);
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1A1A1A;
+      white-space: nowrap;
+    }
+
+    .chip-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #C9A96A;
+      flex-shrink: 0;
+    }
+
+    .mobile-chip {
+      background: #0d1627;
+      border-color: #0d1627;
+      color: rgba(220, 228, 255, 0.9);
+    }
+
+    .mobile-chip .chip-dot {
+      background: #C9A96A;
+    }
+
+    /* ─── DISCOUNT BAR ─── */
+    .discount-bar {
+      background: #1A1A1A;
+      border-radius: 8px;
+      padding: 17px 24px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-shrink: 0;
+    }
+
+    .discount-text { flex: 1; }
+
+    .discount-eyebrow {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C9A96A;
+      margin-bottom: 4px;
+    }
+
+    .discount-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 3px;
+    }
+
+    .discount-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.55;
+    }
+
+    .code-pill {
+      background: #C9A96A;
+      border-radius: 7px;
+      padding: 10px 22px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .code-label {
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.62);
+      margin-bottom: 2px;
+    }
+
+    .code-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1A1A1A;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── FOOTER ROW ─── */
+    .footer-row {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-shrink: 0;
+    }
+
+    .qr-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .qr-img {
+      width: 82px;
+      height: 82px;
+      border-radius: 6px;
+      border: none;
+      background: #FFFFFF;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .qr-info { display: flex; flex-direction: column; gap: 2px; }
+
+    .qr-eyebrow {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1C85E8;
+    }
+
+    .qr-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #1A1A1A;
+    }
+
+    .qr-sub {
+      font-size: 10.5px;
+      color: #5A5A5A;
+    }
+
+    .footer-vline {
+      width: 1px;
+      height: 54px;
+      background: #D8D4CC;
+      flex-shrink: 0;
+    }
+
+    .contact-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #2A2A2A;
+    }
+
+    .contact-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #C9A96A;
+      flex-shrink: 0;
+    }
+
+    .contact-strong {
+      font-weight: 700;
+      color: #1A1A1A;
+    }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      html, body { background: none; margin: 0; }
+      .flyer { box-shadow: none; }
+      @page { size: letter; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="flyer">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="atlantic-wrap">
+      <img class="atlantic-logo"
+           src="http://localhost:3000/atlantic-logo.png"
+           alt="Atlantic Nowell Creek">
+    </div>
+    <div class="header-divider">
+      <div class="header-vline"></div>
+      <div class="header-badge">Exclusive<br>Resident Benefit</div>
+      <div class="header-vline"></div>
+    </div>
+    <div class="koa-wrap">
+      <img class="koa-logo"
+           src="http://localhost:3000/koa-logo-transparent.png"
+           alt="Koa Pro Detail">
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="http://localhost:3000/g%20wagon%20charleston.PNG" alt="Mercedes G-Wagon Detail">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <div class="hero-headline">Luxury Detailing<br>for Atlantic Residents</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- ABOUT + WHY RESIDENTS -->
+    <div class="middle-row">
+
+      <!-- About -->
+      <div class="about-col">
+        <img class="about-photo"
+             src="http://localhost:3000/nathan-koa-photo6.png"
+             alt="Nathan and Koa">
+        <div class="about-text-overlay">
+          <div class="about-heading">Meet Nathan &amp; Koa</div>
+          <div class="about-body">
+            Koa Pro Detail is a premium mobile detailing service serving Atlantic Nowell Creek. Named after Nathan's rescue dog, Koa—who comes to every job—we bring professional detailing directly to your parking spot. No drop-offs, no waiting rooms—just a spotless vehicle, every time.
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Residents Love Us -->
+      <div class="why-col">
+        <div class="section-label">Why Residents Love Us</div>
+        <div class="why-heading">The Koa Difference</div>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-check">
+              <svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Fully mobile — we come to your parking spot</span>
+          </div>
+          <div class="why-item">
+            <div class="why-check">
+              <svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Book online in under 60 seconds</span>
+          </div>
+          <div class="why-item">
+            <div class="why-check">
+              <svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Premium products &amp; professional equipment</span>
+          </div>
+          <div class="why-item">
+            <div class="why-check">
+              <svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Licensed, insured &amp; locally owned</span>
+          </div>
+          <div class="why-item">
+            <div class="why-check">
+              <svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Owner-operated — Nathan handles every job</span>
+          </div>
+        </div>
+        <div class="google-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <div class="google-stars">
+            <span style="color:#F9AB00;font-size:13px;letter-spacing:1px;">★★★★★</span>
+            <span class="google-label">5-Star Rated on Google</span>
+          </div>
+        </div>
+        <div class="why-quote">
+          "We come to your parking spot, so you don't have to spend your weekend at a car wash."
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES CHIPS -->
+    <div class="services-strip">
+      <span class="services-strip-label">Services</span>
+      <div class="service-chip"><div class="chip-dot"></div>Interior Detail</div>
+      <div class="service-chip"><div class="chip-dot"></div>Exterior Detail</div>
+      <div class="service-chip"><div class="chip-dot"></div>Paint Correction</div>
+      <div class="service-chip"><div class="chip-dot"></div>Ceramic Coating</div>
+      <div class="service-chip"><div class="chip-dot"></div>Marine Detailing</div>
+    </div>
+
+    <!-- DISCOUNT BAR -->
+    <div class="discount-bar">
+      <div class="discount-text">
+        <div class="discount-eyebrow">Atlantic Nowell Creek Resident Exclusive</div>
+        <div class="discount-headline">$35 Off Your First Detail</div>
+        <div class="discount-sub">Valid for all Atlantic Nowell Creek residents. Book online or scan the QR code to get started.</div>
+      </div>
+      <div class="code-pill">
+        <div class="code-label">Use Code</div>
+        <div class="code-value">ATLANTIC35</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-row">
+      <div class="qr-block">
+        <img class="qr-img"
+             src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fapp.urable.com%2Fvirtual-shop%2Fw4wNh0LRbxnCwDWP9tbr&bgcolor=FFFFFF&color=0d1627&qzone=2"
+             alt="Book Now QR Code">
+        <div class="qr-info">
+          <div class="qr-eyebrow">Scan to Book</div>
+          <div class="qr-title">Book in Under 60 Seconds</div>
+          <div class="qr-sub">View services, pricing &amp; availability</div>
+        </div>
+      </div>
+      <div class="footer-vline"></div>
+      <div class="contact-col">
+        <div class="section-label">Get in Touch</div>
+        <div class="contact-row"><div class="contact-dot"></div><span class="contact-strong">koaprodetail.com</span></div>
+        <div class="contact-row"><div class="contact-dot"></div><span class="contact-strong">(571) 850-2351</span></div>
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-right:2px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#1C85E8" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="#1C85E8" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#1C85E8" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="contact-strong">@koaprodetail</span>
+        </div>
+        <div class="contact-row"><div class="contact-dot"></div><span>Serving Daniel Island &amp; surrounding areas</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
