@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate & Fleet Detailing | Koa Pro Detail — Northern Virginia</title>
+  <meta name="description" content="Koa Pro Detail offers tailored corporate fleet detailing programs across Northern Virginia. Volume discounts, dedicated account management, and on-site mobile service for businesses of all sizes." />
+  <link rel="canonical" href="https://koaprodetail.com/corporate-fleet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand:       #3BBDF5;
+      --brand-dark:  #1a9fd6;
+      --navy:        #0d1b2a;
+      --navy-mid:    #12263a;
+      --navy-light:  #1a3348;
+      --light-bg:    #F3F5F8;
+      --text:        #0d1b2a;
+      --muted:       #5a6a7a;
+      --gold:        #F8CF7F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Buttons ── */
+    @keyframes btn-glow {
+      from { box-shadow: 0 0 8px rgba(59,189,245,0.55), 0 0 18px rgba(59,189,245,0.25), 0 2px 8px rgba(0,0,0,0.3); }
+      to   { box-shadow: 0 0 18px rgba(59,189,245,0.85), 0 0 36px rgba(59,189,245,0.4), 0 2px 8px rgba(0,0,0,0.3); }
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      animation: btn-glow 1.8s ease-in-out infinite alternate;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-primary:hover  { background: var(--brand-dark); transform: translateY(-2px); animation: none; }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+
+    .btn-white {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      border: 2px solid rgba(255,255,255,0.75);
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-white:hover  { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-2px); }
+    .btn-white:active { transform: translateY(0); }
+    .btn-white:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    /* ── Nav ── */
+    .nav-link {
+      font-size: 15px; font-weight: 500; color: #fff;
+      text-decoration: none; text-transform: capitalize;
+      transition: color 0.15s;
+    }
+    .nav-link:hover { color: var(--brand); }
+    #main-nav.scrolled .nav-link { color: var(--navy); }
+    .nav-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 2px; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border-radius: 8px; box-shadow: 0 8px 40px rgba(13,27,42,0.15); padding: 20px 0 8px; min-width: 210px; display: none; z-index: 300; border: 1px solid rgba(0,0,0,0.06); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; font-weight: 500; color: var(--navy); text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: var(--light-bg); color: var(--brand); }
+    .nav-dropdown-btn { display: flex; align-items: center; gap: 5px; cursor: default; }
+
+    /* ── Sticky nav ── */
+    #main-nav {
+      position: fixed; top: 35px; left: 0; right: 0; z-index: 200;
+      background: transparent; box-shadow: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #main-nav.scrolled { background: #fff; box-shadow: 0 2px 16px rgba(13,27,42,0.09); }
+
+    /* ── Section titles ── */
+    .section-title { font-size: 36px; font-weight: 600; line-height: 1.1em; letter-spacing: 0px; text-transform: capitalize; color: var(--navy); }
+    .section-sub { font-size: 16px; font-weight: 300; line-height: 1.6; color: var(--muted); }
+    .brand-line { display: inline-block; width: 48px; height: 3px; background: var(--brand); border-radius: 2px; margin-bottom: 20px; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; min-height: 520px; display: flex; align-items: center;
+      background: var(--navy); overflow: hidden;
+    }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: 0.55; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(7,14,24,0.92) 30%, rgba(7,14,24,0.3) 100%),
+                  linear-gradient(to top, rgba(7,14,24,0.7) 0%, transparent 60%),
+                  linear-gradient(to bottom, rgba(7,14,24,0.6) 0%, transparent 25%);
+    }
+    .hero-content { position: relative; z-index: 3; }
+
+    /* ── Mobile nav ── */
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--brand); border-radius: 2px; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 600px) { .hamburger { display: flex; } }
+    .mobile-menu { display: none; flex-direction: column; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 28px 24px; gap: 4px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 15px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .mobile-menu a:last-child { border-bottom: none; margin-top: 8px; }
+    .mobile-menu .btn-primary { text-align: center; padding: 14px; border-radius: 8px; font-size: 15px; }
+    @media(max-width:600px){ #main-nav > div > a > img { height:76px !important; } }
+    .mobile-sa-btn { display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0;color:rgba(255,255,255,0.8);font-size:15px;font-weight:500;cursor:pointer;font-family:inherit; }
+    .mobile-sa-cities { display:none;flex-direction:column; }
+    .mobile-sa-cities a { padding-left:14px;font-size:14px; }
+    .hide-sm { display: initial; }
+    .show-sm { display: none; }
+    @media(max-width:600px){
+      .hide-sm { display: none !important; }
+      .show-sm { display: flex !important; }
+      .hero { min-height: 320px !important; padding-top: 110px !important; }
+      .hero h1 { font-size: 34px !important; }
+    }
+
+    /* ── Program cards ── */
+    .prog-card {
+      background: #0d1b2a;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 36px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s ease, transform 0.2s ease;
+    }
+    .prog-card:hover { border-color: rgba(59,189,245,0.35); transform: translateY(-3px); }
+    .prog-card .check-item {
+      display: flex; align-items: flex-start; gap: 11px;
+      font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.78);
+      line-height: 1.5; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .prog-card .check-item:last-of-type { border-bottom: none; }
+    .check-icon { flex-shrink: 0; margin-top: 2px; color: var(--brand); }
+
+    /* ── Industries grid ── */
+    .industry-card {
+      background: #0d1b2a;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .industry-card:hover { border-color: rgba(59,189,245,0.4); transform: translateY(-3px); }
+
+    /* ── FAQ ── */
+    .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+    .faq-btn { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; text-align: left; gap: 16px; }
+    .faq-question { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .faq-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--light-bg); display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
+    .faq-icon svg { transition: transform 0.3s ease; }
+    .faq-btn[aria-expanded="true"] .faq-icon { background: var(--brand); }
+    .faq-btn[aria-expanded="true"] .faq-icon svg { transform: rotate(45deg); stroke: #fff; }
+    .faq-body { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+    .faq-body.open { max-height: 400px; }
+    .faq-answer { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.75; padding-bottom: 22px; max-width: 680px; }
+
+    /* ── Reviews ── */
+    .reviews-track { display: flex; gap: 20px; width: max-content; animation: reviewsScroll 36s linear infinite; }
+    .reviews-track:hover { animation-play-state: paused; }
+    @keyframes reviewsScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .review-card { background: #fff; border-radius: 10px; padding: 28px 26px; width: 320px; flex-shrink: 0; box-shadow: 0 2px 20px rgba(13,27,42,0.07); text-align: left; }
+    .review-stars { color: #FBBC05; font-size: 15px; letter-spacing: 1px; }
+
+    /* ── Footer ── */
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-col-title { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .footer-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .footer-list li { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    .footer-list a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.15s; }
+    .footer-list a:hover { color: var(--brand); }
+    .footer-social-row { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-social-btn { display: flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 6px; background: var(--brand); border: 1px solid var(--brand); color: #fff; text-decoration: none; font-size: 12px; font-weight: 500; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+    .footer-social-btn:hover { background: var(--brand-dark); }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .prog-grid { grid-template-columns: 1fr !important; }
+      .benefits-grid { grid-template-columns: 1fr !important; }
+      .industry-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .industry-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      section { padding-top: 52px !important; padding-bottom: 52px !important; }
+    }
+
+    /* ── Leaflet map ── */
+    .pin-wrapper { position: relative; width: 20px; height: 20px; }
+    .pin-dot { width: 10px; height: 10px; background: #76caff; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; box-shadow: 0 0 6px rgba(118,202,255,0.8); }
+    .pin-pulse { width: 10px; height: 10px; background: rgba(118,202,255,0.5); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); animation: pinPulse 2s ease-out infinite; z-index: 1; }
+    @keyframes pinPulse { 0% { transform: translate(-50%,-50%) scale(1); opacity: 0.7; } 100% { transform: translate(-50%,-50%) scale(4); opacity: 0; } }
+    .leaflet-popup-content-wrapper { background: #0d1a2b; border: 1px solid rgba(118,202,255,0.3); border-radius: 8px; box-shadow: none; }
+    .leaflet-popup-content { color: #fff; font-size: 13px; font-weight: 600; margin: 8px 14px; }
+    .leaflet-popup-tip { background: #0d1a2b; }
+    @keyframes pinFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-7px); } }
+    .map-pin { animation: pinFloat 2.4s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ TOP BAR ═══════════════════ -->
+<div style="background:var(--navy); color:rgba(255,255,255,0.85); font-size:13px; font-weight:300; padding:9px 0; position:fixed; top:0; left:0; right:0; z-index:201;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <span class="hide-sm">&#128205; Serving Northern Virginia — Loudoun &amp; Fairfax County</span>
+    <div style="display:flex; align-items:center; gap:20px;">
+      <a href="tel:+15718502351" style="color:var(--brand); font-weight:600; text-decoration:none; font-size:13px;">(571) 850-2351</a>
+      <a href="https://www.facebook.com/profile.php?id=61578723050985" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.7); text-decoration:none; display:flex; align-items:center; transition:color 0.15s;" onmouseover="this.style.color='#3BBDF5'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/koaprodetail" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(255,255,255,0.7); text-decoration:none; display:flex; align-items:center; transition:color 0.15s;" onmouseover="this.style.color='#3BBDF5'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px; display:flex; justify-content:space-between; align-items:center; height:80px;">
+    <a href="index.html" style="display:flex; align-items:center; text-decoration:none; flex-shrink:0;">
+      <img src="brand_assets/Updated Logo.png" alt="Koa Pro Detail" style="height:96px; width:auto;" />
+    </a>
+    <div style="display:flex; align-items:center; gap:32px;" class="hide-sm">
+      <a href="about.html" class="nav-link">About</a>
+      <div class="nav-dropdown">
+        <span class="nav-link nav-dropdown-btn">Service Areas <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top:1px;"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a href="leesburg.html">Leesburg</a>
+          <a href="ashburn.html">Ashburn</a>
+          <a href="mclean.html">McLean</a>
+          <a href="great-falls.html">Great Falls</a>
+          <a href="middleburg.html">Middleburg</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <span class="nav-link nav-dropdown-btn">Services &amp; Pricing <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a href="auto-detailing.html">Auto Detailing</a>
+          <a href="ceramic-coating.html">Ceramic Coating</a>
+          <a href="paint-protection-film.html">Paint Protection Film</a>
+          <a href="paint-correction.html">Paint Correction</a>
+          <a href="marine-detailing.html">Marine Detailing</a>
+          <a href="aviation-detailing.html">Aviation Detailing</a>
+        </div>
+      </div>
+      <a href="corporate-fleet.html" class="nav-link" style="color:var(--brand);">Corporate</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" target="_blank" rel="noopener" class="btn-primary" style="padding:11px 26px;font-size:14px;">Book Online</a>
+    </div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="about.html">About</a>
+    <div class="mobile-sa-wrap">
+      <button class="mobile-sa-btn" onclick="toggleMobileMenu(this)">Services &amp; Pricing <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:4px;transition:transform 0.25s;"><polyline points="2,3 5,7 8,3"/></svg></button>
+      <div class="mobile-sa-cities">
+        <a href="auto-detailing.html">Auto Detailing</a>
+        <a href="ceramic-coating.html">Ceramic Coating</a>
+        <a href="paint-protection-film.html">Paint Protection Film</a>
+        <a href="paint-correction.html">Paint Correction</a>
+        <a href="marine-detailing.html">Marine Detailing</a>
+        <a href="aviation-detailing.html">Aviation Detailing</a>
+      </div>
+    </div>
+    <a href="corporate-fleet.html" style="color:var(--brand) !important;">Corporate &amp; Fleet</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" target="_blank" rel="noopener" class="btn-primary">Book Now</a>
+  </div>
+</nav>
+<script>
+  const hamburger = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function toggleMobileMenu(btn) {
+    var d = btn.nextElementSibling; var s = btn.querySelector('svg');
+    var open = d.style.display === 'flex';
+    document.querySelectorAll('.mobile-sa-cities').forEach(dd => dd.style.display = 'none');
+    document.querySelectorAll('.mobile-sa-btn svg').forEach(ss => ss.style.transform = '');
+    if (!open) { d.style.display = 'flex'; s.style.transform = 'rotate(180deg)'; }
+  }
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" style="padding-top:115px;">
+  <img src="r8nate.jpg" alt="Corporate fleet detailing" class="hero-img" />
+  <div class="hero-overlay"></div>
+  <!-- Grain texture -->
+  <div style="position:absolute;inset:0;opacity:0.04;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E\");background-size:200px;z-index:2;pointer-events:none;mix-blend-mode:screen;"></div>
+  <!-- Glow -->
+  <div style="position:absolute;left:-180px;top:50%;transform:translateY(-50%);width:860px;height:620px;background:radial-gradient(ellipse at center,rgba(59,189,245,0.10) 0%,rgba(59,189,245,0.04) 45%,transparent 70%);z-index:1;pointer-events:none;"></div>
+
+  <div class="hero-content" style="max-width:1200px; margin:0 auto; padding:80px 28px 72px; width:100%;">
+    <div style="max-width:680px; position:relative; z-index:3;">
+
+      <p style="display:inline-flex; align-items:center; gap:9px; font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--brand); margin-bottom:16px; padding:6px 15px; border-radius:40px; border:1px solid rgba(59,189,245,0.35); background:rgba(59,189,245,0.08);">
+        Volume Discounts &bull; Dedicated Account Management
+      </p>
+
+      <h1 style="font-size:62px; font-weight:800; color:#fff; line-height:1.04; letter-spacing:-0.025em; margin-bottom:20px; text-shadow:0 2px 60px rgba(0,0,0,0.25);">
+        CORPORATE &amp;<br><span style="color:var(--brand); text-shadow:0 0 80px rgba(59,189,245,0.55),0 0 30px rgba(59,189,245,0.3);">FLEET SERVICES</span>
+      </h1>
+
+      <p style="font-size:16px; font-weight:300; color:rgba(255,255,255,0.78); line-height:1.7; margin-bottom:32px; max-width:520px;">
+        Tailored detailing programs for businesses of all sizes — from executive vehicle care to full fleet maintenance. We come to you, every time.
+      </p>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <a href="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" target="_blank" rel="noopener" class="btn-primary" style="padding:14px 34px; font-size:14px; letter-spacing:0.07em;">
+          Request Fleet Quote
+        </a>
+        <a href="tel:+15718502351" class="btn-white" style="padding:12px 26px; font-size:14px; display:inline-flex; align-items:center; gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (571) 850-2351
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div style="display:flex; align-items:center; margin-top:36px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; row-gap:12px;">
+        <div style="padding:0 24px; border-right:1px solid rgba(255,255,255,0.12); flex-shrink:0;">
+          <span style="display:block; font-size:22px; font-weight:800; color:#fff; letter-spacing:-0.03em; line-height:1; margin-bottom:3px;">115+</span>
+          <span style="display:block; font-size:9px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.4);">5-Star Reviews</span>
+        </div>
+        <div style="padding:0 24px; border-right:1px solid rgba(255,255,255,0.12); flex-shrink:0; padding-left:24px;">
+          <span style="display:block; font-size:22px; font-weight:800; color:#fff; letter-spacing:-0.03em; line-height:1; margin-bottom:3px;">30%</span>
+          <span style="display:block; font-size:9px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Fleet Discounts</span>
+        </div>
+        <div style="padding:0 24px; flex-shrink:0;">
+          <span style="display:block; font-size:22px; font-weight:800; color:#fff; letter-spacing:-0.03em; line-height:1; margin-bottom:3px;">100%</span>
+          <span style="display:block; font-size:9px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Mobile — We Come to You</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROGRAMS INTRO ═══════════════════ -->
+<section style="padding:80px 0 0; background:#070e18;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px; text-align:center;">
+    <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand); margin-bottom:14px;">Tailored for Your Business</p>
+    <h2 style="font-size:42px; font-weight:800; color:#fff; letter-spacing:-0.02em; margin-bottom:16px;">Corporate &amp; Fleet Programs</h2>
+    <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.5); max-width:500px; margin:0 auto; line-height:1.7;">
+      Custom pricing based on fleet size and service frequency. Every program includes on-site mobile service — no drop-off, no downtime.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROGRAM CARDS ROW 1 ═══════════════════ -->
+<section style="padding:48px 0; background:#070e18;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;" class="prog-grid">
+
+      <!-- Fleet Maintenance Program -->
+      <div class="prog-card">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand);">Fleet Maintenance Program</p>
+          <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:rgba(59,189,245,0.12); color:var(--brand); border:1px solid rgba(59,189,245,0.3); border-radius:20px; padding:4px 12px;">Most Popular</span>
+        </div>
+        <h3 style="font-size:26px; font-weight:800; color:#fff; letter-spacing:-0.01em; margin-bottom:6px;">Fleet Maintenance</h3>
+        <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.45); margin-bottom:28px;">Custom monthly pricing based on fleet size &amp; frequency</p>
+
+        <div style="flex:1; margin-bottom:32px;">
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Scheduled Recurring Service (Weekly, Bi-Weekly, or Monthly)
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Exterior Wash &amp; Interior Wipe-Down
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Consistent, Professional Fleet Appearance
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Priority Scheduling &amp; Flexible Time Slots
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Dedicated Account Manager
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            100% On-Site Mobile Service — No Drop-Off Needed
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Monthly Service Reports &amp; Documentation
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Volume Discounts Up to 30%
+          </div>
+        </div>
+
+        <a href="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" target="_blank" rel="noopener" class="btn-primary" style="text-align:center; display:block; width:100%;">Get Fleet Quote</a>
+      </div>
+
+      <!-- Executive Vehicle Program -->
+      <div class="prog-card" style="border-color:rgba(59,189,245,0.2); background:linear-gradient(145deg, #0d1b2a 0%, #0f2035 100%);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand);">Executive Vehicle Program</p>
+          <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:rgba(248,207,127,0.12); color:var(--gold); border:1px solid rgba(248,207,127,0.3); border-radius:20px; padding:4px 12px;">Premium</span>
+        </div>
+        <h3 style="font-size:26px; font-weight:800; color:#fff; letter-spacing:-0.01em; margin-bottom:6px;">Executive Care</h3>
+        <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.45); margin-bottom:28px;">Premium white-glove pricing for executive &amp; VIP vehicles</p>
+
+        <div style="flex:1; margin-bottom:32px;">
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            CEO &amp; Executive Vehicle White Glove Service
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Full Detail with Ceramic Coating Protection
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Interior Deep Cleaning &amp; Sanitization
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Interior Fragrance &amp; Odor Elimination
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Flexible &amp; Discreet Scheduling
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Concierge On-Site Service at Home or Office
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Paint Correction &amp; PPF Available
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Professional, Uniformed Technicians
+          </div>
+        </div>
+
+        <a href="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" target="_blank" rel="noopener" class="btn-primary" style="text-align:center; display:block; width:100%;">Get Executive Quote</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROGRAM CARDS ROW 2 ═══════════════════ -->
+<section style="padding:0 0 80px; background:#070e18;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;" class="prog-grid">
+
+      <!-- Dealership & Estate Program -->
+      <div class="prog-card">
+        <div style="position:relative; margin-bottom:24px; border-radius:8px; overflow:hidden; height:200px;">
+          <img src="Car Pics/dji_mimo_20251120_114300_20251120114300_1763778958126_photo 2.jpg" alt="Dealership detailing" style="width:100%; height:100%; object-fit:cover; object-position:center center;" />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(7,14,24,0.9) 0%, rgba(7,14,24,0.3) 60%, transparent 100%);"></div>
+          <div style="position:absolute; bottom:16px; left:20px;">
+            <p style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand); margin-bottom:4px;">Dealership &amp; Estate</p>
+            <h3 style="font-size:22px; font-weight:800; color:#fff; letter-spacing:-0.01em;">Pre-Delivery &amp; Showroom</h3>
+          </div>
+        </div>
+
+        <div style="flex:1; margin-bottom:28px;">
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>New Vehicle Preparation &amp; PDI Detailing</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Showroom Floor Ready Finish</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Ceramic Coating &amp; PPF Packages</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Paint Correction &amp; Trade-In Reconditioning</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Estate &amp; Collector Car Garage Service</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>High-Volume Scheduling Available</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Quick Turnaround Times</div>
+        </div>
+        <a href="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" target="_blank" rel="noopener" class="btn-primary" style="text-align:center; display:block; width:100%;">Get Quote</a>
+      </div>
+
+      <!-- Aviation & Rental Fleet -->
+      <div class="prog-card">
+        <div style="position:relative; margin-bottom:24px; border-radius:8px; overflow:hidden; height:200px;">
+          <img src="Car Pics/dji_mimo_20251103_140334_20251103150334_1762743380880_photo.jpg" alt="Aviation and rental fleet detailing" style="width:100%; height:100%; object-fit:cover; object-position:center 30%;" />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(7,14,24,0.9) 0%, rgba(7,14,24,0.3) 60%, transparent 100%);"></div>
+          <div style="position:absolute; bottom:16px; left:20px;">
+            <p style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand); margin-bottom:4px;">Aviation &amp; Rental Fleet</p>
+            <h3 style="font-size:22px; font-weight:800; color:#fff; letter-spacing:-0.01em;">Specialty &amp; High-Turnover</h3>
+          </div>
+        </div>
+
+        <div style="flex:1; margin-bottom:28px;">
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Aircraft Interior &amp; Exterior Detailing</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rental Car Turnaround Service</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Limo &amp; Black Car Fleet Detailing</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Quick Interior Refresh Between Uses</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Odor Elimination &amp; Sanitization</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Stain &amp; Spot Removal</div>
+          <div class="check-item"><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Same-Day Service Available</div>
+        </div>
+        <a href="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" target="_blank" rel="noopener" class="btn-primary" style="text-align:center; display:block; width:100%;">Get Quote</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROFESSIONAL FLEET MANAGEMENT ═══════════════════ -->
+<section style="padding:88px 0; background:var(--light-bg);">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;" class="benefits-grid">
+
+      <!-- Left: Copy + Map -->
+      <div>
+        <div class="brand-line"></div>
+        <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand); margin-bottom:12px;">Why Koa Pro</p>
+        <h2 style="font-size:36px; font-weight:800; color:var(--navy); letter-spacing:-0.02em; line-height:1.15; margin-bottom:20px;">Professional Fleet Management in Northern Virginia</h2>
+        <p style="font-size:15px; font-weight:300; color:var(--muted); line-height:1.75; margin-bottom:16px;">
+          We understand that fleet appearance directly impacts your company's image and client trust. That's why Koa Pro Detail offers fully managed, on-site mobile programs that keep your vehicles looking their best without disrupting your operations.
+        </p>
+        <p style="font-size:15px; font-weight:300; color:var(--muted); line-height:1.75; margin-bottom:32px;">
+          Whether you operate a two-vehicle executive fleet or a 50-car corporate fleet across Northern Virginia, we build a program around your schedule, budget, and quality standards.
+        </p>
+
+        <!-- Service area map -->
+        <div style="border-radius:12px; overflow:hidden; box-shadow:0 4px 32px rgba(0,0,0,0.1);">
+          <div id="fleet-map" style="width:100%; height:280px;"></div>
+        </div>
+      </div>
+
+      <!-- Right: Benefits list -->
+      <div style="padding-top:8px;">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:24px;">What Sets Us Apart</p>
+
+        <div style="display:flex; flex-direction:column; gap:0;">
+
+          <div style="display:flex; gap:16px; align-items:flex-start; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.07);">
+            <div style="flex-shrink:0; width:40px; height:40px; border-radius:8px; background:rgba(59,189,245,0.1); display:flex; align-items:center; justify-content:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <p style="font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px;">Dedicated Account Management</p>
+              <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.6;">A single point of contact for all your fleet detailing needs — no runaround, no miscommunication.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.07);">
+            <div style="flex-shrink:0; width:40px; height:40px; border-radius:8px; background:rgba(59,189,245,0.1); display:flex; align-items:center; justify-content:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p style="font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px;">Minimal Downtime</p>
+              <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.6;">We work around your schedule and come to your location, so your vehicles stay on the road — not in a shop.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.07);">
+            <div style="flex-shrink:0; width:40px; height:40px; border-radius:8px; background:rgba(59,189,245,0.1); display:flex; align-items:center; justify-content:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <p style="font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px;">Consistent Quality Standards</p>
+              <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.6;">Every vehicle receives the same detailed checklist and quality control — no shortcuts, every time.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.07);">
+            <div style="flex-shrink:0; width:40px; height:40px; border-radius:8px; background:rgba(59,189,245,0.1); display:flex; align-items:center; justify-content:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <p style="font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px;">Volume Discounts &amp; Contract Pricing</p>
+              <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.6;">Structured pricing that reduces per-vehicle costs as your fleet grows, with transparent contract terms.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.07);">
+            <div style="flex-shrink:0; width:40px; height:40px; border-radius:8px; background:rgba(59,189,245,0.1); display:flex; align-items:center; justify-content:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div>
+              <p style="font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px;">Comprehensive Reporting</p>
+              <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.6;">Service documentation and reporting for every vehicle in your fleet — great for management tracking.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start; padding:20px 0;">
+            <div style="flex-shrink:0; width:40px; height:40px; border-radius:8px; background:rgba(59,189,245,0.1); display:flex; align-items:center; justify-content:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            </div>
+            <div>
+              <p style="font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px;">Professional, Uniformed Technicians</p>
+              <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.6;">Our team represents your brand with professionalism — uniformed, background-checked, and fully insured.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ INDUSTRIES WE SERVE ═══════════════════ -->
+<section style="padding:88px 0; background:#070e18;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px; text-align:center;">
+    <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand); margin-bottom:14px;">Across Northern Virginia</p>
+    <h2 style="font-size:42px; font-weight:800; color:#fff; letter-spacing:-0.02em; margin-bottom:16px;">Industries We Serve</h2>
+    <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.5); max-width:520px; margin:0 auto 56px; line-height:1.7;">
+      We partner with businesses across Northern Virginia — from corporate offices to luxury estates. No matter your industry, we keep your vehicles looking their absolute best.
+    </p>
+
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;" class="industry-grid">
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Corporate Offices</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Executive vehicles &amp; company fleets</p>
+      </div>
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Real Estate</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Agent &amp; broker vehicle fleets</p>
+      </div>
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Car Dealerships</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Pre-delivery &amp; showroom prep</p>
+      </div>
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Aviation Operators</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Aircraft &amp; hangar vehicle care</p>
+      </div>
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Luxury Hotels</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Valet &amp; guest vehicle programs</p>
+      </div>
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Government &amp; Defense</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Government contractors &amp; agencies</p>
+      </div>
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Financial Services</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Investment firms &amp; wealth management</p>
+      </div>
+
+      <div class="industry-card">
+        <div style="width:52px; height:52px; background:rgba(59,189,245,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3BBDF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><path d="M12 2v4"/></svg>
+        </div>
+        <p style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">Property Management</p>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Estate &amp; property management fleets</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ REVIEWS ═══════════════════ -->
+<section style="padding:88px 0; background:var(--light-bg); overflow:hidden;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px; text-align:center; margin-bottom:52px;">
+    <div class="brand-line" style="margin:0 auto 20px;"></div>
+    <h2 style="font-size:36px; font-weight:600; color:var(--navy); margin-bottom:12px;">What Our Clients Say</h2>
+    <p style="font-size:16px; font-weight:300; color:var(--muted);">Trusted by businesses and individuals across Northern Virginia.</p>
+  </div>
+
+  <div style="position:relative; overflow:hidden;">
+    <div style="position:absolute; left:0; top:0; bottom:0; width:120px; background:linear-gradient(to right, var(--light-bg), transparent); z-index:2; pointer-events:none;"></div>
+    <div style="position:absolute; right:0; top:0; bottom:0; width:120px; background:linear-gradient(to left, var(--light-bg), transparent); z-index:2; pointer-events:none;"></div>
+
+    <div class="reviews-track">
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan did a fantastic job on an interior detail for my Telluride. It had seen better days between dogs and kids, but Nathan had it spotless in just a couple hours. The booking process was easy, and Nathan arrived right on time."</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; Patrick E.</p></div>
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan was punctual and a great communicator through the entire exterior wash and 2 Step Paint Correction process. He was extremely knowledgeable. The van shines more than it ever did brand new. A++"</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; Mike I.</p></div>
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan and Koa did an INCREDIBLE job!!! My Jeep Compass looked better than it did the day I drove it off the lot. Nathan takes PRIDE in his work — something you won't see often these days. Seriously, outstanding."</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; Tracy S.</p></div>
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan did an outstanding job. This was his second detail for us and we wanted our car looking its best for a pending sale. Thanks for all your hard work."</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; John R.</p></div>
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"I recently had my car's interior detailed with Koa Pro Detail, and I'm beyond impressed! They paid incredible attention to detail, getting into every nook and cranny. My car looks and feels brand new inside."</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; Cat G.</p></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan did a fantastic job on an interior detail for my Telluride. It had seen better days between dogs and kids, but Nathan had it spotless in just a couple hours. The booking process was easy, and Nathan arrived right on time."</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; Patrick E.</p></div>
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan was punctual and a great communicator through the entire exterior wash and 2 Step Paint Correction process. He was extremely knowledgeable. The van shines more than it ever did brand new. A++"</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; Mike I.</p></div>
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan and Koa did an INCREDIBLE job!!! My Jeep Compass looked better than it did the day I drove it off the lot. Nathan takes PRIDE in his work — something you won't see often these days. Seriously, outstanding."</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; Tracy S.</p></div>
+      <div class="review-card"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;"><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span style="font-size:13px; font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span></div><p style="font-size:14px; font-weight:300; line-height:1.65; color:#444; margin-bottom:18px;">"Nathan did an outstanding job. This was his second detail for us and we wanted our car looking its best for a pending sale. Thanks for all your hard work."</p><p style="font-size:13px; font-weight:600; color:var(--navy);">&#8212; John R.</p></div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:40px;">
+    <a href="https://share.google/CMp6FzqSTZbBQArTv" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--muted); font-size:13px; font-weight:500;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='var(--muted)'">
+      <span style="font-weight:700;"><span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span></span>
+      <span style="color:#FBBC05;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>5.0 &nbsp;&bull;&nbsp; 115+ reviews</span>
+      <span style="font-size:12px;">&#8599;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section style="padding:88px 0; background:#fff;">
+  <div style="max-width:800px; margin:0 auto; padding:0 28px;">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div class="brand-line" style="margin:0 auto 20px;"></div>
+      <h2 style="font-size:36px; font-weight:600; color:var(--navy); margin-bottom:12px;">Frequently Asked Questions</h2>
+      <p style="font-size:16px; font-weight:300; color:var(--muted);">Common questions about our corporate and fleet programs.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">Do you offer fleet detailing contracts?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">Yes. We offer monthly and annual fleet contracts with volume pricing. Contracts include a dedicated account manager, priority scheduling, and monthly reporting. Contact us for a custom quote based on your fleet size and service needs.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">How does on-site mobile fleet service work?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">We bring everything we need to your location — your office lot, garage, or estate. No drop-off, no dealership visit, no disruption to your schedule. We work around your team's availability and coordinate with your facilities manager to make the process seamless.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">What size fleets do you service?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">We work with businesses of all sizes — from 2-vehicle executive fleets to 50+ vehicle corporate fleets. Pricing scales with fleet size and service frequency. The more vehicles and services, the greater the discount you receive.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">Do you offer volume discounts for fleet programs?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">Yes — fleet clients receive structured volume discounts based on vehicle count and service frequency, up to 30% off standard pricing. All pricing is transparent and outlined in your contract upfront.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">Which areas in Northern Virginia do you serve for fleet clients?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">We serve all of Loudoun County, Fairfax County, and Fauquier County — including Leesburg, Ashburn, McLean, Great Falls, Vienna, Reston, Middleburg, Purcellville, Arlington, Bethesda, and surrounding areas. For large fleets, we can discuss multi-location servicing.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-question">Do you do aviation and marine fleet detailing?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-answer">Yes. We specialize in aviation detailing at local hangars and airfields, as well as marine vessel detailing. Contact us to discuss your specific aircraft or watercraft fleet needs and we'll build a custom program for you.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BOTTOM CTA ═══════════════════ -->
+<section style="padding:96px 0; background:var(--navy); position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 60% 50%, rgba(59,189,245,0.08) 0%, transparent 70%); pointer-events:none;"></div>
+  <div style="max-width:780px; margin:0 auto; padding:0 28px; text-align:center; position:relative;">
+    <div class="brand-line" style="margin:0 auto 24px;"></div>
+    <h2 style="font-size:52px; font-weight:800; color:#fff; line-height:1.1; letter-spacing:-0.02em; margin-bottom:18px;">Ready to Build Your Fleet Program?</h2>
+    <p style="font-size:16px; font-weight:300; color:rgba(255,255,255,0.65); max-width:480px; margin:0 auto 44px; line-height:1.7;">Tell us about your fleet and we'll put together a custom program that fits your schedule, budget, and quality standards.</p>
+
+    <div style="display:flex; justify-content:center; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:40px;">
+      <a href="https://app.urable.com/form/w4wNh0LRbxnCwDWP9tbr/E9mGRdaJz33dEJBCp5zF" target="_blank" rel="noopener" class="btn-primary" style="padding:16px 40px; font-size:16px;">Request Fleet Quote</a>
+      <a href="tel:+15718502351" class="btn-white" style="padding:14px 32px; font-size:16px; display:inline-flex; align-items:center; gap:9px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Now
+      </a>
+    </div>
+
+    <div style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap;">
+      <a href="tel:+15718502351" style="display:flex; align-items:center; gap:8px; color:rgba(255,255,255,0.55); text-decoration:none; font-size:14px; font-weight:400; transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+        <span style="color:var(--brand);">&#9990;</span> (571) 850-2351
+      </a>
+      <span style="color:rgba(255,255,255,0.15);">|</span>
+      <a href="mailto:koaprodetail@gmail.com" style="display:flex; align-items:center; gap:8px; color:rgba(255,255,255,0.55); text-decoration:none; font-size:14px; font-weight:400; transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+        <span style="color:var(--brand);">&#9993;</span> koaprodetail@gmail.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer style="background:#070e18; padding:64px 0 32px;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 28px;">
+    <div class="footer-grid">
+      <div>
+        <img src="brand_assets/Updated Logo.png" alt="Koa Pro Detail" style="height:140px;width:auto;margin-bottom:14px;opacity:0.95;" />
+        <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.65;max-width:240px;margin-bottom:20px;">Northern Virginia's premier mobile detailing service — brought directly to you.</p>
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/koaprodetail" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61578723050985" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-list">
+          <li><a href="tel:+15718502351" style="color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">(571) 850-2351</a></li>
+          <li><a href="mailto:koaprodetail@gmail.com" style="color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">koaprodetail@gmail.com</a></li>
+          <li><a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" target="_blank" rel="noopener" style="color:var(--brand);font-weight:500;text-decoration:none;">Book Online &rarr;</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <ul class="footer-list">
+          <li>MON – SUN: Open 24 Hours</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Service Areas</p>
+        <ul class="footer-list">
+          <li><a href="leesburg.html">Leesburg</a></li>
+          <li><a href="ashburn.html">Ashburn</a></li>
+          <li><a href="mclean.html">McLean</a></li>
+          <li><a href="great-falls.html">Great Falls</a></li>
+          <li><a href="middleburg.html">Middleburg</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.07); padding-top:24px; text-align:center;">
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.28); margin:0;">
+        &copy; 2026 Koa Pro Detail. All rights reserved. &nbsp;&bull;&nbsp; Mobile Detailing &bull; Northern Virginia — Loudoun &amp; Fairfax County
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ MAP INIT ═══════════════════ -->
+<style>
+  .leaflet-attribution-flag { display: none !important; }
+  .leaflet-container { font-family: inherit; }
+</style>
+<script>
+(function() {
+  var map = L.map('fleet-map', {
+    center: [39.03, -77.45], zoom: 9,
+    zoomControl: true, scrollWheelZoom: false,
+    dragging: true, doubleClickZoom: true,
+    touchZoom: true, keyboard: true
+  });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
+  var locations = [
+    { name: 'Leesburg', lat: 39.1157, lng: -77.5636 },
+    { name: 'Ashburn', lat: 39.0437, lng: -77.4875 },
+    { name: 'McLean', lat: 38.9339, lng: -77.1773 },
+    { name: 'Great Falls', lat: 39.0001, lng: -77.2886 },
+    { name: 'Middleburg', lat: 38.9679, lng: -77.7363 },
+    { name: 'Vienna', lat: 38.9012, lng: -77.2652 },
+    { name: 'Reston', lat: 38.9587, lng: -77.3570 },
+    { name: 'Herndon', lat: 38.9696, lng: -77.3861 },
+    { name: 'Arlington', lat: 38.8799, lng: -77.1068 },
+    { name: 'Alexandria', lat: 38.8048, lng: -77.0469 },
+  ];
+  locations.forEach(function(loc, i) {
+    var icon = L.divIcon({
+      className: '',
+      html: '<div style="width:10px;height:10px;background:#76caff;border-radius:50%;box-shadow:0 0 6px rgba(118,202,255,0.8);"></div>',
+      iconSize: [10, 10], iconAnchor: [5, 5], popupAnchor: [0, -8]
+    });
+    L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map).bindPopup(loc.name);
+  });
+})();
+</script>
+
+<!-- ═══════════════════ FAQ SCRIPT ═══════════════════ -->
+<script>
+function toggleFaq(btn) {
+  var body = btn.nextElementSibling;
+  var isOpen = btn.getAttribute('aria-expanded') === 'true';
+  document.querySelectorAll('.faq-btn').forEach(function(b) {
+    b.setAttribute('aria-expanded', 'false');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.setAttribute('aria-expanded', 'true');
+    body.classList.add('open');
+  }
+}
+</script>
+
+</body>
+</html>
