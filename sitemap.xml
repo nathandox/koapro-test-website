@@ -85,6 +85,32 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog -->
+  <url>
+    <loc>https://koaprodetail.com/blog.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koaprodetail.com/blog/mobile-detailing-northern-virginia.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://koaprodetail.com/blog/ceramic-coating-northern-virginia.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://koaprodetail.com/blog/paint-correction-northern-virginia.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Supporting Pages -->
   <url>
     <loc>https://koaprodetail.com/about.html</loc>
