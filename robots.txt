@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Block redirect pages and non-indexable files
+Disallow: /charleston.html
+Disallow: /daniel-island.html
+Disallow: /mount-pleasant.html
+Disallow: /summerville.html
+Disallow: /surrounding-islands.html
+Disallow: /west-ashley.html
+Disallow: /flyer-atlantic.html
+Disallow: /generate-pdf.mjs
+Disallow: /serve.mjs
+Disallow: /screenshot.mjs
+
+Sitemap: https://koaprodetail.com/sitemap.xml
