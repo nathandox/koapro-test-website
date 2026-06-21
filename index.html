@@ -1188,14 +1188,14 @@
     <h2 class="section-title" style="margin-bottom:14px;">DETAILING NEAR YOU</h2>
     <p class="section-sub" style="max-width:540px; margin:0 auto 56px;">We come to your home, estate, hangar, or office across Northern Virginia.</p>
 
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;" class="two-col">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;" class="three-col">
 
       <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" target="_blank" rel="noopener" class="loc-card">
         <img src="charleston-location.jpg" alt="Loudoun County mobile detailing" style="object-position:center 20%;" />
         <div class="loc-overlay">
           <div>
             <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Loudoun County</h3>
-            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Leesburg · Ashburn · Purcellville · Lansdowne · Middleburg</p>
+            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Serving all of Loudoun County — Leesburg, Ashburn, Purcellville &amp; beyond</p>
           </div>
         </div>
       </a>
@@ -1205,7 +1205,17 @@
         <div class="loc-overlay">
           <div>
             <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Fairfax County</h3>
-            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">McLean · Great Falls · Vienna · Reston · Tysons</p>
+            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Serving all of Fairfax County — McLean, Great Falls, Vienna &amp; beyond</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr" target="_blank" rel="noopener" class="loc-card">
+        <img src="IMG_7647.JPEG" alt="Fauquier County mobile detailing" style="object-position:center 30%;" />
+        <div class="loc-overlay">
+          <div>
+            <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Fauquier County</h3>
+            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Serving Fauquier County — Warrenton, Marshall, The Plains &amp; beyond</p>
           </div>
         </div>
       </a>
@@ -1214,7 +1224,7 @@
 
     <!-- Service Area Map -->
     <div style="margin-top:48px; border-radius:16px; overflow:hidden; box-shadow:0 4px 40px rgba(0,0,0,0.12);">
-      <div id="service-map" style="width:100%; height:320px;"></div>
+      <div id="service-map" style="width:100%; height:480px;"></div>
     </div>
 
   </div>
@@ -2227,6 +2237,11 @@ async function handleQuoteSubmit(e) {
     { name: 'Oakton', lat: 38.8862, lng: -77.3147 },
     { name: 'Clifton', lat: 38.7796, lng: -77.3858 },
     { name: 'Alexandria', lat: 38.8048, lng: -77.0469 },
+    { name: 'Warrenton', lat: 38.7184, lng: -77.7966 },
+    { name: 'The Plains', lat: 38.8679, lng: -77.7685 },
+    { name: 'Marshall', lat: 38.8598, lng: -77.8621 },
+    { name: 'Upperville', lat: 38.9957, lng: -77.8785 },
+    { name: 'Delaplane', lat: 38.9278, lng: -77.9541 },
   ];
 
   var markers = [];
@@ -2246,7 +2261,7 @@ async function handleQuoteSubmit(e) {
   });
 
   var group = L.featureGroup(markers);
-  map.fitBounds(group.getBounds().pad(0.15));
+  map.fitBounds(group.getBounds().pad(0.25));
 })();
 </script>
 
