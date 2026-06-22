@@ -16,19 +16,77 @@
   {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
+    "@id": "https://koaprodetail.com/leesburg.html#business",
     "name": "Koa Pro Detail",
-    "description": "Mobile car detailing service in Leesburg, VA specializing in ceramic coating, paint correction, interior detailing, exterior detailing, and aviation detailing.",
+    "description": "Mobile car detailing service in Leesburg, VA specializing in ceramic coating, paint correction, interior detailing, exterior detailing, and aviation detailing. We come to your home, estate, or hangar — no drop-off needed.",
     "url": "https://koaprodetail.com/leesburg.html",
     "telephone": "+15718502351",
+    "email": "koaprodetail@gmail.com",
     "priceRange": "$$",
-    "address": {"@type": "PostalAddress", "addressLocality": "Leesburg", "addressRegion": "VA", "addressCountry": "US"},
-    "areaServed": "Leesburg, VA",
+    "address": {"@type": "PostalAddress", "addressLocality": "Leesburg", "addressRegion": "VA", "postalCode": "20175", "addressCountry": "US"},
+    "areaServed": {"@type": "City", "name": "Leesburg, Virginia"},
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
       "reviewCount": "115",
-      "bestRating": "5"
-    }
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "sameAs": ["https://koaprodetail.com/#business"]
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Koa Pro Detail offer mobile car detailing in Leesburg, VA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Koa Pro Detail provides fully mobile car detailing in Leesburg, VA and throughout Loudoun County. We come to your home, driveway, estate, or office — no drop-off needed. Services include interior detail from $179, exterior detail from $155, full detail from $279, paint correction from $395, and ceramic coating from $649."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Koa Pro Detail offer aviation detailing at Leesburg Executive Airport?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Koa Pro Detail provides professional aviation detailing at Leesburg Executive Airport (KJYO). We come to your hangar or tie-down space with our own equipment and aviation-safe products — no repositioning flights needed. Services include exterior wash, cabin detail, window polishing, and protective coatings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does mobile detailing cost in Leesburg, VA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail's pricing in Leesburg, VA: Interior Detail from $179, Exterior Detail from $155, Full Detail from $279, Paint Correction from $395, Ceramic Coating from $649. All services are fully mobile — we come to you at no additional travel charge within Leesburg and Loudoun County."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas near Leesburg does Koa Pro Detail serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "From Leesburg, Koa Pro Detail also serves Ashburn, Lansdowne, Purcellville, Middleburg, and all of Loudoun County, Virginia. Contact us at (571) 850-2351 or book at koaprodetail.com."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://koaprodetail.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Mobile Detailing in Leesburg, VA", "item": "https://koaprodetail.com/leesburg.html"}
+    ]
   }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -71,6 +129,11 @@
     .nav-dropdown { position:relative; }
     .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:8px; box-shadow:0 8px 40px rgba(13,27,42,0.15); padding:8px 0; min-width:210px; display:none; z-index:300; border:1px solid rgba(0,0,0,0.06); }
     .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu.counties { display:none; min-width:540px; padding:0; }
+    .nav-dropdown:hover .nav-dropdown-menu.counties { display:grid; grid-template-columns:repeat(3,1fr); }
+    .county-nav-col { padding:8px 0; }
+    .county-nav-col + .county-nav-col { border-left:1px solid rgba(0,0,0,0.06); }
+    
     .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; transition:background 0.15s,color 0.15s; white-space:nowrap; }
     .nav-dropdown-menu a:hover { background:var(--light-bg); color:var(--brand); }
     .nav-dropdown-btn { display:flex; align-items:center; gap:5px; cursor:default; }
@@ -148,12 +211,29 @@
       <a href="index.html#about" class="nav-link">About</a>
       <div class="nav-dropdown">
         <span class="nav-link nav-dropdown-btn">Service Areas <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-top:1px;"><polyline points="2,3 5,7 8,3"/></svg></span>
-        <div class="nav-dropdown-menu">
-          <a href="leesburg.html">Leesburg</a>
-          <a href="ashburn.html">Ashburn</a>
-          <a href="mclean.html">McLean</a>
-          <a href="great-falls.html">Great Falls</a>
-          <a href="middleburg.html">Middleburg</a>
+        <div class="nav-dropdown-menu counties">
+          <div class="county-nav-col">
+            
+            <a href="leesburg.html">Leesburg</a>
+            <a href="ashburn.html">Ashburn</a>
+            <a href="middleburg.html">Middleburg</a>
+            <a href="south-riding.html">South Riding</a>
+            <a href="purcellville.html">Purcellville</a>
+          </div>
+          <div class="county-nav-col">
+            
+            <a href="mclean.html">McLean</a>
+            <a href="great-falls.html">Great Falls</a>
+            <a href="vienna.html">Vienna</a>
+            <a href="reston.html">Reston</a>
+            <a href="herndon.html">Herndon</a>
+          </div>
+          <div class="county-nav-col">
+            
+            <a href="warrenton.html">Warrenton</a>
+            <a href="upperville.html">Upperville</a>
+            <a href="the-plains.html">The Plains</a>
+          </div>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -191,9 +271,17 @@
       <div class="mobile-sa-cities">
         <a href="leesburg.html" onclick="closeMobileMenu()">Leesburg</a>
         <a href="ashburn.html" onclick="closeMobileMenu()">Ashburn</a>
+        <a href="middleburg.html" onclick="closeMobileMenu()">Middleburg</a>
+        <a href="south-riding.html" onclick="closeMobileMenu()">South Riding</a>
+        <a href="purcellville.html" onclick="closeMobileMenu()">Purcellville</a>
         <a href="mclean.html" onclick="closeMobileMenu()">McLean</a>
         <a href="great-falls.html" onclick="closeMobileMenu()">Great Falls</a>
-        <a href="middleburg.html" onclick="closeMobileMenu()">Middleburg</a>
+        <a href="vienna.html" onclick="closeMobileMenu()">Vienna</a>
+        <a href="reston.html" onclick="closeMobileMenu()">Reston</a>
+        <a href="herndon.html" onclick="closeMobileMenu()">Herndon</a>
+        <a href="warrenton.html" onclick="closeMobileMenu()">Warrenton</a>
+        <a href="upperville.html" onclick="closeMobileMenu()">Upperville</a>
+        <a href="the-plains.html" onclick="closeMobileMenu()">The Plains</a>
       </div>
     </div>
     <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
@@ -404,26 +492,19 @@
       <div>
         <p class="footer-col-title">Service Areas</p>
         <ul class="footer-list">
-          <li><a href="leesburg.html">Luxury car detailing in Leesburg, VA</a></li>
+          <li><a href="leesburg.html">Mobile car detailing in Leesburg, VA</a></li>
           <li><a href="ashburn.html">Mobile detailing in Ashburn, VA</a></li>
-          <li><a href="mclean.html">High-end detailing in McLean, VA</a></li>
+          <li><a href="middleburg.html">Car detailing in Middleburg, VA</a></li>
+          <li><a href="south-riding.html">Mobile detailing in South Riding, VA</a></li>
+          <li><a href="purcellville.html">Auto detailing in Purcellville, VA</a></li>
+          <li><a href="mclean.html">Luxury detailing in McLean, VA</a></li>
           <li><a href="great-falls.html">Estate detailing in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Mobile detailing in Middleburg, VA</a></li>
-          <li><a href="leesburg.html">Ceramic coating in Leesburg, VA</a></li>
-          <li><a href="ashburn.html">Paint correction in Ashburn, VA</a></li>
-          <li><a href="mclean.html">Ceramic coating in McLean, VA</a></li>
-          <li><a href="leesburg.html">Mobile car detailing in Purcellville, VA</a></li>
-          <li><a href="ashburn.html">Auto detailing in Sterling, VA</a></li>
-          <li><a href="ashburn.html">Car detailing in Lansdowne, VA</a></li>
-          <li><a href="mclean.html">Mobile detailing in Vienna, VA</a></li>
-          <li><a href="mclean.html">Auto detailing in Reston, VA</a></li>
-          <li><a href="mclean.html">Interior detailing in Herndon, VA</a></li>
-          <li><a href="great-falls.html">Paint protection film in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Premium detailing in Warrenton, VA</a></li>
-          <li><a href="leesburg.html">Mobile detailing in Loudoun County, VA</a></li>
-          <li><a href="mclean.html">Car detailing in Fairfax County, VA</a></li>
-          <li><a href="middleburg.html">Auto detailing in Fauquier County, VA</a></li>
-          <li><a href="ashburn.html">Paint protection film in Ashburn, VA</a></li>
+          <li><a href="vienna.html">Mobile detailing in Vienna, VA</a></li>
+          <li><a href="reston.html">Car detailing in Reston, VA</a></li>
+          <li><a href="herndon.html">Auto detailing in Herndon, VA</a></li>
+          <li><a href="warrenton.html">Mobile detailing in Warrenton, VA</a></li>
+          <li><a href="upperville.html">Car detailing in Upperville, VA</a></li>
+          <li><a href="the-plains.html">Mobile detailing in The Plains, VA</a></li>
         </ul>
       </div>
     </div>

@@ -16,28 +16,94 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://koaprodetail.com/auto-detailing.html#service",
     "name": "Auto Detailing",
-    "provider": {
-      "@type": "AutoRepair",
-      "name": "Koa Pro Detail",
-      "url": "https://koaprodetail.com",
-      "telephone": "+15718502351",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "115",
-        "bestRating": "5"
-      }
-    },
-    "areaServed": "Northern Virginia",
+    "description": "Mobile auto detailing in Northern Virginia. Interior detail from $179, exterior detail from $155, full detail from $279. We come to your home, estate, or office — no drop-off needed.",
+    "provider": {"@id": "https://koaprodetail.com/#business"},
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "Loudoun County, Virginia"},
+      {"@type": "AdministrativeArea", "name": "Fairfax County, Virginia"},
+      {"@type": "AdministrativeArea", "name": "Fauquier County, Virginia"}
+    ],
+    "url": "https://koaprodetail.com/auto-detailing.html",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Detail"}, "price": "179", "priceCurrency": "USD"},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Detail"}, "price": "155", "priceCurrency": "USD"},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail"}, "price": "279", "priceCurrency": "USD"}
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Detail", "description": "Full interior vacuuming, wipe-downs, leather conditioning, and window cleaning."}, "price": "179", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Detail", "description": "Paint wash, clay bar treatment, ceramic sealant, wheel and trim cleaning, and glass."}, "price": "155", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail", "description": "Complete interior and exterior detail combined."}, "price": "279", "priceCurrency": "USD"}
       ]
     }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does an interior or exterior detail take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An interior or exterior detail typically takes 1.5–3 hours depending on vehicle size and condition. A full detail runs 2.5–4 hours. Koa Pro Detail will give you an accurate time estimate when you book."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to be home during the detail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Most customers meet us at the start, hand over the keys, and go about their day. Koa Pro Detail texts when they're on the way and sends an invoice when done. You can pay online — no need to be present the whole time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between an interior, exterior, and full detail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An interior detail focuses entirely on the inside of your vehicle — vacuuming, wipe-downs, leather conditioning, and window cleaning. An exterior detail covers the paint, wheels, trim, and glass on the outside, including a clay bar treatment and ceramic sealant. A full detail combines both for a complete transformation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I detail my car?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Northern Virginia, a full detail every 3–6 months is recommended due to road grime, tree sap, UV exposure, and seasonal weather. If you drive daily or have pets and kids, an interior detail every 2–3 months keeps your cabin in great shape."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment methods do you accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail accepts cash, card, and Zelle — whatever is most convenient. An invoice is sent when the detail is complete and you can pay online."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who offers mobile car detailing near me in Northern Virginia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail offers mobile car detailing throughout Northern Virginia — Leesburg, Ashburn, McLean, Great Falls, Vienna, Reston, Middleburg, Purcellville, and all of Loudoun County and Fairfax County. Interior detail from $179, exterior detail from $155, full detail from $279. Book online at koaprodetail.com or call (571) 850-2351."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://koaprodetail.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Auto Detailing", "item": "https://koaprodetail.com/auto-detailing.html"}
+    ]
   }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -72,6 +138,11 @@
     .nav-dropdown { position:relative; }
     .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:8px; box-shadow:0 8px 40px rgba(13,27,42,0.15); padding:8px 0; min-width:220px; display:none; z-index:300; border:1px solid rgba(0,0,0,0.06); }
     .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu.counties { display:none; min-width:540px; padding:0; }
+    .nav-dropdown:hover .nav-dropdown-menu.counties { display:grid; grid-template-columns:repeat(3,1fr); }
+    .county-nav-col { padding:8px 0; }
+    .county-nav-col + .county-nav-col { border-left:1px solid rgba(0,0,0,0.06); }
+    
     .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; transition:background 0.15s,color 0.15s; white-space:nowrap; }
     .nav-dropdown-menu a:hover { background:var(--light-bg); color:var(--brand); }
     .nav-dropdown-btn { display:flex; align-items:center; gap:5px; cursor:default; }
@@ -637,26 +708,19 @@ function toggleFaq(btn) {
       <div>
         <p class="footer-col-title">Service Areas</p>
         <ul class="footer-list">
-          <li><a href="leesburg.html">Luxury car detailing in Leesburg, VA</a></li>
+          <li><a href="leesburg.html">Mobile car detailing in Leesburg, VA</a></li>
           <li><a href="ashburn.html">Mobile detailing in Ashburn, VA</a></li>
-          <li><a href="mclean.html">High-end detailing in McLean, VA</a></li>
+          <li><a href="middleburg.html">Car detailing in Middleburg, VA</a></li>
+          <li><a href="south-riding.html">Mobile detailing in South Riding, VA</a></li>
+          <li><a href="purcellville.html">Auto detailing in Purcellville, VA</a></li>
+          <li><a href="mclean.html">Luxury detailing in McLean, VA</a></li>
           <li><a href="great-falls.html">Estate detailing in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Mobile detailing in Middleburg, VA</a></li>
-          <li><a href="leesburg.html">Ceramic coating in Leesburg, VA</a></li>
-          <li><a href="ashburn.html">Paint correction in Ashburn, VA</a></li>
-          <li><a href="mclean.html">Ceramic coating in McLean, VA</a></li>
-          <li><a href="leesburg.html">Mobile car detailing in Purcellville, VA</a></li>
-          <li><a href="ashburn.html">Auto detailing in Sterling, VA</a></li>
-          <li><a href="ashburn.html">Car detailing in Lansdowne, VA</a></li>
-          <li><a href="mclean.html">Mobile detailing in Vienna, VA</a></li>
-          <li><a href="mclean.html">Auto detailing in Reston, VA</a></li>
-          <li><a href="mclean.html">Interior detailing in Herndon, VA</a></li>
-          <li><a href="great-falls.html">Paint protection film in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Premium detailing in Warrenton, VA</a></li>
-          <li><a href="leesburg.html">Mobile detailing in Loudoun County, VA</a></li>
-          <li><a href="mclean.html">Car detailing in Fairfax County, VA</a></li>
-          <li><a href="middleburg.html">Auto detailing in Fauquier County, VA</a></li>
-          <li><a href="ashburn.html">Paint protection film in Ashburn, VA</a></li>
+          <li><a href="vienna.html">Mobile detailing in Vienna, VA</a></li>
+          <li><a href="reston.html">Car detailing in Reston, VA</a></li>
+          <li><a href="herndon.html">Auto detailing in Herndon, VA</a></li>
+          <li><a href="warrenton.html">Mobile detailing in Warrenton, VA</a></li>
+          <li><a href="upperville.html">Car detailing in Upperville, VA</a></li>
+          <li><a href="the-plains.html">Mobile detailing in The Plains, VA</a></li>
 
         </ul>
       </div>

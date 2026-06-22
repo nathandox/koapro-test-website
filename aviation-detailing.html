@@ -105,22 +105,86 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://koaprodetail.com/aviation-detailing.html#service",
     "name": "Aviation Detailing",
-    "description": "Professional aircraft detailing at Leesburg Executive Airport, Dulles, Manassas Regional, and surrounding Northern Virginia airports. Exterior wash, cabin detail, window polishing, and protective coatings at your hangar or FBO.",
-    "provider": {
-      "@type": "AutoRepair",
-      "name": "Koa Pro Detail",
-      "telephone": "+15718502351",
-      "url": "https://koaprodetail.com",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "115",
-        "bestRating": "5"
-      }
-    },
-    "areaServed": "Northern Virginia",
+    "description": "Professional aircraft detailing at Leesburg Executive Airport, Dulles, Manassas Regional, and surrounding Northern Virginia airports. Exterior wash, cabin detail, Plexiglas-safe window polishing, and protective coatings. We come to your hangar or FBO ramp — no repositioning flights needed.",
+    "provider": {"@id": "https://koaprodetail.com/#business"},
+    "areaServed": [
+      {"@type": "Place", "name": "Leesburg Executive Airport", "address": {"@type": "PostalAddress", "addressLocality": "Leesburg", "addressRegion": "VA"}},
+      {"@type": "Place", "name": "Manassas Regional Airport", "address": {"@type": "PostalAddress", "addressLocality": "Manassas", "addressRegion": "VA"}},
+      {"@type": "AdministrativeArea", "name": "Northern Virginia"}
+    ],
     "url": "https://koaprodetail.com/aviation-detailing.html"
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of aircraft does Koa Pro Detail service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail details all types of piston and turbine single-engine and multi-engine aircraft, light jets, helicopters, and turboprops. If you have a specific aircraft type, contact us and we'll confirm it falls within our service scope."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you come to the airport or do I need to fly the aircraft to you?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail comes to you. Our fully mobile setup means we bring our own equipment and aviation-safe products directly to your hangar, tie-down space, or FBO ramp. No repositioning flights necessary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I have my aircraft detailed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For aircraft based in Northern Virginia, a full detail every 6–12 months and routine maintenance washes every 4–8 weeks is a solid baseline. UV exposure and seasonal weather here accelerate oxidation — regular detailing is the most effective preventive maintenance you can do for your aircraft's finish."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you use products that are safe for aircraft paint and Plexiglas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — aviation detailing requires products specifically formulated for aircraft surfaces. Koa Pro Detail uses pH-neutral, aviation-approved wash solutions, Plexiglas-safe window cleaners, and polishes that won't harm decals, rubber seals, or painted surfaces. We never use ammonia-based products near aircraft windows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in a standard aircraft detail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard aircraft detail from Koa Pro Detail includes a full exterior wash, bug and exhaust soot removal, window cleaning, cockpit and cabin surface wipe-down, and a protective wax or sealant on painted surfaces. Add-on services like paint correction, aluminum polishing, and full interior detailing are available and quoted separately based on the aircraft's condition and size."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who offers aircraft detailing near Leesburg Executive Airport?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail offers professional aviation detailing at Leesburg Executive Airport (KJYO), Manassas Regional Airport (KHEF), and throughout Northern Virginia. We are fully mobile — we come to your hangar or FBO ramp. Contact us at (571) 850-2351 or book at koaprodetail.com."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://koaprodetail.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Aviation Detailing", "item": "https://koaprodetail.com/aviation-detailing.html"}
+    ]
   }
   </script>
 <style>.mobile-book-btn{display:none}@media(max-width:600px){.mobile-book-btn{display:inline-flex !important;align-items:center}}</style>
@@ -522,26 +586,19 @@ function toggleFaq(btn){
       <div>
         <p class="footer-col-title">Service Areas</p>
         <ul class="footer-list">
-          <li><a href="leesburg.html">Luxury car detailing in Leesburg, VA</a></li>
+          <li><a href="leesburg.html">Mobile car detailing in Leesburg, VA</a></li>
           <li><a href="ashburn.html">Mobile detailing in Ashburn, VA</a></li>
-          <li><a href="mclean.html">High-end detailing in McLean, VA</a></li>
+          <li><a href="middleburg.html">Car detailing in Middleburg, VA</a></li>
+          <li><a href="south-riding.html">Mobile detailing in South Riding, VA</a></li>
+          <li><a href="purcellville.html">Auto detailing in Purcellville, VA</a></li>
+          <li><a href="mclean.html">Luxury detailing in McLean, VA</a></li>
           <li><a href="great-falls.html">Estate detailing in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Mobile detailing in Middleburg, VA</a></li>
-          <li><a href="leesburg.html">Ceramic coating in Leesburg, VA</a></li>
-          <li><a href="ashburn.html">Paint correction in Ashburn, VA</a></li>
-          <li><a href="mclean.html">Ceramic coating in McLean, VA</a></li>
-          <li><a href="leesburg.html">Mobile car detailing in Purcellville, VA</a></li>
-          <li><a href="ashburn.html">Auto detailing in Sterling, VA</a></li>
-          <li><a href="ashburn.html">Car detailing in Lansdowne, VA</a></li>
-          <li><a href="mclean.html">Mobile detailing in Vienna, VA</a></li>
-          <li><a href="mclean.html">Auto detailing in Reston, VA</a></li>
-          <li><a href="mclean.html">Interior detailing in Herndon, VA</a></li>
-          <li><a href="great-falls.html">Paint protection film in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Premium detailing in Warrenton, VA</a></li>
-          <li><a href="leesburg.html">Mobile detailing in Loudoun County, VA</a></li>
-          <li><a href="mclean.html">Car detailing in Fairfax County, VA</a></li>
-          <li><a href="middleburg.html">Auto detailing in Fauquier County, VA</a></li>
-          <li><a href="ashburn.html">Paint protection film in Ashburn, VA</a></li>
+          <li><a href="vienna.html">Mobile detailing in Vienna, VA</a></li>
+          <li><a href="reston.html">Car detailing in Reston, VA</a></li>
+          <li><a href="herndon.html">Auto detailing in Herndon, VA</a></li>
+          <li><a href="warrenton.html">Mobile detailing in Warrenton, VA</a></li>
+          <li><a href="upperville.html">Car detailing in Upperville, VA</a></li>
+          <li><a href="the-plains.html">Mobile detailing in The Plains, VA</a></li>
 
         </ul>
       </div>

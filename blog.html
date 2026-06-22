@@ -35,6 +35,11 @@
     .nav-dropdown { position:relative; }
     .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:8px; box-shadow:0 8px 40px rgba(13,27,42,0.15); padding:8px 0; min-width:210px; display:none; z-index:300; border:1px solid rgba(0,0,0,0.06); }
     .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu.counties { display:none; min-width:540px; padding:0; }
+    .nav-dropdown:hover .nav-dropdown-menu.counties { display:grid; grid-template-columns:repeat(3,1fr); }
+    .county-nav-col { padding:8px 0; }
+    .county-nav-col + .county-nav-col { border-left:1px solid rgba(0,0,0,0.06); }
+    
     .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; transition:background 0.15s,color 0.15s; white-space:nowrap; }
     .nav-dropdown-menu a:hover { background:var(--light-bg); color:var(--brand); }
     .nav-dropdown-btn { display:flex; align-items:center; gap:5px; cursor:default; }
@@ -91,12 +96,29 @@
       <a href="about.html" class="nav-link">About</a>
       <div class="nav-dropdown">
         <span class="nav-link nav-dropdown-btn">Service Areas <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top:1px;"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <div class="nav-dropdown-menu">
-          <a href="leesburg.html">Leesburg</a>
-          <a href="ashburn.html">Ashburn</a>
-          <a href="mclean.html">McLean</a>
-          <a href="great-falls.html">Great Falls</a>
-          <a href="middleburg.html">Middleburg</a>
+        <div class="nav-dropdown-menu counties">
+          <div class="county-nav-col">
+            
+            <a href="leesburg.html">Leesburg</a>
+            <a href="ashburn.html">Ashburn</a>
+            <a href="middleburg.html">Middleburg</a>
+            <a href="south-riding.html">South Riding</a>
+            <a href="purcellville.html">Purcellville</a>
+          </div>
+          <div class="county-nav-col">
+            
+            <a href="mclean.html">McLean</a>
+            <a href="great-falls.html">Great Falls</a>
+            <a href="vienna.html">Vienna</a>
+            <a href="reston.html">Reston</a>
+            <a href="herndon.html">Herndon</a>
+          </div>
+          <div class="county-nav-col">
+            
+            <a href="warrenton.html">Warrenton</a>
+            <a href="upperville.html">Upperville</a>
+            <a href="the-plains.html">The Plains</a>
+          </div>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -137,9 +159,17 @@
       <div class="mobile-sa-cities">
         <a href="leesburg.html" onclick="closeMobileMenu()">Leesburg</a>
         <a href="ashburn.html" onclick="closeMobileMenu()">Ashburn</a>
+        <a href="middleburg.html" onclick="closeMobileMenu()">Middleburg</a>
+        <a href="south-riding.html" onclick="closeMobileMenu()">South Riding</a>
+        <a href="purcellville.html" onclick="closeMobileMenu()">Purcellville</a>
         <a href="mclean.html" onclick="closeMobileMenu()">McLean</a>
         <a href="great-falls.html" onclick="closeMobileMenu()">Great Falls</a>
-        <a href="middleburg.html" onclick="closeMobileMenu()">Middleburg</a>
+        <a href="vienna.html" onclick="closeMobileMenu()">Vienna</a>
+        <a href="reston.html" onclick="closeMobileMenu()">Reston</a>
+        <a href="herndon.html" onclick="closeMobileMenu()">Herndon</a>
+        <a href="warrenton.html" onclick="closeMobileMenu()">Warrenton</a>
+        <a href="upperville.html" onclick="closeMobileMenu()">Upperville</a>
+        <a href="the-plains.html" onclick="closeMobileMenu()">The Plains</a>
       </div>
     </div>
     <a href="corporate-fleet.html" onclick="closeMobileMenu()" style="color:var(--brand) !important;">Corporate &amp; Fleet</a>

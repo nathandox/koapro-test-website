@@ -44,6 +44,11 @@
     .nav-dropdown { position:relative; }
     .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:8px; box-shadow:0 8px 40px rgba(13,27,42,0.15); padding:8px 0; min-width:220px; display:none; z-index:300; border:1px solid rgba(0,0,0,0.06); }
     .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu.counties { display:none; min-width:540px; padding:0; }
+    .nav-dropdown:hover .nav-dropdown-menu.counties { display:grid; grid-template-columns:repeat(3,1fr); }
+    .county-nav-col { padding:8px 0; }
+    .county-nav-col + .county-nav-col { border-left:1px solid rgba(0,0,0,0.06); }
+    
     .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; transition:background 0.15s,color 0.15s; white-space:nowrap; }
     .nav-dropdown-menu a:hover { background:var(--light-bg); color:var(--brand); }
     .nav-dropdown-btn { display:flex; align-items:center; gap:5px; cursor:default; }
@@ -120,21 +125,15 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://koaprodetail.com/ceramic-coating.html#service",
     "name": "Ceramic Coating",
-    "description": "Professional mobile ceramic coating in Northern Virginia. Glass-hard hydrophobic protection for your vehicle's paint — UV resistance, self-cleaning effect, and 3–8 year durability. Starting from $649.",
-    "provider": {
-      "@type": "AutoRepair",
-      "name": "Koa Pro Detail",
-      "telephone": "+15718502351",
-      "url": "https://koaprodetail.com",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "115",
-        "bestRating": "5"
-      }
-    },
-    "areaServed": "Northern Virginia",
+    "description": "Professional mobile ceramic coating in Northern Virginia. Glass-hard hydrophobic protection for your vehicle's paint — UV resistance, self-cleaning effect, and 3–8 year durability. Starting from $649. We come to you — no drop-off needed.",
+    "provider": {"@id": "https://koaprodetail.com/#business"},
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "Loudoun County, Virginia"},
+      {"@type": "AdministrativeArea", "name": "Fairfax County, Virginia"},
+      {"@type": "AdministrativeArea", "name": "Fauquier County, Virginia"}
+    ],
     "url": "https://koaprodetail.com/ceramic-coating.html",
     "offers": {
       "@type": "Offer",
@@ -145,6 +144,84 @@
         "priceCurrency": "USD"
       }
     }
+  }
+  </script>
+
+  <!-- FAQPage Schema — parsed by AI engines (ChatGPT, Perplexity, Google AI Overviews) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does ceramic coating last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depending on the coating tier selected, ceramic coating lasts 3–8 years. Longevity depends on proper maintenance — using a pH-neutral soap, avoiding automatic car washes, and keeping up with maintenance details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need paint correction before ceramic coating?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your paint's current condition. Ceramic coating seals whatever is underneath it — including swirl marks and scratches. If your paint has visible defects, we strongly recommend correcting them first so they're not permanently locked in under the coating."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is ceramic coating different from car wax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Car wax sits on top of the paint surface and washes away within weeks. Ceramic coating chemically bonds to the paint at a molecular level and lasts for years. It's also significantly harder, more scratch-resistant, and provides superior UV and chemical protection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I maintain a ceramic-coated vehicle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Avoid automatic car washes (the brushes introduce swirl marks). Hand wash with a pH-neutral soap. We recommend a maintenance detail every 6–12 months to remove any bonded contaminants and inspect the coating's hydrophobic performance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can ceramic coating be applied to any vehicle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Koa Pro Detail applies ceramic coatings to all vehicle types — daily drivers, luxury vehicles, trucks, and SUVs. We can also coat marine gelcoat surfaces. The service is fully mobile — we come to your home, estate, or office in Northern Virginia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does ceramic coating cost in Northern Virginia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail's ceramic coating starts from $649 for standard vehicles in Northern Virginia. Pricing varies by vehicle size and coating tier (3-year, 5-year, or 8-year). The service is fully mobile — we come to you at no additional travel charge within Loudoun and Fairfax County."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who offers ceramic coating near me in Northern Virginia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail offers professional ceramic coating throughout Northern Virginia, including Leesburg, Ashburn, McLean, Great Falls, Vienna, Reston, Middleburg, Purcellville, and all of Loudoun County and Fairfax County. We are fully mobile — no drop-off required. Call or book online at koaprodetail.com."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://koaprodetail.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Ceramic Coating", "item": "https://koaprodetail.com/ceramic-coating.html"}
+    ]
   }
   </script>
 <style>.mobile-book-btn{display:none}@media(max-width:600px){.mobile-book-btn{display:inline-flex !important;align-items:center}}</style>
@@ -584,26 +661,19 @@ function toggleFaq(btn) {
       <div>
         <p class="footer-col-title">Service Areas</p>
         <ul class="footer-list">
-          <li><a href="leesburg.html">Luxury car detailing in Leesburg, VA</a></li>
+          <li><a href="leesburg.html">Mobile car detailing in Leesburg, VA</a></li>
           <li><a href="ashburn.html">Mobile detailing in Ashburn, VA</a></li>
-          <li><a href="mclean.html">High-end detailing in McLean, VA</a></li>
+          <li><a href="middleburg.html">Car detailing in Middleburg, VA</a></li>
+          <li><a href="south-riding.html">Mobile detailing in South Riding, VA</a></li>
+          <li><a href="purcellville.html">Auto detailing in Purcellville, VA</a></li>
+          <li><a href="mclean.html">Luxury detailing in McLean, VA</a></li>
           <li><a href="great-falls.html">Estate detailing in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Mobile detailing in Middleburg, VA</a></li>
-          <li><a href="leesburg.html">Ceramic coating in Leesburg, VA</a></li>
-          <li><a href="ashburn.html">Paint correction in Ashburn, VA</a></li>
-          <li><a href="mclean.html">Ceramic coating in McLean, VA</a></li>
-          <li><a href="leesburg.html">Mobile car detailing in Purcellville, VA</a></li>
-          <li><a href="ashburn.html">Auto detailing in Sterling, VA</a></li>
-          <li><a href="ashburn.html">Car detailing in Lansdowne, VA</a></li>
-          <li><a href="mclean.html">Mobile detailing in Vienna, VA</a></li>
-          <li><a href="mclean.html">Auto detailing in Reston, VA</a></li>
-          <li><a href="mclean.html">Interior detailing in Herndon, VA</a></li>
-          <li><a href="great-falls.html">Paint protection film in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Premium detailing in Warrenton, VA</a></li>
-          <li><a href="leesburg.html">Mobile detailing in Loudoun County, VA</a></li>
-          <li><a href="mclean.html">Car detailing in Fairfax County, VA</a></li>
-          <li><a href="middleburg.html">Auto detailing in Fauquier County, VA</a></li>
-          <li><a href="ashburn.html">Paint protection film in Ashburn, VA</a></li>
+          <li><a href="vienna.html">Mobile detailing in Vienna, VA</a></li>
+          <li><a href="reston.html">Car detailing in Reston, VA</a></li>
+          <li><a href="herndon.html">Auto detailing in Herndon, VA</a></li>
+          <li><a href="warrenton.html">Mobile detailing in Warrenton, VA</a></li>
+          <li><a href="upperville.html">Car detailing in Upperville, VA</a></li>
+          <li><a href="the-plains.html">Mobile detailing in The Plains, VA</a></li>
 
         </ul>
       </div>

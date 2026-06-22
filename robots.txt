@@ -1,6 +1,40 @@
 User-agent: *
 Allow: /
 
+# AI Search Crawlers — explicitly allowed for AIO/GEO visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Block redirect pages and non-indexable files
 Disallow: /charleston.html
 Disallow: /daniel-island.html
@@ -12,5 +46,15 @@ Disallow: /flyer-atlantic.html
 Disallow: /generate-pdf.mjs
 Disallow: /serve.mjs
 Disallow: /screenshot.mjs
+
+# New city landing pages — all indexable
+Allow: /vienna.html
+Allow: /reston.html
+Allow: /herndon.html
+Allow: /south-riding.html
+Allow: /purcellville.html
+Allow: /warrenton.html
+Allow: /upperville.html
+Allow: /the-plains.html
 
 Sitemap: https://koaprodetail.com/sitemap.xml

@@ -21,17 +21,20 @@
   {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
+    "@id": "https://koaprodetail.com/#business",
     "name": "Koa Pro Detail",
-    "description": "Mobile car detailing service specializing in ceramic coating, paint correction, interior and exterior detailing for all vehicles across Northern Virginia — serving Middleburg, Leesburg, Purcellville, Ashburn, Lansdowne, McLean, Great Falls, Vienna, Reston, and all of Loudoun, Fairfax, and Fauquier County.",
+    "description": "Northern Virginia's premier mobile car detailing service. We come to you — home, estate, hangar, or office. Specializing in ceramic coating, paint correction, paint protection film, interior detailing, exterior detailing, aviation detailing, and marine detailing. Serving Loudoun County, Fairfax County, and Fauquier County. 115+ five-star Google reviews. Fully mobile. Fully insured.",
     "url": "https://koaprodetail.com",
     "telephone": "+15718502351",
     "email": "koaprodetail@gmail.com",
     "priceRange": "$$",
     "image": "https://koaprodetail.com/brand_assets/Updated Logo.png",
+    "logo": "https://koaprodetail.com/brand_assets/Updated Logo.png",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Leesburg",
       "addressRegion": "VA",
+      "postalCode": "20175",
       "addressCountry": "US"
     },
     "geo": {
@@ -40,33 +43,84 @@
       "longitude": -77.4875
     },
     "areaServed": [
-      "Middleburg, VA", "Leesburg, VA", "Purcellville, VA",
-      "Ashburn, VA", "Lansdowne, VA", "McLean, VA",
-      "Great Falls, VA", "Vienna, VA", "Reston, VA",
-      "Loudoun County, VA", "Fairfax County, VA", "Fauquier County, VA"
+      {"@type": "City", "name": "Leesburg", "sameAs": "https://en.wikipedia.org/wiki/Leesburg,_Virginia"},
+      {"@type": "City", "name": "Ashburn", "sameAs": "https://en.wikipedia.org/wiki/Ashburn,_Virginia"},
+      {"@type": "City", "name": "McLean", "sameAs": "https://en.wikipedia.org/wiki/McLean,_Virginia"},
+      {"@type": "City", "name": "Great Falls", "sameAs": "https://en.wikipedia.org/wiki/Great_Falls,_Virginia"},
+      {"@type": "City", "name": "Middleburg", "sameAs": "https://en.wikipedia.org/wiki/Middleburg,_Virginia"},
+      {"@type": "City", "name": "Purcellville"},
+      {"@type": "City", "name": "Lansdowne"},
+      {"@type": "City", "name": "Vienna"},
+      {"@type": "City", "name": "Reston"},
+      {"@type": "AdministrativeArea", "name": "Loudoun County, Virginia"},
+      {"@type": "AdministrativeArea", "name": "Fairfax County, Virginia"},
+      {"@type": "AdministrativeArea", "name": "Fauquier County, Virginia"}
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Mobile Detailing Services",
       "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Detail"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Detail"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Paint Correction"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ceramic Coating"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Marine Detailing"}}
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Detail", "description": "Full interior vacuuming, wipe-downs, leather conditioning, and window cleaning. Starting from $179."}, "price": "179", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Detail", "description": "Paint wash, clay bar treatment, ceramic sealant, wheel and trim cleaning, and glass. Starting from $155."}, "price": "155", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail", "description": "Complete interior and exterior detail. Starting from $279."}, "price": "279", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Paint Correction", "description": "Machine polishing to remove swirl marks, scratches, and paint defects. Starting from $395."}, "price": "395", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ceramic Coating", "description": "Professional ceramic coating that chemically bonds to paint for 3–8 years of protection. Starting from $649."}, "price": "649", "priceCurrency": "USD"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Paint Protection Film", "description": "Liquid PPF physical barrier protecting against rock chips, scratches, and road debris. 10-year warranty."}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aviation Detailing", "description": "Professional aircraft detailing at your hangar or FBO ramp. Exterior wash, cabin detail, window polishing, and protective coatings."}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Marine Detailing", "description": "Boat and watercraft detailing including hull wash, gel coat correction, cockpit cleaning, and vinyl conditioning."}}
       ]
     },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
       "reviewCount": "115",
-      "bestRating": "5"
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61578723050985",
       "https://www.instagram.com/koaprodetail"
-    ]
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Nathan Taylor"
+    },
+    "knowsAbout": ["ceramic coating", "paint correction", "mobile car detailing", "aviation detailing", "marine detailing", "paint protection film", "interior detailing", "exterior detailing"]
+  }
+  </script>
+
+  <!-- WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://koaprodetail.com/#website",
+    "url": "https://koaprodetail.com",
+    "name": "Koa Pro Detail",
+    "description": "Northern Virginia's premier mobile car detailing service — ceramic coating, paint correction, PPF, aviation & marine detailing. We come to you.",
+    "publisher": {"@id": "https://koaprodetail.com/#business"},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://koaprodetail.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Speakable Schema — helps AI voice assistants and LLMs identify key content -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://koaprodetail.com/#webpage",
+    "url": "https://koaprodetail.com",
+    "name": "Koa Pro Detail | Mobile Car Detailing in Northern Virginia",
+    "isPartOf": {"@id": "https://koaprodetail.com/#website"},
+    "about": {"@id": "https://koaprodetail.com/#business"},
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".hero h1", ".hero p", "#services", "#faq"]
+    }
   }
   </script>
 
@@ -644,12 +698,29 @@
       <a href="about.html" class="nav-link">About</a>
       <div class="nav-dropdown">
         <span class="nav-link nav-dropdown-btn">Service Areas <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top:1px;"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <div class="nav-dropdown-menu">
-          <a href="leesburg.html">Leesburg</a>
-          <a href="ashburn.html">Ashburn</a>
-          <a href="mclean.html">McLean</a>
-          <a href="great-falls.html">Great Falls</a>
-          <a href="middleburg.html">Middleburg</a>
+        <div class="nav-dropdown-menu counties">
+          <div class="county-nav-col">
+            
+            <a href="leesburg.html">Leesburg</a>
+            <a href="ashburn.html">Ashburn</a>
+            <a href="middleburg.html">Middleburg</a>
+            <a href="south-riding.html">South Riding</a>
+            <a href="purcellville.html">Purcellville</a>
+          </div>
+          <div class="county-nav-col">
+            
+            <a href="mclean.html">McLean</a>
+            <a href="great-falls.html">Great Falls</a>
+            <a href="vienna.html">Vienna</a>
+            <a href="reston.html">Reston</a>
+            <a href="herndon.html">Herndon</a>
+          </div>
+          <div class="county-nav-col">
+            
+            <a href="warrenton.html">Warrenton</a>
+            <a href="upperville.html">Upperville</a>
+            <a href="the-plains.html">The Plains</a>
+          </div>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -690,9 +761,17 @@
       <div class="mobile-sa-cities">
         <a href="leesburg.html" onclick="closeMobileMenu()">Leesburg</a>
         <a href="ashburn.html" onclick="closeMobileMenu()">Ashburn</a>
+        <a href="middleburg.html" onclick="closeMobileMenu()">Middleburg</a>
+        <a href="south-riding.html" onclick="closeMobileMenu()">South Riding</a>
+        <a href="purcellville.html" onclick="closeMobileMenu()">Purcellville</a>
         <a href="mclean.html" onclick="closeMobileMenu()">McLean</a>
         <a href="great-falls.html" onclick="closeMobileMenu()">Great Falls</a>
-        <a href="middleburg.html" onclick="closeMobileMenu()">Middleburg</a>
+        <a href="vienna.html" onclick="closeMobileMenu()">Vienna</a>
+        <a href="reston.html" onclick="closeMobileMenu()">Reston</a>
+        <a href="herndon.html" onclick="closeMobileMenu()">Herndon</a>
+        <a href="warrenton.html" onclick="closeMobileMenu()">Warrenton</a>
+        <a href="upperville.html" onclick="closeMobileMenu()">Upperville</a>
+        <a href="the-plains.html" onclick="closeMobileMenu()">The Plains</a>
       </div>
     </div>
     <a href="corporate-fleet.html" onclick="closeMobileMenu()" style="color:var(--brand) !important;">Corporate &amp; Fleet</a>
@@ -1194,8 +1273,8 @@
         <img src="charleston-location.jpg" alt="Loudoun County mobile detailing" style="object-position:center 20%;" />
         <div class="loc-overlay">
           <div>
-            <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Loudoun County</h3>
-            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Serving all of Loudoun County — Leesburg, Ashburn, Purcellville &amp; beyond</p>
+            <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:8px;">Loudoun County</h3>
+            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Leesburg · Ashburn · Middleburg · South Riding · Purcellville</p>
           </div>
         </div>
       </a>
@@ -1204,8 +1283,8 @@
         <img src="r8nate.jpg" alt="Fairfax County mobile detailing" />
         <div class="loc-overlay">
           <div>
-            <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Fairfax County</h3>
-            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Serving all of Fairfax County — McLean, Great Falls, Vienna &amp; beyond</p>
+            <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:8px;">Fairfax County</h3>
+            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">McLean · Great Falls · Vienna · Reston · Herndon</p>
           </div>
         </div>
       </a>
@@ -1214,8 +1293,8 @@
         <img src="IMG_7647.JPEG" alt="Fauquier County mobile detailing" style="object-position:center 30%;" />
         <div class="loc-overlay">
           <div>
-            <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:12px;">Fauquier County</h3>
-            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Serving Fauquier County — Warrenton, Marshall, The Plains &amp; beyond</p>
+            <h3 style="color:#fff; font-size:22px; font-weight:600; margin-bottom:8px;">Fauquier County</h3>
+            <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:0;">Warrenton · Upperville · The Plains</p>
           </div>
         </div>
       </a>
@@ -1343,7 +1422,7 @@
         <div class="hide-sm" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:28px;">
           <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:12px;">Areas We Serve</p>
           <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.9;">
-            Leesburg &bull; Ashburn &bull; Purcellville &bull; Lansdowne &bull; McLean &bull; Great Falls &bull; Vienna &bull; Reston &bull; Middleburg &bull; Loudoun County &bull; Fairfax County &bull; Fauquier County
+            Leesburg &bull; Ashburn &bull; Middleburg &bull; South Riding &bull; Purcellville &bull; McLean &bull; Great Falls &bull; Vienna &bull; Reston &bull; Herndon &bull; Warrenton &bull; Upperville &bull; The Plains
           </p>
         </div>
       </div>
@@ -1581,29 +1660,29 @@
     <p class="section-sub" style="max-width:540px; margin:0 auto 48px;">Proudly serving Loudoun County, Fairfax County, Fauquier County, and surrounding Northern Virginia communities.</p>
 
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px 16px; max-width:960px; margin:0 auto 44px; text-align:left;" class="areas-grid">
-      <div class="area-item">Leesburg</div>
-      <div class="area-item">Ashburn</div>
-      <div class="area-item">Purcellville</div>
+      <div class="area-item"><a href="leesburg.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Leesburg</a></div>
+      <div class="area-item"><a href="ashburn.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Ashburn</a></div>
+      <div class="area-item"><a href="purcellville.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Purcellville</a></div>
       <div class="area-item">Lansdowne</div>
-      <div class="area-item">Middleburg</div>
+      <div class="area-item"><a href="middleburg.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Middleburg</a></div>
       <div class="area-item">Brambleton</div>
       <div class="area-item">Broadlands</div>
-      <div class="area-item">South Riding</div>
+      <div class="area-item"><a href="south-riding.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">South Riding</a></div>
       <div class="area-item">Aldie</div>
       <div class="area-item">Hamilton</div>
       <div class="area-item">Lovettsville</div>
       <div class="area-item">Round Hill</div>
-      <div class="area-item">McLean</div>
-      <div class="area-item">Great Falls</div>
-      <div class="area-item">Vienna</div>
-      <div class="area-item">Reston</div>
-      <div class="area-item">Herndon</div>
+      <div class="area-item"><a href="mclean.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">McLean</a></div>
+      <div class="area-item"><a href="great-falls.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Great Falls</a></div>
+      <div class="area-item"><a href="vienna.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Vienna</a></div>
+      <div class="area-item"><a href="reston.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Reston</a></div>
+      <div class="area-item"><a href="herndon.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Herndon</a></div>
       <div class="area-item">Oakton</div>
       <div class="area-item">Clifton</div>
       <div class="area-item">Arlington</div>
-      <div class="area-item">Alexandria</div>
-      <div class="area-item">Bethesda</div>
-      <div class="area-item">Potomac</div>
+      <div class="area-item"><a href="warrenton.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Warrenton</a></div>
+      <div class="area-item"><a href="upperville.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">Upperville</a></div>
+      <div class="area-item"><a href="the-plains.html" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='inherit'">The Plains</a></div>
       <div class="area-item">Loudoun County</div>
       <div class="area-item">Fairfax County</div>
       <div class="area-item">Fauquier County</div>
@@ -1931,26 +2010,19 @@ function toggleFaq(btn) {
       <div>
         <p class="footer-col-title">Service Areas</p>
         <ul class="footer-list">
-          <li><a href="leesburg.html">Luxury car detailing in Leesburg, VA</a></li>
+          <li><a href="leesburg.html">Mobile car detailing in Leesburg, VA</a></li>
           <li><a href="ashburn.html">Mobile detailing in Ashburn, VA</a></li>
-          <li><a href="mclean.html">High-end detailing in McLean, VA</a></li>
+          <li><a href="middleburg.html">Car detailing in Middleburg, VA</a></li>
+          <li><a href="south-riding.html">Mobile detailing in South Riding, VA</a></li>
+          <li><a href="purcellville.html">Auto detailing in Purcellville, VA</a></li>
+          <li><a href="mclean.html">Luxury detailing in McLean, VA</a></li>
           <li><a href="great-falls.html">Estate detailing in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Mobile detailing in Middleburg, VA</a></li>
-          <li><a href="leesburg.html">Ceramic coating in Leesburg, VA</a></li>
-          <li><a href="ashburn.html">Paint correction in Ashburn, VA</a></li>
-          <li><a href="mclean.html">Ceramic coating in McLean, VA</a></li>
-          <li><a href="leesburg.html">Mobile car detailing in Purcellville, VA</a></li>
-          <li><a href="ashburn.html">Auto detailing in Sterling, VA</a></li>
-          <li><a href="ashburn.html">Car detailing in Lansdowne, VA</a></li>
-          <li><a href="mclean.html">Mobile detailing in Vienna, VA</a></li>
-          <li><a href="mclean.html">Auto detailing in Reston, VA</a></li>
-          <li><a href="mclean.html">Interior detailing in Herndon, VA</a></li>
-          <li><a href="great-falls.html">Paint protection film in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Premium detailing in Warrenton, VA</a></li>
-          <li><a href="leesburg.html">Mobile detailing in Loudoun County, VA</a></li>
-          <li><a href="mclean.html">Car detailing in Fairfax County, VA</a></li>
-          <li><a href="middleburg.html">Auto detailing in Fauquier County, VA</a></li>
-          <li><a href="ashburn.html">Paint protection film in Ashburn, VA</a></li>
+          <li><a href="vienna.html">Mobile detailing in Vienna, VA</a></li>
+          <li><a href="reston.html">Car detailing in Reston, VA</a></li>
+          <li><a href="herndon.html">Auto detailing in Herndon, VA</a></li>
+          <li><a href="warrenton.html">Mobile detailing in Warrenton, VA</a></li>
+          <li><a href="upperville.html">Car detailing in Upperville, VA</a></li>
+          <li><a href="the-plains.html">Mobile detailing in The Plains, VA</a></li>
         </ul>
       </div>
 

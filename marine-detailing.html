@@ -105,22 +105,87 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://koaprodetail.com/marine-detailing.html#service",
     "name": "Marine Detailing",
-    "description": "Mobile marine detailing in Northern Virginia. Hull cleaning, gel coat restoration, interior detailing, and protective sealants for boats and watercraft on the Occoquan Reservoir, Potomac River, and Lake Manassas.",
-    "provider": {
-      "@type": "AutoRepair",
-      "name": "Koa Pro Detail",
-      "telephone": "+15718502351",
-      "url": "https://koaprodetail.com",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "115",
-        "bestRating": "5"
-      }
-    },
-    "areaServed": "Northern Virginia",
+    "description": "Mobile marine detailing in Northern Virginia. Hull cleaning, gel coat restoration, interior detailing, and protective sealants for boats and watercraft on the Occoquan Reservoir, Potomac River, and Lake Manassas. We come to your marina, dry stack, or private dock.",
+    "provider": {"@id": "https://koaprodetail.com/#business"},
+    "areaServed": [
+      {"@type": "Place", "name": "Occoquan Reservoir, Virginia"},
+      {"@type": "Place", "name": "Potomac River, Northern Virginia"},
+      {"@type": "Place", "name": "Lake Manassas, Virginia"},
+      {"@type": "AdministrativeArea", "name": "Northern Virginia"}
+    ],
     "url": "https://koaprodetail.com/marine-detailing.html"
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of boats does Koa Pro Detail service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail details all types of recreational watercraft including center consoles, bowriders, pontoons, deck boats, sailboats, and cabin cruisers. If you have a specific vessel type or size, contact us and we'll let you know if it falls within our service area."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you come to the marina or do I need to bring the boat to you?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail comes to you. Our fully mobile setup means we bring our own water supply, equipment, and marine-specific products directly to your marina, dry stack facility, or private dock. You don't need to move the boat anywhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I have my boat detailed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For vessels used regularly in Northern Virginia's waterways, a thorough detail at the start of the season and another at the end is a good baseline. Heavy users may benefit from quarterly maintenance washes. UV exposure and freshwater algae are persistent here — regular detailing protects the gel coat and keeps restoration work minimal over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you remove the yellow oxidation from my gel coat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — gel coat oxidation is one of the most common issues Koa Pro Detail addresses. Machine compounding removes the dull, chalky, or yellowed outer layer of gel coat and restores the original color and gloss. Severely oxidized surfaces may require multiple compound stages, which we'll assess on-site and factor into your quote."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in a standard marine detail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard marine detail from Koa Pro Detail includes hull and topside wash, cockpit and interior surface cleaning, vinyl conditioning, window cleaning, and a protective wax or sealant on exterior surfaces. Add-on services like gel coat correction, metal polishing, and bilge cleaning are available and quoted separately based on the vessel's condition."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who offers boat detailing near me in Northern Virginia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koa Pro Detail offers mobile marine detailing throughout Northern Virginia, including the Occoquan Reservoir, Potomac River, Lake Manassas, and surrounding waterways. We come directly to your marina or dock — no transport needed. Contact us at (571) 850-2351 or book at koaprodetail.com."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://koaprodetail.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Marine Detailing", "item": "https://koaprodetail.com/marine-detailing.html"}
+    ]
   }
   </script>
 <style>.mobile-book-btn{display:none}@media(max-width:600px){.mobile-book-btn{display:inline-flex !important;align-items:center}}</style>
@@ -522,26 +587,19 @@ function toggleFaq(btn){
       <div>
         <p class="footer-col-title">Service Areas</p>
         <ul class="footer-list">
-          <li><a href="leesburg.html">Luxury car detailing in Leesburg, VA</a></li>
+          <li><a href="leesburg.html">Mobile car detailing in Leesburg, VA</a></li>
           <li><a href="ashburn.html">Mobile detailing in Ashburn, VA</a></li>
-          <li><a href="mclean.html">High-end detailing in McLean, VA</a></li>
+          <li><a href="middleburg.html">Car detailing in Middleburg, VA</a></li>
+          <li><a href="south-riding.html">Mobile detailing in South Riding, VA</a></li>
+          <li><a href="purcellville.html">Auto detailing in Purcellville, VA</a></li>
+          <li><a href="mclean.html">Luxury detailing in McLean, VA</a></li>
           <li><a href="great-falls.html">Estate detailing in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Mobile detailing in Middleburg, VA</a></li>
-          <li><a href="leesburg.html">Ceramic coating in Leesburg, VA</a></li>
-          <li><a href="ashburn.html">Paint correction in Ashburn, VA</a></li>
-          <li><a href="mclean.html">Ceramic coating in McLean, VA</a></li>
-          <li><a href="leesburg.html">Mobile car detailing in Purcellville, VA</a></li>
-          <li><a href="ashburn.html">Auto detailing in Sterling, VA</a></li>
-          <li><a href="ashburn.html">Car detailing in Lansdowne, VA</a></li>
-          <li><a href="mclean.html">Mobile detailing in Vienna, VA</a></li>
-          <li><a href="mclean.html">Auto detailing in Reston, VA</a></li>
-          <li><a href="mclean.html">Interior detailing in Herndon, VA</a></li>
-          <li><a href="great-falls.html">Paint protection film in Great Falls, VA</a></li>
-          <li><a href="middleburg.html">Premium detailing in Warrenton, VA</a></li>
-          <li><a href="leesburg.html">Mobile detailing in Loudoun County, VA</a></li>
-          <li><a href="mclean.html">Car detailing in Fairfax County, VA</a></li>
-          <li><a href="middleburg.html">Auto detailing in Fauquier County, VA</a></li>
-          <li><a href="ashburn.html">Paint protection film in Ashburn, VA</a></li>
+          <li><a href="vienna.html">Mobile detailing in Vienna, VA</a></li>
+          <li><a href="reston.html">Car detailing in Reston, VA</a></li>
+          <li><a href="herndon.html">Auto detailing in Herndon, VA</a></li>
+          <li><a href="warrenton.html">Mobile detailing in Warrenton, VA</a></li>
+          <li><a href="upperville.html">Car detailing in Upperville, VA</a></li>
+          <li><a href="the-plains.html">Mobile detailing in The Plains, VA</a></li>
 
         </ul>
       </div>
