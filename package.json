@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "puppeteer": "^24.43.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.109.0"
   }
 }

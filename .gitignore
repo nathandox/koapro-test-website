@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# API keys — never commit
+.env
+
 # Dev screenshots
 temporary screenshots/
 
