@@ -27,7 +27,7 @@ const SYSTEM_PROMPT = `You are the friendly AI assistant for Koa Pro Detail, a p
 
 BUSINESS INFO:
 - Name: Koa Pro Detail
-- Phone: (571) 850-2351
+- Phone: (703) 935-4676
 - Email: koaprodetail@gmail.com
 - 115+ 5-star Google reviews
 - Fully mobile — we come to your home, office, estate, hangar, or marina
@@ -51,7 +51,7 @@ SERVICE AREAS:
 
 BOOKING:
 - Book online: https://app.urable.com/virtual-shop/w4wNh0LRbxnCwDWP9tbr
-- Call or text: (571) 850-2351
+- Call or text: (703) 935-4676
 - Email: koaprodetail@gmail.com
 
 GUIDELINES:
@@ -95,7 +95,7 @@ http.createServer(async (req, res) => {
   if (req.method === 'POST' && req.url === '/api/chat') {
     if (!process.env.ANTHROPIC_API_KEY) {
       res.writeHead(503, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: 'Chat is not configured yet. Please call (571) 850-2351 or email koaprodetail@gmail.com.' }));
+      res.end(JSON.stringify({ error: 'Chat is not configured yet. Please call (703) 935-4676 or email koaprodetail@gmail.com.' }));
       return;
     }
 
@@ -115,7 +115,7 @@ http.createServer(async (req, res) => {
       } catch (err) {
         console.error('Chat API error:', err.message);
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Chat is temporarily unavailable. Please call (571) 850-2351 or email koaprodetail@gmail.com.' }));
+        res.end(JSON.stringify({ error: 'Chat is temporarily unavailable. Please call (703) 935-4676 or email koaprodetail@gmail.com.' }));
       }
     });
     return;

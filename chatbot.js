@@ -330,7 +330,7 @@
       const data = await res.json();
       hideTyping();
 
-      const reply = data.content || data.error || 'Something went wrong. Please call (571) 850-2351.';
+      const reply = data.content || data.error || 'Something went wrong. Please call (703) 935-4676.';
       showBot(reply);
 
       // Only persist to history on success (no error key)
@@ -340,7 +340,7 @@
       }
     } catch {
       hideTyping();
-      showBot("Sorry, I couldn't connect. Please call us at (571) 850-2351 or email koaprodetail@gmail.com.");
+      showBot("Sorry, I couldn't connect. Please call us at (703) 935-4676 or email koaprodetail@gmail.com.");
     } finally {
       isLoading = false;
       send.disabled = false;
