@@ -20,7 +20,7 @@ The Northern Virginia mobile detailing market is fragmented. Most competitors se
 - Fauquier County (Middleburg/Warrenton border)
 
 **Koa Pro Detail's advantages to lean into:**
-- 115+ Google reviews — a trust signal competitors can't match quickly
+- 130+ Google reviews — a trust signal competitors can't match quickly
 - Mobile-only model — a real differentiator worth explaining repeatedly
 - Aviation detailing — Leesburg Executive Airport, Dulles, Manassas Regional
 - Marine detailing — Occoquan Reservoir, Potomac River, Lake Manassas
@@ -91,7 +91,7 @@ The Northern Virginia mobile detailing market is fragmented. Most competitors se
 
 ### Business Context Prompt (use for every post)
 
-> "Koa Pro Detail is a mobile auto and aviation detailing company serving Northern Virginia. Services: Interior Detail (from $179), Exterior Detail (from $155), Full Detail (from $279), Paint Correction (from $395), Ceramic Coating (from $649), Paint Protection Film, Aviation Detailing. Service area: Middleburg, Leesburg, Purcellville, Ashburn, Lansdowne, McLean, Great Falls, Vienna, Reston — covering Loudoun County, Fairfax County, and Fauquier County. We come to the customer — home, estate, hangar, or office. No drop-off required. 115+ five-star Google reviews. Fully mobile. Fully insured. Book at koaprodetail.com."
+> "Koa Pro Detail is a mobile auto and aviation detailing company serving Northern Virginia. Services: Interior Detail (from $179), Exterior Detail (from $155), Full Detail (from $279), Paint Correction (from $395), Ceramic Coating (from $649), Paint Protection Film, Aviation Detailing. Service area: Middleburg, Leesburg, Purcellville, Ashburn, Lansdowne, McLean, Great Falls, Vienna, Reston — covering Loudoun County, Fairfax County, and Fauquier County. We come to the customer — home, estate, hangar, or office. No drop-off required. 130+ five-star Google reviews. Fully mobile. Fully insured. Book at koaprodetail.com."
 
 ### Internal Link Targets
 
@@ -167,7 +167,7 @@ Services:
 ✔ Ceramic Coating — from $649
 ✔ Aviation Detailing
 
-115+ five-star Google reviews. Fully mobile. Fully insured.
+130+ five-star Google reviews. Fully mobile. Fully insured.
 
 Schedule at koaprodetail.com
 ```
@@ -221,7 +221,7 @@ Use only real assets from the project. No invented or stock imagery.
 - "Road salt + no protection = paint damage in 1–2 winters"
 - "Ceramic coating lasts 2–5 years. Wax lasts 2–3 months."
 - "Mobile detail = zero drop-off, zero waiting room"
-- "115+ five-star reviews in Northern Virginia"
+- "130+ five-star reviews in Northern Virginia"
 
 All text on graphics: Poppins font, navy #0d1b2a background, sky blue #3BBDF5 accent.
 
