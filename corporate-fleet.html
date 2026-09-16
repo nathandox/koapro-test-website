@@ -966,7 +966,12 @@
 <!-- ═══════════════════ MAP INIT ═══════════════════ -->
 <style>
   .leaflet-attribution-flag { display: none !important; }
-  .leaflet-container { font-family: inherit; }
+  .leaflet-container { font-family: inherit; background: #070e18; }
+  /* OSM raster tiles recoloured to the dark brand palette; tile pane only,
+     so marker dots and popups keep their true colours. */
+  .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) grayscale(0.92) brightness(0.6) contrast(1.2);
+  }
 </style>
 <script>
 (function() {
@@ -976,9 +981,9 @@
     dragging: true, doubleClickZoom: true,
     touchZoom: true, keyboard: true
   });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd', maxZoom: 19
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19
   }).addTo(map);
   var locations = [
     { name: 'Leesburg', lat: 39.1157, lng: -77.5636 },
